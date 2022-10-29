@@ -26,7 +26,7 @@ export const Register = () => {
             [name]: value
         }
 
-        axios.post("http://localhost:4000/app/signup", registered)
+        //axios.post("http://localhost:4000/app/register", registered)
         .then(response => console.log(response.data))
 
         setValues({
