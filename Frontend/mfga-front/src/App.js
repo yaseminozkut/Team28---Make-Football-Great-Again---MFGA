@@ -1,9 +1,10 @@
 import './App.css';
+import { Register } from './components/Register/register';
 
 function App() {
   return (
     <div className="App">
-      INITIAL VIEW
+      <Register/>
     </div>
   );
 }
