@@ -1,0 +1,84 @@
+import React, { useState } from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import axios from 'axios'
+
+export const Register = () => {
+    const [values, setValues] = useState({        
+        fullName: '',
+        username: '',
+        email: '',
+        password: ''
+    });
+    
+    const handleChange = e => {
+        const {name, value} = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const {name, value} = e.target;
+        const registered = {            
+            ...values,
+            [name]: value
+        }
+
+        axios.post("http://localhost:4000/app/signup", registered)
+        .then(response => console.log(response.data))
+
+        setValues({
+            fullName: '',
+            username: '',
+            email: '',
+            password: ''
+        })
+    }
+
+    return (
+        <div>
+            <div className="container">
+                <div className="form-div">
+                    <form onSubmit={handleSubmit}>
+                        <input type= 'text' 
+                        placeholder="Full Name" 
+                        onChange={handleChange} 
+                        name="fullName"
+                        value={values.fullName} 
+                        className="form-control form-group" />
+
+                        <input type= 'text' 
+                        placeholder="Username" 
+                        onChange={handleChange} 
+                        name="username"
+                        value={values.username} 
+                        className="form-control form-group" />
+
+                        <input type= 'text' 
+                        placeholder="Email" 
+                        onChange={handleChange} 
+                        name="email"
+                        value={values.email} 
+                        className="form-control form-group" />
+
+                        <input type= 'password' 
+                        placeholder="Password" 
+                        onChange={handleChange} 
+                        name="password"
+                        value={values.password} 
+                        className="form-control form-group" />
+
+                        <input type='submit' 
+                        className="btn btn-danger btn-block"
+                        value='Submit'
+                        />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    );
+    
+}
