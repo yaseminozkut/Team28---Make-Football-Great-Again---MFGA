@@ -26,9 +26,6 @@ mongoose.connection.on("error", () => {
   console.log("ERROR !!!");
 });
 
-app.get("/", (req, res) => {
-  res.send("<h1>Home Page</h1>");
-});
 
 app.listen(PORT, () => {
   console.log("Surver is successfully running on port: ", PORT);
