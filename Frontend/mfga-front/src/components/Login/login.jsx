@@ -1,7 +1,22 @@
 //Alper Kaan
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 import axios from "axios";
+
+import {
+  Title,
+  ContainerDiv,
+  ContainerCard,
+  StyledEmailLabel,
+  StyledPassLabel,
+  StyledForm,
+  StyledInputEmail,
+  StyledInputPass,
+  StyledButton,
+  StyledHr,
+  StyledP,
+  StyledNavLink,
+} from "./loginElements";
+import { Input, NavItem, NavLink } from "reactstrap";
 
 export const Login = () => {
   const [values, setValues] = useState({
@@ -20,14 +35,23 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    const registered = {
+    const logedIn = {
       ...values,
       [name]: value,
     };
 
     axios
-      .post("http://localhost:4000/login", registered)
-      .then((response) => console.log(response.data));
+      .post("http://localhost:4000/login", logedIn)
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("Logged in");
+        } else {
+          console.log("There is an error");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     setValues({
       email: "",
@@ -36,36 +60,37 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <div className="container">
-        <div className="form-div">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Email"
-              onChange={handleChange}
-              name="email"
-              value={values.email}
-              className="form-control form-group"
-            />
-
-            <input
-              type="password"
-              placeholder="Password"
-              onChange={handleChange}
-              name="password"
-              value={values.password}
-              className="form-control form-group"
-            />
-
-            <input
-              type="submit"
-              className="btn btn-danger btn-block"
-              value="Submit"
-            />
-          </form>
-        </div>
-      </div>
-    </div>
+    <ContainerDiv>
+      <ContainerCard>
+        <Title>Login</Title>
+        <StyledForm>
+          <StyledEmailLabel>email</StyledEmailLabel>
+          <StyledInputEmail
+            id="exampleEmail"
+            name="email"
+            placeholder="with a placeholder"
+            type="email"
+            onChange={handleChange}
+            value={values.email}
+          />
+          <StyledPassLabel>password</StyledPassLabel>
+          <StyledInputPass
+            type="password"
+            placeholder="Password"
+            onChange={handleChange}
+            name="password"
+            value={values.password}
+          />
+          <StyledButton onClick={handleSubmit}>Sign-in</StyledButton>
+          <StyledP>
+            If you don't <br /> have an account
+          </StyledP>
+          <StyledHr />
+          <StyledNavLink active href="#">
+            Register
+          </StyledNavLink>
+        </StyledForm>
+      </ContainerCard>
+    </ContainerDiv>
   );
 };
