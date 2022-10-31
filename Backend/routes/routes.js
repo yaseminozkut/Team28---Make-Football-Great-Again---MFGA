@@ -48,4 +48,29 @@ router.post("/signup", (req, res) => {
   });
 });
 
+router.post("/login", (req, res) => {
+  var { email, password } = req.body;
+  console.log(req.body);
+  if (!email || !password) {
+    return res.status(422).json({ error: "Add all data" });
+  }
+  User.findOne({ email: email })
+    .then((foundUser) => {
+      if (!foundUser) {
+        return res
+          .status(422)
+          .json({ error: "User does not exists with that email" });
+      } else {
+        if (foundUser.password === password) {
+          res.json({ message: "Loged in successfully" });
+        } else {
+          return res.status(422).json({ error: "Invalid email or password" });
+        }
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
