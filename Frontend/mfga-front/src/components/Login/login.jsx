@@ -24,6 +24,10 @@ export const Login = () => {
     password: "",
   });
 
+  const [errorMessage, setError] = useState({
+    errorMessage: "",
+  })
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -68,7 +72,7 @@ export const Login = () => {
           <StyledInputEmail
             id="exampleEmail"
             name="email"
-            placeholder="with a placeholder"
+            placeholder="email"
             type="email"
             onChange={handleChange}
             value={values.email}
@@ -86,7 +90,7 @@ export const Login = () => {
             If you don't <br /> have an account
           </StyledP>
           <StyledHr />
-          <StyledNavLink active href="#">
+          <StyledNavLink active href="/signup">
             Register
           </StyledNavLink>
         </StyledForm>

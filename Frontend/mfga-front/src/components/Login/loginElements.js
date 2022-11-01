@@ -55,6 +55,7 @@ export const Title = styled.h1`
   color: rgb(0, 0, 0, 0.5);
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  text-align: center;
 
   font-size: 2.18rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -144,6 +145,7 @@ export const StyledP = styled.p`
   width: 50%;
   height: 1px;
   color: black;
+  text-align: center;
 `
 
 export const StyledNavLink = styled(NavLink)`
