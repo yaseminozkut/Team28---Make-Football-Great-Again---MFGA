@@ -55,7 +55,7 @@ const handleDelete = (e)=>{
 
 
 
-    axios.delete("https://safe-earth-92699.herokuapp.com/edit",{data: {email:email}})
+    axios.delete("https://mfga.herokuapp.com/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
@@ -112,7 +112,7 @@ const handleUpdate = (e)=>{
   if (/^[a-zA-Z0-9._]{1,20}$/.test(uname)) { isUsernameValid = true }
 
   if(isPasswordValid && isNameValid && isUsernameValid){
-    axios.post("https://safe-earth-92699.herokuapp.com/edit",updated)
+    axios.post("https://mfga.herokuapp.com/edit",updated)
     .then((res)=>{
         if(res.status===200){
             navigate('/login')
