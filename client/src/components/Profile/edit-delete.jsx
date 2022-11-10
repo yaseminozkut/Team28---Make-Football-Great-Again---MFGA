@@ -20,6 +20,7 @@ import {
   } from "./edit-deleteElements";
 
 import {useNavigate, useLocation} from 'react-router-dom';
+import { Footer } from "../Footer/Footer";
 
 export const Edit_Delete=()=>{
     const[values,setValues] = useState({
@@ -209,6 +210,7 @@ return (
           <StyledButton2 onClick={handleUpdate}>Update</StyledButton2>
         </StyledForm>
       </ContainerCard>
+      <Footer></Footer>
     </ContainerDiv>
   );
 
