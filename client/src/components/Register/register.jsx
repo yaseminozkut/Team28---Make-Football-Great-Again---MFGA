@@ -25,6 +25,7 @@ import {
 } from "./registerElements";
 
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../Footer/Footer";
 
 export const Register = () => {
   const [values, setValues] = useState({
@@ -196,6 +197,7 @@ export const Register = () => {
           </StyledNavLink>
         </StyledForm>
       </ContainerCard>
+      <Footer></Footer>
     </ContainerDiv>
   );
 };

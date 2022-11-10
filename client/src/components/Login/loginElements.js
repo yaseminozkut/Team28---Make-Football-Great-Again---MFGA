@@ -18,6 +18,7 @@ export const ContainerDiv = styled.div`
 
   z-index: 0;
   overflow-x: auto;
+  
   background: linear-gradient(
     to bottom,
     #ff3838 0%,
@@ -29,14 +30,14 @@ export const ContainerDiv = styled.div`
 
 export const ContainerCard = styled(Card)`
   position: relative;
-  height: 700px;
-  width: 450px;
+  height: 43.75rem;
+  width: 27rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius: 17%;
   border-bottom-left-radius: 20%;
   border-top-left-radius: 10%;
-  top: 4rem;
+  top: 6.5rem;
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
