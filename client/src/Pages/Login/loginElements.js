@@ -26,6 +26,10 @@ export const ContainerDiv = styled.div`
     #ffffff 90%
   );
   flex: 1;
+
+  /* @media screen and (max-width: 768px) {
+        display: none;
+  } */
 `;
 
 export const ContainerCard = styled(Card)`
@@ -45,6 +49,8 @@ export const ContainerCard = styled(Card)`
 
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
+
+  
 `;
 
 export const Title = styled.h1`
