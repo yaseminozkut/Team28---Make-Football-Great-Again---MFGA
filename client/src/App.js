@@ -1,7 +1,7 @@
 import './App.css';
-import { Login } from './components/Login/login';
-import { Register } from './components/Register/register';
-import { Edit_Delete } from "./components/Profile/edit-delete";
+import { Login } from './Pages/Login/login';
+import { Register } from './Pages/Register/register';
+import { Edit_Delete } from "./Pages/Profile/edit-delete";
 
 import {
   BrowserRouter as Router,
@@ -10,14 +10,19 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { Navbar } from './components/Navbar/navbar';
+import Homepage from './Pages/Homepage/homepage';
+import Sidebar from './components/Sidebar/sidebar';
+import NavSide from './Pages/Nav-Side';
 
 function App() {
   return (
     <Router>
+      <NavSide />
       <Routes>
         <Route path="/">
           {/* <Route index element={<Home />} /> */}
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="signup" element={<Register />} />
           <Route path="login" element={<Login/>} />
           <Route path="edit" element={<Edit_Delete/>} />
