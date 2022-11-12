@@ -3,7 +3,6 @@ import axios from "axios";
 
 import {
   Title,
-  ContainerDiv,
   ContainerCard,
   StyledEmailLabel,
   StyledPassLabel,
@@ -13,21 +12,17 @@ import {
   StyledInputEmail,
   StyledInputPass,
   StyledButton,
-  StyledHr,
-  StyledP,
-  StyledNavLink,
   StyledInputUsername,
   StyledUsernameLabel,
   StyledEmailError,
   StyledNameError,
   StyledPassError,
   StyledUsernameError,
-} from "./registerElements";
+} from "./registerBoardMemberElements";
 
 import { useNavigate } from "react-router-dom";
-import { Footer } from "../../components/Footer/Footer";
 
-export const Register = () => {
+export const RegisterBoard =()=> {
   const [values, setValues] = useState({
     name: "",
     username: "",
@@ -59,8 +54,8 @@ export const Register = () => {
       ...values,
       [name]: value,
     };
-    registered.role = 0
     registered.status = 1
+    registered.role = 2
 
 
     setErrorEmail("");
@@ -106,13 +101,13 @@ export const Register = () => {
     ) {
 
       axios
-        .post("http://localhost:4000/signup", registered)
+        .post("http://localhost:4000/admin", registered)
         .then((response) => {
           if(response.data.message === "User already exists with that email"){
-            window.alert("User already exists with that email")
+            window.alert("Board Member already exists with that email")
           }else {
-            window.alert("User successfully registered to the system")
-            navigate("/login", { state: response.data });
+            window.alert("Board Member successfully registered to the system")
+            
           }
         });
     } else {
@@ -151,11 +146,10 @@ export const Register = () => {
   };
 
   return (
-    <ContainerDiv>
       <ContainerCard>
-        <Title>Signup</Title>
+        <Title>Board Member Register</Title>
         <StyledForm>
-          <StyledNameLabel>full name</StyledNameLabel>
+          <StyledNameLabel>Full Name</StyledNameLabel>
           <StyledInputName
             id="exampleName"
             name="name"
@@ -165,7 +159,7 @@ export const Register = () => {
             value={values.name}
           />
           <StyledNameError>{errorName}</StyledNameError>
-          <StyledEmailLabel>email</StyledEmailLabel>
+          <StyledEmailLabel>Email</StyledEmailLabel>
           <StyledInputEmail
             id="exampleEmail"
             name="email"
@@ -175,7 +169,7 @@ export const Register = () => {
             value={values.email}
           />
           <StyledEmailError>{errorEmail}</StyledEmailError>
-          <StyledPassLabel>password</StyledPassLabel>
+          <StyledPassLabel>Password</StyledPassLabel>
           <StyledInputPass
             type="password"
             placeholder="Password"
@@ -184,7 +178,7 @@ export const Register = () => {
             value={values.password}
           />
           <StyledPassError>{errorPassword}</StyledPassError>
-          <StyledUsernameLabel>username</StyledUsernameLabel>
+          <StyledUsernameLabel>Username</StyledUsernameLabel>
           <StyledInputUsername
             id="exampleUsername"
             name="username"
@@ -194,17 +188,8 @@ export const Register = () => {
             value={values.username}
           />
           <StyledUsernameError>{errorUsername}</StyledUsernameError>
-          <StyledButton onClick={handleSubmit}>Sign-up</StyledButton>
-          <StyledP>
-            Do you <br /> have an account?
-          </StyledP>
-          <StyledHr />
-          <StyledNavLink active href="/login">
-            Login
-          </StyledNavLink>
+          <StyledButton onClick={handleSubmit}>Register</StyledButton>
         </StyledForm>
       </ContainerCard>
-      <Footer></Footer>
-    </ContainerDiv>
   );
 };

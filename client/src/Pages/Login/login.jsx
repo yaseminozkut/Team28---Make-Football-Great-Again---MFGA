@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 import {
   Title,
   ContainerDiv,
@@ -75,7 +75,21 @@ export const Login = () => {
           }else if(response.data.message === "Invalid email or password"){
             setError("Incorrect email or password")
             console.log(response.data.message)
-          }else{
+          }
+          else if(response.data.message === "User has been banned."){
+            setError("User has been banned.")
+            console.log(response.data.message)
+
+          }
+          else if(response.data.role === 1){
+            console.log("Admin logged in");
+            setError("")
+            navigate("/admin", {state: response.data});
+
+
+          }
+          else{
+            console.log(response.data)
             console.log("Logged in");
             setError("")
             navigate("/edit", {state: response.data});

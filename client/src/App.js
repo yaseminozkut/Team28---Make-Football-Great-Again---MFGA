@@ -2,6 +2,8 @@ import './App.css';
 import { Login } from './Pages/Login/login';
 import { Register } from './Pages/Register/register';
 import { Edit_Delete } from "./Pages/Profile/edit-delete";
+import { Admin } from "./Pages/Admin/adminpage";
+
 
 import {
   BrowserRouter as Router,
@@ -26,6 +28,7 @@ function App() {
           <Route path="signup" element={<Register />} />
           <Route path="login" element={<Login/>} />
           <Route path="edit" element={<Edit_Delete/>} />
+          <Route path="admin" element={<Admin/>} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>
