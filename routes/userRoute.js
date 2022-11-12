@@ -110,7 +110,7 @@ router.post("/admin", (req, res) => {
 
         } else {
           if(foundUser.status === 0){
-            res.json({ message: "User has been banned." });
+            res.json({ message: "User has been banned" });
           }
           else if (foundUser.password === password) {
             res.json(foundUser);

@@ -67,7 +67,7 @@ export const Login = () => {
       console.log("Wrong email")
     } else {
       axios
-        .post("https://mfga.herokuapp.com/login", logedIn)
+        .post("http://localhost:4000/login", logedIn)
         .then((response) => {
           if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")
@@ -76,7 +76,7 @@ export const Login = () => {
             setError("Incorrect email or password")
             console.log(response.data.message)
           }
-          else if(response.data.message === "User has been banned."){
+          else if(response.data.message === "User has been banned"){
             setError("User has been banned.")
             console.log(response.data.message)
 
