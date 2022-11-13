@@ -5,15 +5,15 @@ export const ContainerCard = styled(Card)`
 position:absolute;
 
   left: 75%;
-  height: 32rem;
-  width: 22rem;
+  height: 36rem;
+  width: 24rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius:20%;
   border-bottom-left-radius: 20%;
   border-top-left-radius: 20%;
   border-bottom-right-radius:20%;
-  top: 30%;
+  top: 20%;
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
@@ -25,34 +25,35 @@ position:absolute;
 
 export const Title = styled.h1`
   position: absolute;
-  top: 10px;
+  top: 2%;
   left: 20%;
-  right: 20%;
+
+  width:60%;
+  height:10%;
 
   color: rgb(0, 0, 0, 0.5);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-align: center;
 
-  font-size: 1.5rem;
+  font-size: 115%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 
 export const StyledForm = styled(Form)`
   width: 90%;
-  height: 60%;
+  height: 85%;
   position: absolute;
-  top: 8rem;
-  left: 1.6rem;
-  right: 1.6rem;
+  top: 13%;
+  left: 5%;
 `;
 
 export const StyledInputName = styled(Input)`
   position: absolute;
-  top: -3rem;
+  top: 8%;
   left: 2rem;
   width: 80%;
-  height: 12%;
+  height: 10%;
 
   border: none;
   border-radius: 1rem;
@@ -62,10 +63,10 @@ export const StyledInputName = styled(Input)`
 
 export const StyledInputEmail = styled.input`
   position: absolute;
-  top: 2.6rem;
+  top: 31%;
   left: 2rem;
   width: 80%;
-  height: 12%;
+  height: 10%;
 
 
   border: none;
@@ -77,10 +78,10 @@ export const StyledInputEmail = styled.input`
 
 export const StyledInputPass = styled(Input)`
   position: absolute;
-  top: 8.4rem;
+  top: 56%;
   left: 2rem;
   width: 80%;
-  height: 12%;
+  height: 10%;
 
 
   border: none;
@@ -92,10 +93,10 @@ export const StyledInputPass = styled(Input)`
 
 export const StyledInputUsername = styled(Input)`
   position: absolute;
-  top: 13.6rem;
+  top: 76%;
   left: 2rem;
   width: 80%;
-  height: 12%;
+  height: 10%;
 
 
   border: none;
@@ -107,7 +108,7 @@ export const StyledInputUsername = styled(Input)`
 export const StyledNameLabel = styled(Label)`
   position: absolute;
   left: 1.5rem;
-  top: -4.5rem;
+  top: 1%;
 
   font-size: 1.1rem;
 
@@ -117,7 +118,7 @@ export const StyledNameLabel = styled(Label)`
 export const StyledEmailLabel = styled(Label)`
   position: absolute;
   left: 1.5rem;
-  top: 0.8rem;
+  top: 24%;
 
   font-size: 1.1rem;
 
@@ -127,7 +128,7 @@ export const StyledEmailLabel = styled(Label)`
 export const StyledPassLabel = styled(Label)`
   position: absolute;
   left: 1.5rem;
-  top: 7rem;
+  top: 49%;
 
   font-size: 1.1rem;
 
@@ -136,7 +137,7 @@ export const StyledPassLabel = styled(Label)`
 export const StyledUsernameLabel = styled(Label)`
   position: absolute;
   left: 1.5rem;
-  top: 12rem;
+  top: 70%;
 
   font-size: 1.1rem;
 
@@ -146,7 +147,7 @@ export const StyledUsernameLabel = styled(Label)`
 export const StyledNameError = styled(Label)`
   position: absolute;
   left: 1rem;
-  top: -0.4rem;
+  top: 18%;
   text-align: center;
   font-size: 9px;
   color: red;
@@ -155,7 +156,7 @@ export const StyledNameError = styled(Label)`
 export const StyledEmailError = styled(Label)`
   position: absolute;
   left: 1rem;
-  top: 4.8rem;
+  top: 42%;
   text-align: center;
   font-size: 9px;
   color: red;
@@ -163,8 +164,8 @@ export const StyledEmailError = styled(Label)`
 
 export const StyledPassError = styled(Label)`
   position: absolute;
-  left: 1rem;
-  top: 11rem;
+  left: 8%;
+  top: 67%;
   text-align: center;
   font-size: 9px;
   color: red;
@@ -173,7 +174,7 @@ export const StyledPassError = styled(Label)`
 export const StyledUsernameError = styled(Label)`
   position: absolute;
   left: 1rem;
-  top: 15.8rem;
+  top: 86%;
   text-align: center;
   font-size: 9px;
   color: red;
@@ -182,11 +183,11 @@ export const StyledUsernameError = styled(Label)`
 
 export const StyledButton = styled(Button)`
   position: absolute;
-  top: 18rem;
+  top: 93%;
   display: flex;
   width: 50%;
-  height: 12%;
-  left: 5rem;
+  height: 7%;
+  left: 25%;
 
   border: none;
   justify-content: center;

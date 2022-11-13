@@ -54,8 +54,24 @@ router.post("/admin/:id", (req,res)=>{
       .catch(err => res.status(400).json('Error: '+err));
 
 });
+});
 
-})
+router.post("/admin/banned/:id", (req,res)=>{
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.status = 1;
+
+      user.save()
+      .then(()=>res.json('User activated!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+});
+});
+
+
+
+
 
 router.post("/admin", (req, res) => {
   var { name, email, password, username,role,status } = req.body;

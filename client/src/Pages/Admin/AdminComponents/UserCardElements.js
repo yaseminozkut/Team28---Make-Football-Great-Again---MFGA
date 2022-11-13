@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Button, Card, Form, Input, Label, NavLink } from "reactstrap";
 
 export const ContainerCard = styled(Card)`
-  height: 10%;  
-  width: 20%;
+  height: 5rem;  
+  width: 28rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius:10%;
@@ -63,7 +63,25 @@ export const StyledButton = styled(Button)`
   font-size: 11px;
   font-weight: bold;
 
-  color: rgb(0, 0, 0, 0.5);
+  color: black;
 
   background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
+`;
+
+export const StyledActivateButton = styled(Button)`
+  position: absolute;
+  top: 70%;
+  right: 5%;
+  display: flex;
+  width: 25%;
+  height: 30%;
+
+  border: none;
+  justify-content: center;
+  font-size: 70%;
+  font-weight: bold;
+
+  color: black;
+
+  background: #25ACF0 ;
 `;

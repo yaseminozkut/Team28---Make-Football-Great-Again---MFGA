@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ContainerDiv, UserTitle } from "./adminpageElements";
 import {RegisterBoard} from "./AdminComponents/registerBoardMember";
-import { UserCard } from "./AdminComponents/UserCard";
+import { UserCard,BannedCard } from "./AdminComponents/UserCard";
 import axios from "axios";
 
 export const Admin = () =>{
@@ -31,6 +31,21 @@ export const Admin = () =>{
         }
   
       }
+      
+      function createBannedCard(user) {
+          if(user.status === 0){
+              return (
+                  <BannedCard
+                  
+                    name={user.name}
+                    id={user._id}
+                    mail={user.email}
+                  />
+              );
+  
+          }
+    
+        }
     return(
         <ContainerDiv>
                   <RegisterBoard /> 
@@ -38,6 +53,7 @@ export const Admin = () =>{
                   
                   {users.map(createCard)}
                   <UserTitle>Banned List</UserTitle>
+                  {users.map(createBannedCard)}
     
             
         </ContainerDiv>

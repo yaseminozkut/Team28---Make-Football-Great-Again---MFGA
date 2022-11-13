@@ -10,7 +10,7 @@ export const ContainerDiv = styled.div`
   margin: 0;
   padding: 0;
 
-  height: 51rem;
+  height: 100%;
   width: 100%;
 
   justify-content: center;
@@ -28,6 +28,7 @@ export const ContainerDiv = styled.div`
 
 export const UserTitle = styled.h1`
 position:relative;
+width:30%;
 
   top: 15%;
   left: 10%;
