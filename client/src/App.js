@@ -17,6 +17,7 @@ import Homepage from './Pages/Homepage/homepage';
 import Sidebar from './components/Sidebar/sidebar';
 import NavSide from './Pages/Nav-Side';
 import BoardMember from './Pages/BoardMember/boardmemberpage';
+import { Galatasaray } from './Pages/Teams/Galatasaray';
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
           <Route path="edit" element={<Edit_Delete/>} />
           <Route path="admin" element={<Admin/>} />
           <Route path="board" element={<BoardMember/>} />
+          <Route path="galatasaray" element={<Galatasaray/>} />
+          
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>
