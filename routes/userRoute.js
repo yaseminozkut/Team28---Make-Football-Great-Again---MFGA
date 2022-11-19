@@ -3,43 +3,47 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Player = mongoose.model("Player");
+const bcrypt = require('bcryptjs');
 
 const path = require('path');
 
 
 router.post("/signup", (req, res) => {
-  var { name, email, password, username,role,status } = req.body;
+  var { name, email, password, username,role,status} = req.body;
   console.log(req.body);
   if (!name || !email || !password || !username) {
     res.json({ message: "Please add all data" });
   }
+  bcrypt.hash(password,12)
+  .then((hashedpw) => {  
   User.findOne({ email: email })
-  .then((savedUser) => {
-    if (savedUser) {
-      res.json({ message: "User already exists with that email" });
-    }
-    const user = new User({
-      email,
-      password,
-      name,
-      username,
-      status,
-      role
-    });
-    user.save()
-    .then((user) => {
-      res.json({ message: "Saved successfully"});
-      console.log(user.email);
-
+    .then((savedUser) => {
+      if (savedUser) {
+        res.json({ message: "User already exists with that email" });
+      }
+      const user = new User({
+        email,
+        password:hashedpw,
+        name,
+        username,
+        role,
+        status
+      });
+      user.save()
+      .then((user) => {
+        res.json({ message: "Saved successfully" });
+        console.log(user.email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     })
     .catch((err) => {
       console.log(err);
     });
   })
-  .catch((err) => {
-    console.log(err);
-  });
 });
+
 router.route('/admin').get((req,res)=>{
    User.find()
   .then(users => res.json(users))
@@ -109,24 +113,58 @@ router.post("/admin", (req, res) => {
   });
 });
 
+router.post("/login", (req, res) => {
+  var { email, password } = req.body;
+  console.log(req.body);
+  if (!email || !password) {
+    return res.status(422).json({ error: "Add all data" });
+  }
+  User.findOne({ email: email })
+    .then((foundUser) => {
+      if (!foundUser) {
+        res.json({ message: "There is no user exist with this email and password" });
+      } 
+      if(foundUser.role !== 1){
+        bcrypt.compare(password,foundUser.password)
+        .then(match => {
+          if (match) {
+            if(foundUser.status === 0){
+              res.json({ message: "User has been banned" });
+            }
+            res.json(foundUser);
+          } 
+          else {
+            res.json({ message: "Invalid email or password" });
+          }
+        })
+        .catch((err) => {
+          console.log("There is an error")
+        })
+      }
+      else{
+        if (foundUser.password === password) {
+          res.json(foundUser);
+        }
+        else {
+          res.json({ message: "Invalid email or password" });
+        }
+      }
+  })
+});
 
-  
+  /*
   router.post("/login", (req, res) => {
     var { email, password } = req.body;
     console.log(req.body);
     if (!email || !password) {
       return res.status(422).json({ error: "Add all data" });
-      // res.send("Please fill all your information")
     }
     User.findOne({ email: email })
       .then((foundUser) => {
         if (!foundUser) {
-          // return res
-          //   .status(404)
-          //   .json({ error: "User does not exists with that email" });
           res.json({ message: "There is no user exist with this email and password" });
-
-        } else {
+        } 
+        else {
           if(foundUser.status === 0){
             res.json({ message: "User has been banned" });
           }
@@ -143,7 +181,7 @@ router.post("/admin", (req, res) => {
 
       });
   });
-  
+  */
   
 
 
