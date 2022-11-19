@@ -6,7 +6,8 @@ const Player = mongoose.model("Player");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-
+const auth = require('../middleware/auth');
+const secretKey = "SecretKey123"
 
 router.post("/signup", (req, res) => {
   var { name, email, password, username,role,status} = req.body;
@@ -130,7 +131,35 @@ router.post("/login", (req, res) => {
           if(foundUser.status === 0){
             res.json({ message: "User has been banned" });
           }
-          res.json(foundUser);
+          const token = jwt.sign(
+            {
+              user: foundUser._id,
+            },
+            secretKey,
+            { expiresIn: "24h", algorithm: 'HS256'}
+          )
+          /*
+          res.json({
+            message: "Login Successful",
+            email: foundUser.email,
+            id: foundUser._id,
+            name: foundUser.name,
+            user: foundUser,
+            _token: token
+          });*/
+          console.log(token);
+          //res.json(foundUser);
+          res.cookie("token", token, {
+            httpOnly: true,
+          })
+          res.send({
+          message: "Login Successful",
+          email: foundUser.email,
+          id: foundUser._id,
+          name: foundUser.name,
+          user: foundUser,
+          });
+          //res.json(foundUser);
         } 
         else {
           res.json({ message: "Invalid email or password" });
@@ -173,9 +202,29 @@ router.post("/login", (req, res) => {
   });
   */
   
+  router.get("/logout", (req, res) => {
+    res
+      .cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0),
+      })
+      .send();
+  });
 
+router.get("/loggedIn", (req, res) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) return res.json(false);
 
-router.route("/edit").delete((req,res)=>{
+    const verified = jwt.verify(token, secretKey);
+
+    res.send(true);
+  } catch (err) {
+    res.json(false);
+  }
+});
+
+router.route("/edit").delete(auth, (req,res)=>{
   var email = req.body.email;
   console.log(req.body);
  
@@ -184,12 +233,16 @@ router.route("/edit").delete((req,res)=>{
       console.log(err)
     }
     else{
-      res.json({message: "User is deleted"})
+      res.cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0)
+      }).send({message: "User is deleted"});
+      //res.json({message: "User is deleted"})
       console.log("Deleted User: " + user);
     }
   });
 })
-router.route('/edit').post((req,res)=>{
+router.route('/edit').post(auth, (req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{

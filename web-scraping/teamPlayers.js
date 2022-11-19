@@ -32,7 +32,7 @@ async function getGalatarasayKadro(url){
             
 
         });
-        console.log(galatasaray_kadro_data)
+        //console.log(galatasaray_kadro_data)
         
 
            

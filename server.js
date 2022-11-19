@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-
+const cookieParser = require("cookie-parser");
 
 const { MONGOURL } = require("./config/index");
 require("dotenv").config();
@@ -14,10 +14,15 @@ const PORT = process.env.PORT || 4000;
 require("./models/user");
 require("./models/player")
 
+//cookie handling
+app.use(cookieParser())
 // configure body parser for AJAX requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
 
 const routes = require("./routes/userRoute");
 //const teamRoutes = require("./routes/playersRoute");
