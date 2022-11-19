@@ -14,6 +14,7 @@ import { Navbar } from './components/Navbar/navbar';
 import Homepage from './Pages/Homepage/homepage';
 import Sidebar from './components/Sidebar/sidebar';
 import NavSide from './Pages/Nav-Side';
+import CurrentStats from './Pages/CurrentStats/currentStats';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="signup" element={<Register />} />
           <Route path="login" element={<Login/>} />
           <Route path="edit" element={<Edit_Delete/>} />
+          <Route path="currentstats" element={<CurrentStats/>}/>
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>
