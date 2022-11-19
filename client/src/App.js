@@ -19,7 +19,6 @@ import NavSide from './Pages/Nav-Side';
 
 import BoardMember from './Pages/BoardMember/boardmemberpage';
 import { Galatasaray } from './Pages/Teams/Galatasaray';
-=======
 import CurrentStats from './Pages/CurrentStats/currentStats';
 
 
