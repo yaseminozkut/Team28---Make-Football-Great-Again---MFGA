@@ -23,8 +23,8 @@ const routes = require("./routes/userRoute");
 //const teamRoutes = require("./routes/playersRoute");
 
 //Web scrapping
-require("./web/scraping")
-require("./web/leagueTable")
+// require("./web/scraping")
+require("./web-scraping/teamPlayers")
 
 app.use(express.static('client/build'));
 // routes
