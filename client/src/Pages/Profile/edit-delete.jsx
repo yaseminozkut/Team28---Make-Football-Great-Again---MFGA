@@ -20,7 +20,7 @@ import {
   } from "./edit-deleteElements";
 
 import {useNavigate, useLocation} from 'react-router-dom';
-import { Footer } from "../Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Edit_Delete=()=>{
     const[values,setValues] = useState({
@@ -46,17 +46,11 @@ export const Edit_Delete=()=>{
 
 const handleDelete = (e)=>{
     e.preventDefault();
-    const {name,value}=e.target;
-    const deleted={
-        ...values,
-        [name]:value,
-        
-    };
 
 
 
 
-    axios.delete("https://mfga.herokuapp.com/edit",{data: {email:email}})
+    axios.delete("http://localhost:4000/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
@@ -113,7 +107,7 @@ const handleUpdate = (e)=>{
   if (/^[a-zA-Z0-9._]{1,20}$/.test(uname)) { isUsernameValid = true }
 
   if(isPasswordValid && isNameValid && isUsernameValid){
-    axios.post("https://mfga.herokuapp.com/edit",updated)
+    axios.post("https://localhost:4000/edit",updated)
     .then((res)=>{
         if(res.status===200){
             navigate('/login')

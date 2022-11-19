@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const Player = mongoose.model("Player");
+
 const path = require('path');
 
 
 router.post("/signup", (req, res) => {
-  var { name, email, password, username } = req.body;
+  var { name, email, password, username,role,status } = req.body;
   console.log(req.body);
   if (!name || !email || !password || !username) {
     res.json({ message: "Please add all data" });
@@ -21,11 +23,82 @@ router.post("/signup", (req, res) => {
       password,
       name,
       username,
+      status,
+      role
     });
     user.save()
     .then((user) => {
-      res.json({ message: "Saved successfully" });
+      res.json({ message: "Saved successfully"});
       console.log(user.email);
+
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+});
+router.route('/admin').get((req,res)=>{
+   User.find()
+  .then(users => res.json(users))
+  .catch(err => res.status(400).json('Error: ' + err));
+});
+router.post("/admin/:id", (req,res)=>{
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.status = 0;
+
+      user.save()
+      .then(()=>res.json('User banned!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+});
+});
+
+router.post("/admin/banned/:id", (req,res)=>{
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.status = 1;
+
+      user.save()
+      .then(()=>res.json('User activated!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+});
+});
+
+
+
+
+
+router.post("/admin", (req, res) => {
+  var { name, email, password, username,role,status } = req.body;
+  console.log(req.body);
+  if (!name || !email || !password || !username) {
+    res.json({ message: "Please add all data" });
+  }
+  User.findOne({ email: email })
+  .then((savedUser) => {
+    if (savedUser) {
+      res.json({ message: "User already exists with that email" });
+    }
+    const user = new User({
+      email,
+      password,
+      name,
+      username,
+      status,
+      role
+    });
+    user.save()
+    .then((user) => {
+      res.json({ message: "Saved successfully"});
+      console.log(user.email);
+
     })
     .catch((err) => {
       console.log(err);
@@ -54,7 +127,10 @@ router.post("/signup", (req, res) => {
           res.json({ message: "There is no user exist with this email and password" });
 
         } else {
-          if (foundUser.password === password) {
+          if(foundUser.status === 0){
+            res.json({ message: "User has been banned" });
+          }
+          else if (foundUser.password === password) {
             res.json(foundUser);
           } else {
             // return res.status(422).json({ error: "Invalid email or password" });
@@ -85,7 +161,7 @@ router.route("/edit").delete((req,res)=>{
     }
   });
 })
-router.route('/edit').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
+router.route('/edit').post((req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{
@@ -101,8 +177,19 @@ router.route('/edit').post((req,res)=>{ //I think this should be a post method b
 
 })
 
+router.route('/teams').get((req,res)=>{
+  Player.find()
+ .then(players => res.json(players))
+ .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+
+
+
 router.use(function(req, res) {
 	res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
+
 
 module.exports = router;

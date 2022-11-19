@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
+
+import { Footer } from "../../components/Footer/Footer";
+
 import {
   Title,
   ContainerDiv,
@@ -18,6 +20,7 @@ import {
   StyledNavLink,
   Error,
 } from "./loginElements";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Login = () => {
   const [values, setValues] = useState({
@@ -67,7 +70,7 @@ export const Login = () => {
       console.log("Wrong email")
     } else {
       axios
-        .post("https://mfga.herokuapp.com/login", logedIn)
+        .post("http://localhost:4000/login", logedIn)
         .then((response) => {
           if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")
@@ -75,7 +78,28 @@ export const Login = () => {
           }else if(response.data.message === "Invalid email or password"){
             setError("Incorrect email or password")
             console.log(response.data.message)
-          }else{
+          }
+          else if(response.data.message === "User has been banned"){
+            setError("User has been banned.")
+            console.log(response.data.message)
+
+          }
+          else if(response.data.role === 1){
+            console.log("Admin logged in");
+            setError("")
+            navigate("/admin", {state: response.data});
+
+
+          }
+          else if(response.data.role === 2){
+            console.log("Board Member logged in");
+            setError("")
+            navigate("/board", {state: response.data});
+
+
+          }
+          else{
+            console.log(response.data)
             console.log("Logged in");
             setError("")
             navigate("/edit", {state: response.data});
