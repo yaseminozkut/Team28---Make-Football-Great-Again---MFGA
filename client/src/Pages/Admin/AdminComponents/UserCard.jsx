@@ -5,7 +5,6 @@ import { ContainerCard, UserTitle,MailTitle,StyledButton,StyledActivateButton} f
 export const UserCard = (props)=>{
     const handleSubmit = (e) => {
         e.preventDefault();
-        const { name, value } = e.target;
         const banned ={
             name: props.name,
             email: props.mail,
@@ -36,7 +35,6 @@ export const UserCard = (props)=>{
 export const BannedCard = (props)=>{
     const handleSubmit = (e) => {
         e.preventDefault();
-        const { name, value } = e.target;
         const activated ={
             name: props.name,
             email: props.mail,

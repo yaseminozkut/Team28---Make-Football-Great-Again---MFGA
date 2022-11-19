@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Card, Form, Input, Label, NavLink } from "reactstrap";
+import { Button, Card } from "reactstrap";
 
 export const ContainerCard = styled(Card)`
   height: 5rem;  

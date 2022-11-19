@@ -46,12 +46,6 @@ export const Edit_Delete=()=>{
 
 const handleDelete = (e)=>{
     e.preventDefault();
-    const {name,value}=e.target;
-    const deleted={
-        ...values,
-        [name]:value,
-        
-    };
 
 
 

@@ -32,7 +32,7 @@ function App() {
           <Route path="edit" element={<Edit_Delete/>} />
           <Route path="admin" element={<Admin/>} />
           <Route path="board" element={<BoardMember/>} />
-          <Route path="galatasaray" element={<Galatasaray/>} />
+          <Route path="teams/:team" element={<Galatasaray team="fenerbahce"/>} />
           
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>

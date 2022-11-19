@@ -1,67 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import cheerio from "cheerio";
-import { UserCard } from "../Admin/AdminComponents/UserCard";
-import { ContainerDiv } from "./teamsElements";
+import { ContainerDiv, PlayerTitle, StyledHr, TeamImg } from "./teamsElements";
+import { PlayerCard } from "./PlayerCard";
 
 
-export const Galatasaray= () =>{
-const url = "https://www.transfermarkt.com.tr/fenerbahce-istanbul/startseite/verein/36"
-const kadro_data = []
-async function getKadro(url){
+export const Galatasaray= (props) =>{
 
-    try{
-        const response = await axios.get(url);
-            
-        const $=cheerio.load(response.data)
+  const [players,SetPlayers] = useState([]);
 
-        const kadro = $("tr");
-        kadro.each(function(){
-            const playerName= $(this).find(".hide").text();
-            const position= $(this).find("tr:nth-child(2) td").text();
-            const birthDate = $(this).find("td:nth-child(4)").text();
+  axios.get('http://localhost:4000/teams')
+  .then(res =>{
+      const players = res.data;
+      SetPlayers(players)
+      console.log(players)
+  })
+  .catch((err)=>{
+      console.log(err);
+  })
+  
+  
+  function createCard(player) {
+      if (player.team === props.team) {
+        return (<PlayerCard
 
-           if(playerName.length > 1){
-            
-            kadro_data.push({playerName,position,birthDate});
+          key={player._id}
+          name={player.name}
+          position={player.position}
+          birth={player.birth}
+        />
+              );
+      }
+          
 
-
-            
-
-           }
-           console.log(kadro_data)
-
-            
-
-        });
-        
-
-           
+      
 
     }
-    catch(err){
-        console.log(err);
-    }
-}
-
-getKadro(url);
-function createCard(user) {
-    
-        return (
-            <UserCard
-            
-              name={user.playerName}
-            />
-        );
-
-    
-
-  }
+  
   return(
     <ContainerDiv>
-       {kadro_data.map(createCard)}
+    <TeamImg src="https://www.fenerbahce.org/getmedia/bf4b326b-90f0-4a6a-a332-edbfb6603de7/mobile-emblem-info.png.aspx?width=410&height=410&ext=.png"/>
+    <PlayerTitle>Players</PlayerTitle>
+    <StyledHr></StyledHr>
+       {players.map(createCard)}
     </ContainerDiv>
   )
-
-
 }
+
+  
+
+  

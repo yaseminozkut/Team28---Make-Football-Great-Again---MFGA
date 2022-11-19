@@ -21,7 +21,8 @@ export const Admin = () =>{
         if(user.status === 1){
             return (
                 <UserCard
-                
+
+                  key={user.email}
                   name={user.name}
                   id={user._id}
                   mail={user.email}
@@ -38,6 +39,7 @@ export const Admin = () =>{
                   <BannedCard
                   
                     name={user.name}
+                    key={user.email}
                     id={user._id}
                     mail={user.email}
                   />

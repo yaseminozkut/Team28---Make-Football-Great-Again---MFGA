@@ -20,7 +20,6 @@ import {
   StyledUsernameError,
 } from "./registerBoardMemberElements";
 
-import { useNavigate } from "react-router-dom";
 
 export const RegisterBoard =()=> {
   const [values, setValues] = useState({
@@ -36,7 +35,6 @@ export const RegisterBoard =()=> {
   const [errorPassword, setErrorPassword] = useState("");
   const [errorUsername, setErrorUsername] = useState("");
 
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;

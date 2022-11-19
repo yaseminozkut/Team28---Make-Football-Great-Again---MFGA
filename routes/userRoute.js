@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const Player = mongoose.model("Player");
+
 const path = require('path');
 
 
@@ -159,7 +161,7 @@ router.route("/edit").delete((req,res)=>{
     }
   });
 })
-router.route('/edit').post((req,res)=>{ //I think this should be a post method but the youtuber did it post I will do research about it
+router.route('/edit').post((req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{
@@ -175,8 +177,19 @@ router.route('/edit').post((req,res)=>{ //I think this should be a post method b
 
 })
 
+router.route('/teams').get((req,res)=>{
+  Player.find()
+ .then(players => res.json(players))
+ .catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+
+
+
 router.use(function(req, res) {
 	res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
+
 
 module.exports = router;
