@@ -124,31 +124,21 @@ router.post("/login", (req, res) => {
       if (!foundUser) {
         res.json({ message: "There is no user exist with this email and password" });
       } 
-      if(foundUser.role !== 1){
-        bcrypt.compare(password,foundUser.password)
-        .then(match => {
-          if (match) {
-            if(foundUser.status === 0){
-              res.json({ message: "User has been banned" });
-            }
-            res.json(foundUser);
-          } 
-          else {
-            res.json({ message: "Invalid email or password" });
+      bcrypt.compare(password,foundUser.password)
+      .then(match => {
+        if (match) {
+          if(foundUser.status === 0){
+            res.json({ message: "User has been banned" });
           }
-        })
-        .catch((err) => {
-          console.log("There is an error")
-        })
-      }
-      else{
-        if (foundUser.password === password) {
           res.json(foundUser);
-        }
+        } 
         else {
           res.json({ message: "Invalid email or password" });
         }
-      }
+      })
+      .catch((err) => {
+        console.log("There is an error")
+      })
   })
 });
 
