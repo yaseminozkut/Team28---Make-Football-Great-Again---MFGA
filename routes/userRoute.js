@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Player = mongoose.model("Player");
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
 const path = require('path');
 
 
