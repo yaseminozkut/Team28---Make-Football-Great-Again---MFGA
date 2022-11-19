@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4000;
 
 // require db connection
 require("./models/user");
+require("./models/player")
 
 // configure body parser for AJAX requests
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 const routes = require("./routes/userRoute");
+//const teamRoutes = require("./routes/playersRoute");
 
 //Web scrapping
 require("./web/scraping")
