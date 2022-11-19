@@ -21,7 +21,7 @@ export const Navbar = ( {toggle} ) => {
                 <NavLinks to = '/signup'>Register</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
+                <NavLinks to = '/currentstats'>Current Stats</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to = '/'>Homepage</NavLinks>
