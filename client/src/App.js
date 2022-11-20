@@ -22,6 +22,7 @@ import { Galatasaray } from './Pages/Teams/Galatasaray';
 import CurrentStats from './Pages/CurrentStats/currentStats';
 import AuthContext, { AuthContextProvider } from './context/AuthContext';
 import { useContext } from 'react';
+import { Profile } from './Pages/Profile/ProfilePage';
 
 axios.defaults.withCredentials = true;
 //const loggedIn = useContext(AuthContext);
@@ -42,7 +43,7 @@ function App() {
             <Route path="admin" element={<Admin/>} />
             <Route path="board" element={<BoardMember/>} />
             <Route path="teams/:team" element={<Galatasaray team="fenerbahce"/>} />
-            
+            <Route path="profile" element={<Profile/>} />
 
             <Route path="currentstats" element={<CurrentStats/>}/>
 

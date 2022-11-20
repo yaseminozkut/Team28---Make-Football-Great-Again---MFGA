@@ -32,7 +32,7 @@ export const Navbar = ( {toggle} ) => {
                 <NavLinks to = '/'>Homepage</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
+                <NavLinks to = '/profile'>Profile</NavLinks>
               </NavItem>
               <NavBtn>
                 <NavBtnLink to='/login'>Login</NavBtnLink>

@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 4000;
 
 // require db connection
 require("./models/user");
-require("./models/player")
+require("./models/player");
+require("./models/team");
 
 //cookie handling
 app.use(cookieParser())

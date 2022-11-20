@@ -85,7 +85,7 @@ export const Login = () => {
           else if(response.data.role === 1){
             console.log("Admin logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
             navigate("/admin", {state: response.data});
 
@@ -94,7 +94,7 @@ export const Login = () => {
           else if(response.data.role === 2){
             console.log("Board Member logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
             navigate("/board", {state: response.data});
 
@@ -104,7 +104,7 @@ export const Login = () => {
             console.log(response.data)
             console.log("Logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
             navigate("/edit", {state: response.data});
           }

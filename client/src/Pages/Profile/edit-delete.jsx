@@ -105,10 +105,10 @@ const handleUpdate = (e)=>{
   if (/^[a-zA-Z0-9._]{1,20}$/.test(uname)) { isUsernameValid = true }
 
   if(isPasswordValid && isNameValid && isUsernameValid){
-    axios.post("https://localhost:4000/edit",updated)
+    axios.post("http://localhost:4000/edit",updated)
     .then((res)=>{
         if(res.status===200){
-            navigate('/login')
+            navigate('/profile')
             window.alert("User is updated! Please login with new information")
             console.log("Updated!");
         }
