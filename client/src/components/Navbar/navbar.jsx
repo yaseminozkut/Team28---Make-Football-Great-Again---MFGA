@@ -5,8 +5,8 @@ import { MobileIcon, Nav, NavbarContainer, NavLogo, NavMenu, NavItem, NavLinks, 
 
 export const Navbar = ( {toggle} ) => {
 
-  const loggedIn = useContext(AuthContext);
-  console.log(loggedIn); 
+  // const loggedIn = useContext(AuthContext);
+  // console.log(loggedIn); 
 
   return (
       <>

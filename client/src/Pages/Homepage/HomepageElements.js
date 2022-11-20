@@ -1,4 +1,4 @@
-import { Card } from "reactstrap";
+import { Button, Card } from "reactstrap";
 import styled from "styled-components";
 
 export const ContainerDiv = styled.div`
@@ -92,3 +92,10 @@ export const UpcomingMatch = styled(Card)`
     transition: 0.2s ease-in-out;
   }
 `;
+
+
+
+export const NewsButton = styled( Button ) ` 
+  position: relative;
+  left: 20rem;
+`

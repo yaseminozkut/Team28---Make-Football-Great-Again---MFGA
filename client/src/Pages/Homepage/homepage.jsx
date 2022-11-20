@@ -1,13 +1,17 @@
+// import axios from "axios";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
-import useFetch from "../../Hooks/useFetch";
+// import { NEWS_API_URL } from "../../config/apikeys";
+// import useFetch from "../../Hooks/useFetch";
 
 import {
   ContainerDiv,
   Fixture,
   InnerContainer,
-  UpcomingMatch,
+  NewsButton,
+  // UpcomingMatch,
   UpComingMatchContainer,
 } from "./HomepageElements";
 
@@ -24,6 +28,15 @@ const Homepage = () => {
   // }
 
   // console.log(data);
+
+  const getNews = () => {
+    axios.get("https://newsapi.org/v2/top-headlines?country=tr&category=sports&apiKey=7560ffd5c009403fbc7477279f5090d8")
+    .then((response) => {
+      console.log(response)
+    })
+  }
+
+
   return (
     <>
       <ContainerDiv>
@@ -37,6 +50,8 @@ const Homepage = () => {
                 </UpcomingMatch>
               ))} */}
           </UpComingMatchContainer>
+
+          <NewsButton onClick = {getNews}> FETCH NEWS </NewsButton>
         </InnerContainer>
         <Footer></Footer>
       </ContainerDiv>

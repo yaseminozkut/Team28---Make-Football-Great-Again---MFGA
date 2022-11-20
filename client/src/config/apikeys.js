@@ -1,0 +1,1 @@
+export const NEWS_API_URL = "https://newsapi.org/v2/top-headlines?country=tr&category=sports&apiKey=7560ffd5c009403fbc7477279f5090d8"

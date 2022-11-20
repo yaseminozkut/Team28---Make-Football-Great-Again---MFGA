@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 4000;
 // require db connection
 require("./models/user");
 require("./models/player")
+require("./models/stat")
 
 //cookie handling
 app.use(cookieParser())
@@ -21,10 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
   origin: "http://localhost:3000",
-  credentials: true
+  credentials: true,
 }));
 
-const routes = require("./routes/userRoute");
+const routes = require("./routes/user/userRoute");
+const statRoute = require('./routes/stat/statRoute')
 //const teamRoutes = require("./routes/playersRoute");
 
 //Web scrapping
@@ -32,8 +34,10 @@ const routes = require("./routes/userRoute");
 require("./web-scraping/teamPlayers")
 
 app.use(express.static('client/build'));
+
 // routes
-app.use(routes);
+app.use("/stat", statRoute)
+app.use( routes);
 
 
 mongoose.connect(process.env.MONGODB_URI || MONGOURL, {
@@ -48,6 +52,10 @@ mongoose.connection.on("connected", () => {
 mongoose.connection.on("error", () => {
   console.log("ERROR !!!");
 });
+
+// app.get("/test", (req, res) => {
+//   res.send("asdasdasdas")
+// })
 
 app.listen(PORT, () => {
   console.log("Server is listening on port " + PORT);
