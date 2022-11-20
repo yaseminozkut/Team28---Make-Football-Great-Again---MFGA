@@ -19,8 +19,9 @@ import {
     StyledUsernameError
   } from "./edit-deleteElements";
 
-import {useNavigate, useLocation} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { Footer } from "../../components/Footer/Footer";
+
 
 export const Edit_Delete=()=>{
     const[values,setValues] = useState({
@@ -37,14 +38,11 @@ export const Edit_Delete=()=>{
     const [errorName, setErrorName] = useState("")
     const [errorPassword, setErrorPassword] = useState("")
     const [errorUsername, setErrorUsername] = useState("")
-
-    const location = useLocation();
     const navigate = useNavigate();
-
-    //const email = location.state.email;
     
     const user = JSON.parse(localStorage.getItem("currentUser"));
     const email = user.email; 
+
 
 const handleDelete = (e)=>{
     e.preventDefault();
