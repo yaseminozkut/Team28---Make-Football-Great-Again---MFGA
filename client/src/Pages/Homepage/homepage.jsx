@@ -32,7 +32,7 @@ const Homepage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState("");
 
-  if(recentMatch.length > 0) {
+  if(recentMatch.length === 0) {
     return <Loading></Loading>
   }
   // console.log(recentMatch)
