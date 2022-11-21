@@ -23,6 +23,7 @@ import CurrentStats from './Pages/CurrentStats/currentStats';
 import AuthContext, { AuthContextProvider } from './context/AuthContext';
 import { useContext } from 'react';
 import { Profile } from './Pages/Profile/ProfilePage';
+import { Referee } from './Pages/Referee/referee';
 
 axios.defaults.withCredentials = true;
 //const loggedIn = useContext(AuthContext);
@@ -39,12 +40,11 @@ function App() {
             <Route path="signup" element={<Register />} /> 
             <Route path="login" element={<Login/>} />
             <Route path="edit" element={<Edit_Delete/>} />
-
             <Route path="admin" element={<Admin/>} />
             <Route path="board" element={<BoardMember/>} />
             <Route path="teams/:team" element={<Galatasaray team="fenerbahce"/>} />
             <Route path="profile" element={<Profile/>} />
-
+            <Route path="referee" element={<Referee/>} />
             <Route path="currentstats" element={<CurrentStats/>}/>
 
             {/* <Route path="*" element={<NoPage />} /> */}

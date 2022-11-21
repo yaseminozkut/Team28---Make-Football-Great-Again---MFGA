@@ -20,19 +20,19 @@ export const Navbar = ( {toggle} ) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks to = '/login'>Login</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to = '/signup'>Register</NavLinks>
+                <NavLinks to = '/'>Homepage</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to = '/currentstats'>Current Stats</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
+                <NavLinks to = '/referee'>Referees</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to = '/profile'>Profile</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to = '/signup'>Register</NavLinks>
               </NavItem>
               <NavBtn>
                 <NavBtnLink to='/login'>Login</NavBtnLink>
