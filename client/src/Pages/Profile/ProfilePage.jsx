@@ -1,6 +1,6 @@
 import React,{ useState} from "react";
 import axios from "axios";
-import {DropDownList,DropDownListContainer,UsernameTitle, ContainerCard, NameTitle, ContainerDiv,StyledButton,StyledNavLink,TeamTitle, ListItem,DropDownContainer,DropDownHeader} from "./ProfileElements";
+import {DropDownList,standingsTitle,DropDownListContainer,UsernameTitle, ContainerCard, NameTitle, ContainerDiv,StyledButton,StyledNavLink,TeamTitle, ListItem,DropDownContainer,DropDownHeader, StandingCard} from "./ProfileElements";
 import {useNavigate, useLocation} from 'react-router-dom';
 import { Footer } from "../../components/Footer/Footer";
 
@@ -15,6 +15,8 @@ const email = user.email;
 var team = user.team;
 
     const [u_teams,SetUteams] = useState([]);
+
+    
     axios.get('http://localhost:4000/profile')
     .then(res =>{
         const u_teams = res.data;
@@ -86,6 +88,17 @@ return(
         <StyledNavLink active href="/edit">
             Edit
           </StyledNavLink>
+          <StandingCard>
+          <standingsTitle>Rank:</standingsTitle>
+          <standingsTitle>Win:</standingsTitle>
+          <standingsTitle>Lose:</standingsTitle>
+          <standingsTitle>Draw:</standingsTitle>
+          <standingsTitle>Points:</standingsTitle>
+
+
+
+            
+          </StandingCard>
     </ContainerCard>
     </ContainerDiv>
 )

@@ -344,7 +344,7 @@ async function getKadro(turl){
 getKadro(turl);
 
 
-router.route('/teams').get((req,res)=>{
+router.route('/teams/:team').get((req,res)=>{
   Player.find()
  .then(players => res.json(players))
  .catch(err => res.status(400).json('Error: ' + err));
