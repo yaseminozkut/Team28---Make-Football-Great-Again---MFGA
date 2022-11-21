@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
+import Loading from "../../components/Loading/loading";
 // import useFetch from "../../Hooks/useFetch";
 
 import {
@@ -43,7 +44,7 @@ const CurrentStats = () => {
   const [err, setErr] = useState('');
 
   if(teamStat.length !== 19) {
-    return <h1>Loading...</h1>  //load a loading page here
+    return <Loading />  //load a loading page here
   }
 
   //console.log(teamStat.length)

@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-// import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
-// import { NEWS_API_URL } from "../../config/apikeys";
-//  import useFetch from "../../Hooks/useFetch";
+import Loading from "../../components/Loading/loading";
+
 
 import {
   ContainerDiv,
@@ -33,8 +32,8 @@ const Homepage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState("");
 
-  if(recentMatch.length === 0) {
-    return <h1>Loading...</h1>
+  if(recentMatch.length > 0) {
+    return <Loading></Loading>
   }
   // console.log(recentMatch)
 
