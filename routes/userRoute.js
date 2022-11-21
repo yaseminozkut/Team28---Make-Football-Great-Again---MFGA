@@ -170,37 +170,6 @@ router.post("/login", (req, res) => {
       })
   })
 });
-
-  /*
-  router.post("/login", (req, res) => {
-    var { email, password } = req.body;
-    console.log(req.body);
-    if (!email || !password) {
-      return res.status(422).json({ error: "Add all data" });
-    }
-    User.findOne({ email: email })
-      .then((foundUser) => {
-        if (!foundUser) {
-          res.json({ message: "There is no user exist with this email and password" });
-        } 
-        else {
-          if(foundUser.status === 0){
-            res.json({ message: "User has been banned" });
-          }
-          else if (foundUser.password === password) {
-            res.json(foundUser);
-          } else {
-            // return res.status(422).json({ error: "Invalid email or password" });
-            res.json({ message: "Invalid email or password" });
-          }
-        }
-      })
-      .catch((err) => {
-        console.log("There is an error")
-
-      });
-  });
-  */
   
   router.get("/logout", (req, res) => {
     res
@@ -246,18 +215,34 @@ router.route('/edit').post(auth, (req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{
+    //const updatedHashedPw = bcrypt.hash(req.body.password,12)
     user.username = req.body.username;
     user.password = req.body.password;
     user.name = req.body.name;
-
       user.save()
       .then(()=>res.json('User updated!'))
       .catch(err => res.status(400).json('Error: '+err));
-
-});
-
+  });
 })
-
+/*
+router.route('/edit').post(auth, (req,res)=>{
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.name = req.body.name;
+      user.save()
+      .then(()=>
+        res.cookie("token", "", {
+          httpOnly: true,
+          expires: new Date(0)
+        }).send({message: "User is uppdated"}))
+      //res.json('User updated!'))
+      .catch(err => res.status(400).json('Error: '+err));
+  });
+})
+*/
 router.route('/teams').get((req,res)=>{
   Player.find()
  .then(players => res.json(players))
