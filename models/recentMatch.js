@@ -1,21 +1,21 @@
 const mongoose = require('mongoose')
 
-const newsSchema = mongoose.Schema({
-    imgUrl: {
+const recentMatch = mongoose.Schema({
+    skor: {
         type: String,
         required: true
     },
-    newsUrl: {
+    date: {
         type: String,
         required: true,
     },
-    newsCaption: {
+    away: {
         type: String, 
         required: true
     },
-    newsSpan: {
+    home: {
         type: String,
         required: true,
     },
 })
-mongoose.model('News', newsSchema);
+mongoose.model('Recent', recentMatch);

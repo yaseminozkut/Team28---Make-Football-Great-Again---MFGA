@@ -99,7 +99,7 @@ const CurrentStats = () => {
     }
   };
 
-
+  console.log(data)
 
 
   return (

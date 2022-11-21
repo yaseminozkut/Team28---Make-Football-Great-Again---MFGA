@@ -95,7 +95,8 @@ export const UpcomingMatch = styled(Card)`
 
 
 
-export const NewsButton = styled( Button ) ` 
+export const RecentMatchButton = styled( Button ) ` 
   position: relative;
-  left: 20rem;
+  left: 0;
+  top: 5rem;
 `

@@ -250,6 +250,7 @@ router.route("/edit").delete(auth, (req,res)=>{
     }
   });
 })
+
 router.route('/edit').post(auth, (req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})

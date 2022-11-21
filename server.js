@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 4000;
 require("./models/user");
 require("./models/player")
 require("./models/stat")
+require("./models/recentMatch")
 
 //cookie handling
 app.use(cookieParser())
@@ -27,15 +28,19 @@ app.use(cors({
 
 const routes = require("./routes/user/userRoute");
 const statRoute = require('./routes/stat/statRoute')
+const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 //const teamRoutes = require("./routes/playersRoute");
 
 //Web scrapping
 // require("./web/scraping")
 require("./web-scraping/teamPlayers")
+// require('./web-scraping/newsScraper/scrapeNews')
+//require('./web-scraping/newsScraper/scrapeTffNews')
 
 app.use(express.static('client/build'));
 
 // routes
+app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
 
