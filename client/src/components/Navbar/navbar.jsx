@@ -57,11 +57,10 @@ export const Navbar = ( {toggle} ) => {
                 <NavLinks to = '/currentstats'>Current Stats</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
+                <NavLinks to = '/teams'>Teams</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
-
+                <NavLinks to = '/profile'>Profile</NavLinks>
               </NavItem>
               <Display>
                 <NavBtn>

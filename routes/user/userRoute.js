@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const auth = require('../../middleware/auth');
 const secretKey = "SecretKey123"
+const Team = mongoose.model("Team");
 
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
@@ -36,7 +37,8 @@ router.post("/signup", (req, res) => {
         name,
         username,
         role,
-        status
+        status,
+        team: ""
       });
       user.save()
       .then((user) => {
@@ -228,38 +230,125 @@ router.route('/edit').post(auth, (req,res)=>{
     user.username = req.body.username;
     user.password = req.body.password;
     user.name = req.body.name;
+    
       user.save()
       .then(()=>res.json('User updated!'))
       .catch(err => res.status(400).json('Error: '+err));
   });
 })
-/*
-router.route('/edit').post(auth, (req,res)=>{
-  var email = req.body.email;
-  User.findOne({email:email})
-  .then(user =>{
-    user.username = req.body.username;
-    user.password = req.body.password;
-    user.name = req.body.name;
-      user.save()
-      .then(()=>
-        res.cookie("token", "", {
-          httpOnly: true,
-          expires: new Date(0)
-        }).send({message: "User is uppdated"}))
-      //res.json('User updated!'))
-      .catch(err => res.status(400).json('Error: '+err));
-  });
-})
-*/
-router.route('/teams').get((req,res)=>{
+
+
+
+const axios = require("axios");
+const cheerio = require("cheerio");
+const GalatasarayUrl = "https://www.transfermarkt.com/fenerbahce-istanbul/startseite/verein/36"
+const galatasaray_kadro_data = []
+async function getGalatarasayKadro(url){
+
+  try{
+      const response = await axios.get(url);
+      const $=cheerio.load(response.data)
+      const kadro = $("tr");
+      kadro.each(function(){
+          const pname= $(this).find(".hide").text();
+          const position= $(this).find("tr:nth-child(2) td").text();
+          const birth= $(this).find("td:nth-child(4)").text();
+         if(pname.length > 1)
+   {
+          galatasaray_kadro_data.push({pname,position,birth});
+          Player.findOne({name: pname})
+      .then((foundUser)=> 
+      {
+        if (!foundUser) {
+          const pl = new Player({
+            name: pname,
+            position: position,
+            birth: birth,
+            team: "Fenerbahce"
+          })
+          pl.save()
+                        }
+     })
+    }
+                          });
+      
+     }
+  catch(err){
+      console.log(err);
+  }
+}
+getGalatarasayKadro(GalatasarayUrl);
+
+const turl = "https://www.mackolik.com/puan-durumu/t%C3%BCrkiye-s%C3%BCper-lig/482ofyysbdbeoxauk19yg7tdt"
+const all_teams = []
+
+async function getKadro(turl){
+
+    try{
+        const response = await axios.get(turl);
+        const $=cheerio.load(response.data)
+        const tr = $("tr");
+
+        tr.each(function(){
+            teamname= $(this).find(".rupclose , .p0c-competition-tables__team-name--full").text();
+           if(teamname.length > 1){
+            all_teams.push({teamname});
+            
+           }
+           
+
+        });
+        console.log(all_teams);
+        all_teams.forEach(element => {
+          Team.findOne()
+            .then((foundUser)=> 
+            {
+              if (!foundUser) {
+                const teams = new Team({
+                  name: element.teamname,
+                })
+                
+                teams.save()
+                              }
+           })
+        });
+           
+
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+getKadro(turl);
+
+
+router.route('/teams/:team').get((req,res)=>{
   Player.find()
  .then(players => res.json(players))
  .catch(err => res.status(400).json('Error: ' + err));
 });
 
 
+router.post("/profile", (req,res)=>{
+  var team = req.body.team;
+  var email = req.body.email;
+  User.findOne({email:email})
+  .then(user =>{
+    user.team = team;
 
+      user.save()
+      .then(()=>res.json('Team Selected!'))
+      .catch(err => res.status(400).json('Error: '+err));
+
+});
+});
+
+router.route('/profile').get((req,res)=>{
+  Team.find()
+ .then(teams => res.json(teams))
+ .catch(err => res.status(400).json('Error: ' + err));
+});
 
 
 router.use(function(req, res) {
