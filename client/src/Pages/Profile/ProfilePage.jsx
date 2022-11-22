@@ -19,6 +19,7 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
+import { useEffect } from "react";
 
 export const Profile = () => {
   const location = useLocation();
@@ -30,7 +31,8 @@ export const Profile = () => {
 
   const [u_teams, SetUteams] = useState([]);
 
-  axios
+  useEffect(() => {
+    axios
     .get("https://mfga.herokuapp.com/profile")
     .then((res) => {
       const u_teams = res.data;
@@ -40,6 +42,7 @@ export const Profile = () => {
     .catch((err) => {
       console.log(err);
     });
+  }, [])
 
   const handleSubmit = (e) => {
     navigate("/edit");
