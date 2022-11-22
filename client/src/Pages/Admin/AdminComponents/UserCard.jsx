@@ -43,7 +43,7 @@ export const BannedCard = (props)=>{
         }
 
         axios
-        .post("https://mfga.herokuapp.com/admin/banned/" + props.id, activated)
+        .post("https://mfga.herokuapp.com/api/admin/banned/" + props.id, activated)
         .then((response) => {
             window.alert("User successfully reactivated to the system")
             

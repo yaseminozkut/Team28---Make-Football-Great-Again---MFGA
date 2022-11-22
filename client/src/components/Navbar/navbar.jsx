@@ -5,8 +5,7 @@ import { MobileIcon, Nav, NavbarContainer, NavLogo, NavMenu, NavItem, NavLinks, 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Auth } from '../PageDirect/Auth';
-import { Display, DisplayAuth} from '../PageDirect/NavbarDisplay';
-
+import { Display, DisplayAuth, UserDisp, AdminDisp, BoardDisp} from '../PageDirect/NavbarDisplay';
 
 export const Navbar = ( {toggle} ) => {
   const navigate = useNavigate();
@@ -34,50 +33,68 @@ export const Navbar = ( {toggle} ) => {
   }
 
   return (
-      <>
-        <Nav>
-          <NavbarContainer>
-            <NavLogo to = '/'>
-              MFGA
-            </NavLogo>
-            <MobileIcon onClick={toggle}>
-              <FaBars/>
-            </MobileIcon>
-            <NavMenu>
+    <>
+      <Nav>
+        <NavbarContainer>
+          <NavLogo to = '/'>
+            MFGA
+          </NavLogo>
+          <MobileIcon onClick={toggle}>
+            <FaBars/>
+          </MobileIcon>
+          <NavMenu>
 
+            <NavItem>
+              <NavLinks to = '/currentstats'>Current Stats</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to = '/teams'>Teams</NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to = '/referee'>Referees</NavLinks>
+            </NavItem>
+
+            <Display>
               <NavItem>
-                <NavLinks to = '/currentstats'>Current Stats</NavLinks>
+                <NavLinks to = '/signup'>Register</NavLinks>
               </NavItem>
-              <NavItem>
-                <NavLinks to = '/teams'>Teams</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to = '/referee'>Referees</NavLinks>
-              </NavItem>
-  
-              <Display>
+              <NavBtn>
+                <NavBtnLink to='/login'>Login</NavBtnLink>
+              </NavBtn>
+            </Display>
+
+            <DisplayAuth>
+              <UserDisp>
                 <NavItem>
-                  <NavLinks to = '/signup'>Register</NavLinks>
-                </NavItem>
-                <NavBtn>
-                  <NavBtnLink to='/login'>Login</NavBtnLink>
-                </NavBtn>
-              </Display>
+                    <NavLinks to = '/profileFront'>User Profile</NavLinks>
+                  </NavItem>
+                </UserDisp>
+            </DisplayAuth>
 
-              <DisplayAuth>
+            <DisplayAuth>
+              <AdminDisp>
                 <NavItem>
-                  <NavLinks to = '/profileFront'>Profile</NavLinks>
-                </NavItem>
-              </DisplayAuth>
+                    <NavLinks to = '/admin'>Admin Profile</NavLinks>
+                  </NavItem>
+                </AdminDisp>
+            </DisplayAuth>
 
-              <DisplayAuth>
-                <NavBtn>
-                  <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
-                </NavBtn>
-              </DisplayAuth>
-            </NavMenu>
-          </NavbarContainer>
-        </Nav>
-      </>
-  )
+            <DisplayAuth>
+              <BoardDisp>
+                <NavItem>
+                    <NavLinks to = '/board'>Board Member Profile</NavLinks>
+                  </NavItem>
+                </BoardDisp>
+            </DisplayAuth>
+
+            <DisplayAuth>
+              <NavBtn>
+                <NavBtnLink onClick={handleLogout}>Logout</NavBtnLink>
+              </NavBtn>
+            </DisplayAuth>
+          </NavMenu>
+        </NavbarContainer>
+      </Nav>
+    </>
+)
 }

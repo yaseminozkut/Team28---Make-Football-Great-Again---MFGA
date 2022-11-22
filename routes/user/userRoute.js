@@ -54,12 +54,12 @@ router.post("/signup", (req, res) => {
   })
 });
 
-router.route('/admin').get((req,res)=>{
+router.route('/api/admin').get((req,res)=>{
    User.find()
   .then(users => res.json(users))
   .catch(err => res.status(400).json('Error: ' + err));
 });
-router.post("/admin/:id", (req,res)=>{
+router.post("/api/admin/:id", (req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{
@@ -72,7 +72,7 @@ router.post("/admin/:id", (req,res)=>{
 });
 });
 
-router.post("/admin/banned/:id", (req,res)=>{
+router.post("/api/admin/banned/:id", (req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
   .then(user =>{
@@ -89,38 +89,41 @@ router.post("/admin/banned/:id", (req,res)=>{
 
 
 
-router.post("/admin", (req, res) => {
-  var { name, email, password, username,role,status } = req.body;
+router.post("/api/admin", (req, res) => {
+  var { name, email, password, username,role,status} = req.body;
   console.log(req.body);
   if (!name || !email || !password || !username) {
     res.json({ message: "Please add all data" });
   }
+  bcrypt.hash(password,12)
+  .then((hashedpw) => {  
   User.findOne({ email: email })
-  .then((savedUser) => {
-    if (savedUser) {
-      res.json({ message: "User already exists with that email" });
-    }
-    const user = new User({
-      email,
-      password,
-      name,
-      username,
-      status,
-      role
-    });
-    user.save()
-    .then((user) => {
-      res.json({ message: "Saved successfully"});
-      console.log(user.email);
-
+    .then((savedUser) => {
+      if (savedUser) {
+        res.json({ message: "User already exists with that email" });
+      }
+      const user = new User({
+        email,
+        password:hashedpw,
+        name,
+        username,
+        role,
+        status,
+        team: ""
+      });
+      user.save()
+      .then((user) => {
+        res.json({ message: "Saved successfully" });
+        console.log(user.email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     })
     .catch((err) => {
       console.log(err);
     });
   })
-  .catch((err) => {
-    console.log(err);
-  });
 });
 
 router.post("/login", (req, res) => {

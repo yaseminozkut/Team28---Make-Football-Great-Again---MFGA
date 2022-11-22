@@ -83,7 +83,7 @@ export const Login = () => {
             console.log(response.data.message)
 
           }
-          else if(response.data.role === 1){
+          else if(response.data.user.role === 1){
             console.log("Admin logged in");
             setError("")
             localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
@@ -92,7 +92,7 @@ export const Login = () => {
 
 
           }
-          else if(response.data.role === 2){
+          else if(response.data.user.role === 2){
             console.log("Board Member logged in");
             setError("")
             localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
