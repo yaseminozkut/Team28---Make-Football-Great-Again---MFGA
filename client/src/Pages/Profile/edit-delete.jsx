@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{ useState} from "react";
 import axios from "axios";
 import {
     Title,
@@ -41,15 +41,13 @@ export const Edit_Delete=()=>{
     const location = useLocation();
     const navigate = useNavigate();
 
-    const email = location.state.email;
+    //const email = location.state.email;
     
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const email = user.email; 
 
 const handleDelete = (e)=>{
     e.preventDefault();
-
-
-
-
     axios.delete("http://localhost:4000/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
@@ -79,13 +77,13 @@ const handleUpdate = (e)=>{
   var isUsernameValid = false;
 
   if(fname === ''){
-    fname = location.state.name;
+    fname = user.name;
     isNameValid = true;
   }if(uname === ''){
-    uname = location.state.username;
+    uname = user.username;
     isUsernameValid = true;
   }if(pass === ''){
-    pass = location.state.password;
+    pass = user.password;
     isPasswordValid = true;
   }
 
@@ -143,6 +141,7 @@ const handleUpdate = (e)=>{
   });*/
 }
 
+
 return (
     <ContainerDiv>
       <ContainerCard>
@@ -154,13 +153,13 @@ return (
           <StyledInputUsername
             id="exampleUsername"
             name="username"
-            placeholder= {location.state.username}
+            placeholder= {user.username}
             type="text"
             value={uname}
             onChange={(e) => 
             {
               if(e ==="")
-              {setUsername(location.state.username)}
+              {setUsername(user.username)}
               else{setUsername(e.target.value)}
             }
             }
@@ -171,13 +170,13 @@ return (
           <StyledInputName
             id="exampleName"
             name="name"
-            placeholder={location.state.name}
+            placeholder={user.name}
             type="text"
             value={fname}
             onChange={(e) => 
             {
               if(e ==="")
-              {setFullname(location.state.name)}
+              {setFullname(user.name)}
               else{setFullname(e.target.value)}
             }
             }
@@ -188,13 +187,13 @@ return (
           <StyledInputPassword
             id="examplePassword"
             name="password"
-            placeholder={location.state.password}
+            placeholder={user.password}
             type="text"
             value={pass}
             onChange={(e) => 
             {
               if(e ==="")
-              {setPass(location.state.password)}
+              {setPass(user.password)}
               else{setPass(e.target.value)}
             }
             }

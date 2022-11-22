@@ -68,7 +68,7 @@ export const Login = () => {
       console.log("Wrong email")
     } else {
       axios
-        .post("http://localhost:4000/login", logedIn)
+        .post("http://localhost:4000/login", logedIn, {withCredentials: true})
         .then((response) => {
           if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")
@@ -85,6 +85,8 @@ export const Login = () => {
           else if(response.data.role === 1){
             console.log("Admin logged in");
             setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("user", response.data.user);
             navigate("/admin", {state: response.data});
 
 
@@ -92,6 +94,8 @@ export const Login = () => {
           else if(response.data.role === 2){
             console.log("Board Member logged in");
             setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("user", response.data.user);
             navigate("/board", {state: response.data});
 
 
@@ -100,6 +104,8 @@ export const Login = () => {
             console.log(response.data)
             console.log("Logged in");
             setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("user", response.data.user);
             navigate("/edit", {state: response.data});
           }
         }).catch((err) => {
