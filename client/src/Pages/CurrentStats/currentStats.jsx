@@ -18,7 +18,6 @@ const CurrentStats = () => {
   
 
 
-
   useEffect(() => {
 
     const fetchData = async () => {
@@ -100,7 +99,10 @@ const CurrentStats = () => {
     }
   };
 
-  console.log(data)
+  console.log([...teamStat].sort((a,b) => a.rank < b.rank ? -1 : 1))
+
+  console.log(teamStat)
+  console.log("dummy data" + data)
 
 
   return (
@@ -122,7 +124,7 @@ const CurrentStats = () => {
               <th>d.goaldistance</th>
               <th>d.point</th>
             </tr>
-            {teamStat?.map(d => (
+            {[...teamStat].sort((a,b) => a.rank < b.rank ? -1 : 1)?.map(d => (
               <tr key= {d.rank}>
               <th>{d.rank}</th>
               <th>{d.team}</th>
