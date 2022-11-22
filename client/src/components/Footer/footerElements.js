@@ -16,6 +16,8 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 100%;
+    margin-left: 10rem;
+    margin-right: 10rem;
     /* background: red; */
 `
 
@@ -29,7 +31,7 @@ export const Column = styled.div`
 export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 22rem;
   @media (max-width: 1000px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
@@ -51,4 +53,16 @@ export const Title = styled.p`
   color: #fff;
   margin-bottom: 40px;
 
+`;
+
+export const Title2 = styled.p`
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 40px;
+`;
+
+export const Text = styled.p`
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 40px;
 `;

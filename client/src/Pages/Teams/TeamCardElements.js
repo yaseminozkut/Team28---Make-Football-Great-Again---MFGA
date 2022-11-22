@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import {Card } from "reactstrap";
+import {Card,Button } from "reactstrap";
+
+
 
 export const ContainerCard = styled(Card)`
-  height: 3rem;  
-  width: 16rem;
+  height: 5rem;  
+  width: 18rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius:5%;
@@ -12,13 +14,13 @@ export const ContainerCard = styled(Card)`
   border-bottom-right-radius:5%;
   display: inline-block;
   
-  top: 45%;
+  top: 10%;
   
 
   margin: 0 auto; /* Added */
   float: none; /* Added */
-  margin-bottom: 10px;
-  margin-left:10px; /* Added */
+  margin-bottom: 10px; /* Added */
+  margin-left: 15px;
 
   background: white;
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
@@ -35,38 +37,26 @@ export const NameTitle = styled.h1`
   text-align: center;
   font-weight: bold;
 
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
-export const PositionTitle = styled.h1`
-  position: absolute;
-  top: 50%;
-  left: 14%;
-  
 
-  color: red;
-  
-  text-decoration-thickness: 1px;
-  text-align: center;
+export const GoButton = styled(Button)`
+  position: absolute;
+  top: 40%;
+  right: 5%;
+  display: flex;
+  width: 7rem;
+  height: 1.8rem;
+
+  border: none;
+  justify-content: center;
+  font-size: 11px;
   font-weight: bold;
 
+  color: black;
 
-  font-size: 0.9rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-`;
-
-export const BirthTitle = styled.h1`
-  position: absolute;
-
-  left: 65%;
-  
-
-  color: rgb(0, 0, 0, 0.5);
-
-  text-align: center;
-
-  font-size: 1rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
 `;
 
 

@@ -23,6 +23,9 @@ const userSchema = mongoose.Schema({
     },
     status:{
         type:Number,
+    },
+    team:{
+        type:String,
     }
     
 })

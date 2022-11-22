@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {Card } from "reactstrap";
+
 
 export const ContainerDiv = styled.div`
   position: absolute;
@@ -25,50 +27,104 @@ export const ContainerDiv = styled.div`
   );
   flex: 1;
 `;
-export const PlayerTitle = styled.h1`
-position:relative;
-width:30%;
 
-  top: 35%;
-  left: 46%;
+export const TeamNameTitle = styled.h1`
+position:relative;
+width:20%;
+
+  top: 22%;
+  margin:auto;
 
 
 
   color: black;
 
-  font-size: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
   font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const PlayerTitle = styled.h1`
+position:relative;
+width:10%;
+
+  top: 48%;
+  margin: auto;
+
+
+
+  color: black;
+
+  font-size: 1.6rem;
+  text-align: center;
+ 
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const StatsTitle = styled.h1`
+position:relative;
+width:10%;
+
+  top: 28%;
+  margin:auto;
+  
+
+
+
+  color: black;
+
+  font-size: 1.6rem;
+  text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 
 export const StyledHr = styled.hr`
-position:relative;
-width:80%;
+   position:relative;
+   width:100%;
 
-  top: 40%;
+   top: 21%;
+  
 
 
   border-style: dotted none none ;
   border-color: red;
-  border-width: 15px;
-  height: 15px;
+  border-width: 10px;
+  height: 10px;
   margin: 0 auto;
-  width:40%;
 
+
+`;
+
+export const TeamCard = styled(Card)`
+  height: 75rem;  
+  width: 80%;
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-top-right-radius:5%;
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 5%;
+  border-bottom-right-radius:5%;
+  display: inline-block;
+  
+  top: 10%;
+  left:10%;
+  
+  
+
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  margin-left: 10px;
+
+  background: white;
+  box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
 `;
 
 export const TeamImg = styled.img`
  position:absolute;
- left:44%;
-  top: 10%;
-  border-radius: 50%;
+ left:43.5%;
+  top: 3%;
   border: 7px #432C7A;
   width: 200px;
   height: 200px;
-
-
-
-
-
 
 `;

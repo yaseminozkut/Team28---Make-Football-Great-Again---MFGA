@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 4000;
 
 // require db connection
 require("./models/user");
-require("./models/player")
+require("./models/player");
+require("./models/team");
 require("./models/stat")
 require("./models/recentMatch")
+require("./models/referee");
 
 //cookie handling
 app.use(cookieParser())
@@ -29,7 +31,7 @@ app.use(cors({
 const routes = require("./routes/user/userRoute");
 const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
-//const teamRoutes = require("./routes/playersRoute");
+const refereeRoutes = require("./routes/refereeRoute");
 
 //Web scrapping
 // require("./web/scraping")
@@ -40,9 +42,11 @@ require("./web-scraping/teamPlayers")
 app.use(express.static('client/build'));
 
 // routes
+app.use(refereeRoutes);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
+//app.use(refereeRoutes);
 
 
 mongoose.connect(process.env.MONGODB_URI || MONGOURL, {

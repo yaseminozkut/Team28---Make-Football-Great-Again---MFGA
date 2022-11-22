@@ -1,5 +1,5 @@
 //Alper Kaan
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +19,8 @@ import {
   Error,
 } from "./loginElements";
 import { Footer } from "../../components/Footer/Footer";
+import AuthContext from "../../context/AuthContext";
+
 
 export const Login = () => {
   const [values, setValues] = useState({
@@ -30,7 +32,6 @@ export const Login = () => {
   const [errors, setError] = useState("");
 
   const navigate = useNavigate();
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,7 +86,7 @@ export const Login = () => {
           else if(response.data.role === 1){
             console.log("Admin logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
             navigate("/admin", {state: response.data});
 
@@ -94,7 +95,7 @@ export const Login = () => {
           else if(response.data.role === 2){
             console.log("Board Member logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
             navigate("/board", {state: response.data});
 
@@ -104,9 +105,9 @@ export const Login = () => {
             console.log(response.data)
             console.log("Logged in");
             setError("")
-            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
-            navigate("/edit", {state: response.data});
+            navigate("/profile", {state: response.data});
           }
         }).catch((err) => {
           setError("No user exist with this email and password")
@@ -123,6 +124,7 @@ export const Login = () => {
   };
 
   return (
+    
     <ContainerDiv>
       <ContainerCard>
         <Title>Login</Title>
