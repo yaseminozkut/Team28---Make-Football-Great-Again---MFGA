@@ -111,7 +111,7 @@ const handleUpdate = (e)=>{
     axios.post("https://mfga.herokuapp.com/edit",updated)
     .then((res)=>{
         if(res.status===200){
-            navigate('/profile')
+            navigate('/profileFront')
             localStorage.setItem("currentUser", JSON.stringify({name: fname, username: uname, email: email, password: pass, role: user.role}))
             window.alert("User is updated! Please login with new information")
             console.log("Updated!");

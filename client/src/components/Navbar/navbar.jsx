@@ -17,7 +17,7 @@ export const Navbar = ( {toggle} ) => {
     e.preventDefault();
     localStorage.removeItem("currentUser");
     localStorage.removeItem("user");
-    axios.get("http://localhost:4000/logout")
+    axios.get("https://mfga.herokuapp.com/logout")
     .then(async (res)=>{
         if(res.status===200){
             await getLoggedIn();
@@ -66,7 +66,7 @@ export const Navbar = ( {toggle} ) => {
 
               <DisplayAuth>
                 <NavItem>
-                  <NavLinks to = '/profile'>Profile</NavLinks>
+                  <NavLinks to = '/profileFront'>Profile</NavLinks>
                 </NavItem>
               </DisplayAuth>
 

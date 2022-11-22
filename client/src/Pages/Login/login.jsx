@@ -107,7 +107,7 @@ export const Login = () => {
             setError("")
             localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
             localStorage.setItem("user", response.data.user);
-            navigate("/profile", {state: response.data});
+            navigate("/profileFront", {state: response.data});
           }
         }).catch((err) => {
           setError("No user exist with this email and password")
