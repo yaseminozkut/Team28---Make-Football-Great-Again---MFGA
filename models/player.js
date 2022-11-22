@@ -1,29 +1,23 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
+const playerSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    email: {
+    birth: {
         type: String,
         required: true,
-        unique: true,
     },
-    password: {
+    position: {
         type: String, 
         required: true
     },
-    username: {
+    team:{
         type: String,
-        required: true,
-    },
-    role:{
-        type: Number,
-    },
-    status:{
-        type:Number,
+        required:true
     }
+
     
 })
-mongoose.model('User', userSchema);
+mongoose.model('Player', playerSchema);

@@ -18,6 +18,7 @@ import {
   StyledNavLink,
   Error,
 } from "./loginElements";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Login = () => {
   const [values, setValues] = useState({
@@ -67,7 +68,7 @@ export const Login = () => {
       console.log("Wrong email")
     } else {
       axios
-        .post("https://mfga.herokuapp.com/login", logedIn)
+        .post("http://localhost:4000/login", logedIn, {withCredentials: true})
         .then((response) => {
           if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")
@@ -75,9 +76,36 @@ export const Login = () => {
           }else if(response.data.message === "Invalid email or password"){
             setError("Incorrect email or password")
             console.log(response.data.message)
-          }else{
+          }
+          else if(response.data.message === "User has been banned"){
+            setError("User has been banned.")
+            console.log(response.data.message)
+
+          }
+          else if(response.data.role === 1){
+            console.log("Admin logged in");
+            setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("user", response.data.user);
+            navigate("/admin", {state: response.data});
+
+
+          }
+          else if(response.data.role === 2){
+            console.log("Board Member logged in");
+            setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("user", response.data.user);
+            navigate("/board", {state: response.data});
+
+
+          }
+          else{
+            console.log(response.data)
             console.log("Logged in");
             setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password}))
+            localStorage.setItem("user", response.data.user);
             navigate("/edit", {state: response.data});
           }
         }).catch((err) => {
@@ -127,6 +155,8 @@ export const Login = () => {
           </StyledNavLink>
         </StyledForm>
       </ContainerCard>
+      <Footer></Footer>
     </ContainerDiv>
+    
   );
 };

@@ -1,29 +1,21 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
-    name: {
+const recentMatch = mongoose.Schema({
+    skor: {
         type: String,
         required: true
     },
-    email: {
+    date: {
         type: String,
         required: true,
-        unique: true,
     },
-    password: {
+    away: {
         type: String, 
         required: true
     },
-    username: {
+    home: {
         type: String,
         required: true,
     },
-    role:{
-        type: Number,
-    },
-    status:{
-        type:Number,
-    }
-    
 })
-mongoose.model('User', userSchema);
+mongoose.model('Recent', recentMatch);

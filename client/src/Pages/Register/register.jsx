@@ -25,6 +25,7 @@ import {
 } from "./registerElements";
 
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../../components/Footer/Footer";
 
 export const Register = () => {
   const [values, setValues] = useState({
@@ -32,6 +33,8 @@ export const Register = () => {
     username: "",
     email: "",
     password: "",
+    status: 1,
+    role: 0
   });
   const [errorEmail, setErrorEmail] = useState("");
   const [errorName, setErrorName] = useState("");
@@ -51,10 +54,14 @@ export const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
+
     const registered = {
       ...values,
       [name]: value,
     };
+    registered.role = 0
+    registered.status = 1
+
 
     setErrorEmail("");
     setErrorName("");
@@ -97,8 +104,9 @@ export const Register = () => {
       isNameValid &&
       isUsernameValid
     ) {
+
       axios
-        .post("https://mfga.herokuapp.com/signup", registered)
+        .post("http://localhost:4000/signup", registered)
         .then((response) => {
           if(response.data.message === "User already exists with that email"){
             window.alert("User already exists with that email")
@@ -196,6 +204,7 @@ export const Register = () => {
           </StyledNavLink>
         </StyledForm>
       </ContainerCard>
+      <Footer></Footer>
     </ContainerDiv>
   );
 };

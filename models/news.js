@@ -1,29 +1,21 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
-    name: {
+const newsSchema = mongoose.Schema({
+    imgUrl: {
         type: String,
         required: true
     },
-    email: {
+    newsUrl: {
         type: String,
         required: true,
-        unique: true,
     },
-    password: {
+    newsCaption: {
         type: String, 
         required: true
     },
-    username: {
+    newsSpan: {
         type: String,
         required: true,
     },
-    role:{
-        type: Number,
-    },
-    status:{
-        type:Number,
-    }
-    
 })
-mongoose.model('User', userSchema);
+mongoose.model('News', newsSchema);
