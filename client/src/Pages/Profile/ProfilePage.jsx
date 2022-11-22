@@ -76,8 +76,11 @@ export const Profile = () => {
       });
   };
 
-  if (user === null) {
-    return <Loading></Loading>;
+
+
+  if (user === null || user.email === null) {
+    console.log("user is logged out from profile page")
+    return <h1>Loading...</h1>
   }
 
   return (
