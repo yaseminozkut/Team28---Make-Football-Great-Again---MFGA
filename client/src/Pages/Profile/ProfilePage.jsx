@@ -3,7 +3,7 @@ import axios from "axios";
 import {DropDownList,standingsTitle,DropDownListContainer,UsernameTitle, ContainerCard, NameTitle, ContainerDiv,StyledButton,StyledNavLink,TeamTitle, ListItem,DropDownContainer,DropDownHeader, StandingCard} from "./ProfileElements";
 import {useNavigate, useLocation} from 'react-router-dom';
 import { Footer } from "../../components/Footer/Footer";
-
+import {Loading} from "../../components/Loading/loading"
 
 
 export const Profile=()=>{
@@ -11,6 +11,11 @@ export const Profile=()=>{
 const navigate = useNavigate();
 
 const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if(user === null) {
+  return <Loading></Loading>
+}
+
 const email = user.email; 
 var team = user.team;
 
