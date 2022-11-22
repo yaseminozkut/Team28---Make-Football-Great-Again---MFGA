@@ -12,7 +12,7 @@ const Sidebar = ( {isOpen, toggle} ) => {
           <SidebarLink to="/" onClick={toggle}>Homepage</SidebarLink>
           <SidebarLink to="/login" onClick={toggle}>Login</SidebarLink>
           <SidebarLink to="/signup" onClick={toggle}>Register</SidebarLink>
-          <SidebarLink to="/" onClick={toggle}>League Stats</SidebarLink>
+          <SidebarLink to="/currentstats" onClick={toggle}>Current League Stats</SidebarLink>
           <SidebarLink to="/" onClick={toggle}>Referee</SidebarLink>
           <SidebarLink to="/" onClick={toggle}>About Us</SidebarLink>
         </SidebarMenu>

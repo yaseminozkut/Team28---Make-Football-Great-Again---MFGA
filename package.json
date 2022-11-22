@@ -25,7 +25,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.1",
     "nightmare": "^3.0.2",
-    "object-to-csv": "^1.0.5"
+    "object-to-csv": "^1.0.5",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

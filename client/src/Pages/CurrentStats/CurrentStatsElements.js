@@ -31,7 +31,7 @@ export const LeagueTableContainer = styled.div`
     background: white;
     position: relative;
     left: 10rem;
-    width: 40rem;
+    width: 60rem;
 
     margin-top: 10rem;
 `

@@ -1,14 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const User = mongoose.model("User");
-const Player = mongoose.model("Player");
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-const auth = require('../middleware/auth');
+const auth = require('../../middleware/auth');
 const secretKey = "SecretKey123"
 const Team = mongoose.model("Team");
+
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
+const Player = mongoose.model("Player");
+// const Stat = mongoose.model("Stat")
+
+
+
+
+
 
 router.post("/signup", (req, res) => {
   var { name, email, password, username,role,status} = req.body;
@@ -244,6 +252,7 @@ router.route("/edit").delete(auth, (req,res)=>{
     }
   });
 })
+
 router.route('/edit').post(auth, (req,res)=>{
   var email = req.body.email;
   User.findOne({email:email})
