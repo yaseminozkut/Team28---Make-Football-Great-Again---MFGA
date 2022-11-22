@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {FaBars} from 'react-icons/fa'
+import AuthContext from '../../context/AuthContext'
 import { MobileIcon, Nav, NavbarContainer, NavLogo, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink } from './NavbarElements'
 
 export const Navbar = ( {toggle} ) => {
+
+  const loggedIn = useContext(AuthContext);
+  console.log(loggedIn); 
+
   return (
       <>
         <Nav>
@@ -24,10 +29,10 @@ export const Navbar = ( {toggle} ) => {
                 <NavLinks to = '/currentstats'>Current Stats</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
+                <NavLinks to = '/teams'>Teams</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/'>Homepage</NavLinks>
+                <NavLinks to = '/profile'>Profile</NavLinks>
               </NavItem>
               <NavBtn>
                 <NavBtnLink to='/login'>Login</NavBtnLink>
