@@ -144,6 +144,7 @@ export const StyledButton2 = styled(Button)`
 
   background: #ffffff
 `;
+
 export const StyledHr = styled.hr`
   top: 27.5rem;
   left: 25%;

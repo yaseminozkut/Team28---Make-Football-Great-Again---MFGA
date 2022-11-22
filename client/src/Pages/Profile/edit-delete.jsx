@@ -19,8 +19,9 @@ import {
     StyledUsernameError
   } from "./edit-deleteElements";
 
-import {useNavigate, useLocation} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { Footer } from "../../components/Footer/Footer";
+
 
 export const Edit_Delete=()=>{
     const[values,setValues] = useState({
@@ -37,22 +38,21 @@ export const Edit_Delete=()=>{
     const [errorName, setErrorName] = useState("")
     const [errorPassword, setErrorPassword] = useState("")
     const [errorUsername, setErrorUsername] = useState("")
-
-    const location = useLocation();
     const navigate = useNavigate();
-
-    //const email = location.state.email;
     
     const user = JSON.parse(localStorage.getItem("currentUser"));
     const email = user.email; 
 
+
 const handleDelete = (e)=>{
     e.preventDefault();
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("user");
     axios.delete("http://localhost:4000/edit",{data: {email:email}})
     .then((res)=>{
         if(res.status===200){
             console.log("Deleted");
-            navigate('/login', {state: res.data});
+            //navigate('/login', {state: res.data});
         }
         else{
             console.log("Error happened, cannot delete!");
@@ -61,6 +61,7 @@ const handleDelete = (e)=>{
     .catch((err)=>{
         console.log(err);
     });
+    navigate('/login');
 }
 
 const handleUpdate = (e)=>{
@@ -105,10 +106,13 @@ const handleUpdate = (e)=>{
   if (/^[a-zA-Z0-9._]{1,20}$/.test(uname)) { isUsernameValid = true }
 
   if(isPasswordValid && isNameValid && isUsernameValid){
-    axios.post("https://localhost:4000/edit",updated)
+    //localStorage.removeItem("currentUser");
+    //localStorage.removeItem("user");
+    axios.post("http://localhost:4000/edit",updated)
     .then((res)=>{
         if(res.status===200){
-            navigate('/login')
+            //navigate('/login')
+            localStorage.setItem("currentUser", JSON.stringify({name: fname, username: uname, email: email, password: pass, role: user.role}))
             window.alert("User is updated! Please login with new information")
             console.log("Updated!");
         }
@@ -119,6 +123,7 @@ const handleUpdate = (e)=>{
     .catch((err)=>{
         console.log(err);
     });
+    //navigate('/login')
   }
   else{
     if(!isPasswordValid){
@@ -158,7 +163,7 @@ return (
             value={uname}
             onChange={(e) => 
             {
-              if(e ==="")
+              if(e === "")
               {setUsername(user.username)}
               else{setUsername(e.target.value)}
             }
