@@ -13,7 +13,6 @@ export const Team = ()=>{
     .then(res =>{
         const teams = res.data;
         SetTeams(teams)
-        console.log(teams)
     })
     .catch((err)=>{
         console.log(err);
