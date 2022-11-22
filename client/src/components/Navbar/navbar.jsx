@@ -22,7 +22,7 @@ export const Navbar = ( {toggle} ) => {
         if(res.status===200){
             await getLoggedIn();
             console.log("Logged out");
-            navigate('/login');
+            navigate('/');
         }
         else{
             console.log("Error happened, cannot logout!");

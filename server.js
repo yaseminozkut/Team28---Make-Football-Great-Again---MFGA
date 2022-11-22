@@ -24,7 +24,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "https://mfga.herokuapp.com",
+  origin: "*",
   credentials: true,
 }));
 
@@ -32,7 +32,7 @@ const routes = require("./routes/user/userRoute");
 const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
-
+const path = require('path');
 //Web scrapping
 // require("./web/scraping")
 require("./web-scraping/teamPlayers")
@@ -47,8 +47,16 @@ app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
 //app.use(refereeRoutes);
-
-
+//const __dirname = path.resolve();
+app.use(express.static(path.join(path.resolve(), "/client/build")));
+app.get("*", (req, res)=>
+  res.sendFile(path.resolve(path.resolve(), "client", "build", "index.html"))
+);
+/*
+app.use(function(req, res) {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+*/
 mongoose.connect(process.env.MONGODB_URI || MONGOURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 const auth = require('../../middleware/auth');
 const secretKey = "SecretKey123"
 const Team = mongoose.model("Team");
@@ -351,9 +350,6 @@ router.route('/profile').get((req,res)=>{
 });
 
 
-router.use(function(req, res) {
-	res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
 
 
 module.exports = router;
