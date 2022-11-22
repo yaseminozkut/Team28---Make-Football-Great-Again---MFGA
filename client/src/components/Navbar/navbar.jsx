@@ -29,7 +29,7 @@ export const Navbar = ( {toggle} ) => {
                 <NavLinks to = '/currentstats'>Current Stats</NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to = '/teams'>Teams</NavLinks>
+                <NavLinks to = '/team'>Teams</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to = '/profile'>Profile</NavLinks>
