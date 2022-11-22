@@ -1,4 +1,4 @@
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 import styled from "styled-components";
 
 export const ContainerDiv = styled.div`
@@ -30,9 +30,9 @@ export const ContainerDiv = styled.div`
 export const LeagueTableContainer = styled.div`
     background: white;
     position: relative;
-    left: 10rem;
+    left: 18%;
     width: 60rem;
-
+    height: 58rem;
     margin-top: 10rem;
 `
 
@@ -41,4 +41,11 @@ export const LeagueTable = styled(Table)`
 
     
 
+`
+
+export const RefreshButton = styled( Button )`
+  position: relative;
+  left: 50rem;
+  top: 0.4rem;
+  width: 9rem;
 `
