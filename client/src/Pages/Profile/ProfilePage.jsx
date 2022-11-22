@@ -17,7 +17,7 @@ var team = user.team;
     const [u_teams,SetUteams] = useState([]);
 
     
-    axios.get('http://localhost:4000/profile')
+    axios.get('https://mfga.herokuapp.com/profile')
     .then(res =>{
         const u_teams = res.data;
         SetUteams(u_teams)
@@ -50,7 +50,7 @@ const handleSubmit = (e) => {
         }
         console.log(Selectedteam)
         axios
-        .post("http://localhost:4000/profile", Selectedteam)
+        .post("https://mfga.herokuapp.com/profile", Selectedteam)
         .then((response) => {
             window.alert("User successfully selected team")
             
