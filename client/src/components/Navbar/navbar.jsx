@@ -58,12 +58,16 @@ export const Navbar = ( {toggle} ) => {
               </NavItem>
               <NavItem>
                 <NavLinks to = '/teams'>Teams</NavLinks>
+                <NavLinks to = '/referee'>Referees</NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks to = '/profile'>Profile</NavLinks>
               </NavItem>
               <Display>
-                <NavBtn>
+                <NavItem>
+                <NavLinks to = '/signup'>Register</NavLinks>
+              </NavItem>
+              <NavBtn>
                   <NavBtnLink to='/login'>Login</NavBtnLink>
                 </NavBtn>
               </Display>
