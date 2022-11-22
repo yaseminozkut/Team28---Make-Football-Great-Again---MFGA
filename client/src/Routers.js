@@ -14,12 +14,15 @@ import Homepage from './Pages/Homepage/homepage';
 import NavSide from './Pages/Nav-Side';
 
 import BoardMember from './Pages/BoardMember/boardmemberpage';
-import { Galatasaray } from './Pages/Teams/Galatasaray';
 import CurrentStats from './Pages/CurrentStats/currentStats';
 import AuthContext, { AuthContextProvider } from './context/AuthContext';
 import { useContext } from 'react';
 import { Auth, NoAuth } from './components/PageDirect/Auth';
 import { RoleAdmin, RoleBoardMember, RoleUser } from './components/PageDirect/Role';
+import {Referee} from './Pages/Referee/referee';
+import {Profile} from './Pages/Profile/ProfilePage';
+import {TeamPage} from './Pages/Teams/TeamPage';
+import {Team} from './Pages/Teams/Team';
 
 function Routers() {
     return (
@@ -35,11 +38,11 @@ function Routers() {
                 <Route path="edit" element={<Auth> <RoleUser> <Edit_Delete/> </RoleUser> </Auth>} />
                 <Route path="admin" element={<Auth> <RoleAdmin> <Admin/> </RoleAdmin> </Auth>} />
                 <Route path="board" element={<Auth> <RoleBoardMember> <BoardMember/> </RoleBoardMember> </Auth>} />
-                <Route path="teams/:team" element={<Galatasaray team="fenerbahce"/>} />
-                
-
+                <Route path="teams" element={<Team/>} />
+                <Route path="teams/:team" element={<TeamPage/>} />
                 <Route path="currentstats" element={<CurrentStats/>}/>
-
+                <Route path="profile" element={<Auth> <RoleUser> <Profile/> </RoleUser> </Auth>} />
+                <Route path="referee" element={<Referee/>} />
                 {/* <Route path="*" element={<NoPage />} /> */}
             </Route>
             </Routes>

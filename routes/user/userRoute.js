@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -8,7 +9,6 @@ const auth = require('../../middleware/auth');
 const secretKey = "SecretKey123"
 const Team = mongoose.model("Team");
 
-const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Player = mongoose.model("Player");
 // const Stat = mongoose.model("Stat")
