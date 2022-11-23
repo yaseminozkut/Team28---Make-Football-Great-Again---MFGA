@@ -102,16 +102,16 @@ const CurrentStats = () => {
         <LeagueTable hover>
           <thead>
             <tr>
-              <th>d.rank</th>
-              <th>d.team</th>
-              <th>d.play</th>
-              <th>d.win</th>
-              <th>d.draw</th>
-              <th>d.lose</th>
-              <th>d.goalfor</th>
-              <th>d.goalagainst</th>
-              <th>d.goaldistance</th>
-              <th>d.point</th>
+              <th>Rank</th>
+              <th>Team</th>
+              <th>MP</th>
+              <th>W</th>
+              <th>D</th>
+              <th>L</th>
+              <th>GF</th>
+              <th>GA</th>
+              <th>GD</th>
+              <th>Pts</th>
             </tr>
             {[...teamStat]
               .sort((a, b) => (a.rank < b.rank ? -1 : 1))
