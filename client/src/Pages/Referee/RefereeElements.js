@@ -54,12 +54,12 @@ export const ContainerCard = styled(Card)`
 `;
 
 export const Title = styled.h1`
-  position: absolute;
+  position: relative;
+  margin: auto;
   top: 65px;
-  left: 20%;
-  right: 20%;
 
-  color: rgb(0, 0, 0, 0.5);
+  color: black;
+  font-weight: bold;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-align: center;

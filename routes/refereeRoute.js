@@ -14,11 +14,13 @@ async function getReferees(url) {
     const referee = $("tr");
     referee.each(function () {
       const rname = $(this).find("td .hauptlink a").text();
+      //const image = $(this).find("tr:nth-child(1) > td:nth-child(1) > a > img").attr('src');
       const matchCount = $(this).find("td.zentriert.hauptlink a").text();
       const yellowCard = $(this).find("td:nth-child(4)").text();
       const yellowRedCard = $(this).find("td:nth-child(5)").text();
       const redCard = $(this).find("td:nth-child(6)").text();
       const penalty = $(this).find("td:nth-child(7)").text();
+      //console.log(image);
 
       if (rname.length > 1) {
         /*
@@ -54,6 +56,11 @@ async function getReferees(url) {
 getReferees(refereeUrl);
 
 router.route('/referees').get((req,res)=>{
+  Referee.find()
+ .then(referees => res.json(referees))
+ .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/referees/:name').get((req,res)=>{
   Referee.find()
  .then(referees => res.json(referees))
  .catch(err => res.status(400).json('Error: ' + err));

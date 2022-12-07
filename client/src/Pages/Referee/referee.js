@@ -11,7 +11,7 @@ export const Referee = (props) => {
 
   useEffect(() => {
     axios
-        .get("https://mfga.herokuapp.com/referees")
+        .get("http://localhost:4000/referees")
         .then( (res) => {
           const referees = res.data;
           SetReferees(referees);
@@ -30,11 +30,7 @@ export const Referee = (props) => {
       <RefereeCard
         key={referee._id}
         name={referee.name}
-        matchCount={referee.matchCount}
-        yellowCard={referee.yellowCard}
-        yellowRedCard={referee.yellowRedCard}
-        redCard={referee.redCard}
-        penalty={referee.penalty}
+        rating ={5}
       />
     );
   }
