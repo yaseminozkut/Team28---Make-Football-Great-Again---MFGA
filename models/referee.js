@@ -26,6 +26,10 @@ const refereeSchema = mongoose.Schema({
     penalty:{
         type: String,
         required:true
+    },
+    image:{
+        type:String,
+        required:false
     }
 })
 mongoose.model('Referee', refereeSchema);

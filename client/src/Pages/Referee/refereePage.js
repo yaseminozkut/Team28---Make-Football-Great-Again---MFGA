@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import { ContainerDiv, NameTitle, RedCard, RedCardTitle, RefereeCard, YellowCard, YellowCardTitle,YellowRedCardTitle,YellowRedCard,MatchCountTitle, MatchCount, PenaltyTitle, Penalty, RefereeImg} from "./refereePageElements";
 
 export const RefereePage = ()=>{
     const {name} = useParams();
     const [referees,SetReferees] = useState([]);
-    const [values, setValues] = useState({
-        name: "",
-        yellowCard: "",
-        yellowRedCard: "",
-        redCard: 0,
-        matchCount: "",
-        penalty: 0
-      });
+    const[yellowCard,SetYellow] = useState([]);
+    const[redCard,SetRed] = useState([]);
+    const[yellowRedCard,SetYellowRed] = useState([]);
+    const[matchCount,SetMatchCount] = useState([]);
+    const[penalty,SetPenalty] = useState([]);
+    const[myName,SetName] = useState([]);
+    const[Img,SetImg] = useState([]);
+
     useEffect(() => {
         axios
         .get("http://localhost:4000/referees")
@@ -26,8 +27,14 @@ export const RefereePage = ()=>{
             cleanName = cleanName.replace(" ", "")
             cleanName = cleanName.replace(" ", "")
             if(cleanName === name){
-                setValues(element.name,element.yellowCard,element.yellowRedCard,element.redCard,element.matchCount,element.penalty)
-                console.log(values)
+              SetYellow(element.yellowCard)
+              SetYellowRed(element.yellowRedCard)
+              SetMatchCount(element.matchCount)
+              SetPenalty(element.penalty)
+              SetRed(element.redCard)
+              SetName(element.name)
+              SetImg(element.image)
+                
               }
               
           });
@@ -37,5 +44,25 @@ export const RefereePage = ()=>{
           console.log(err);
         });
       }, [])
+
+      return(
+        <ContainerDiv>
+          <RefereeCard>
+          <RefereeImg src={Img}></RefereeImg>
+          <NameTitle>{myName}</NameTitle>
+          <RedCardTitle>Red Card</RedCardTitle>
+          <RedCard>{redCard}</RedCard>
+          <YellowCardTitle>Yellow Card</YellowCardTitle>
+          <YellowCard>{yellowCard}</YellowCard>
+          <YellowRedCardTitle>Yellow-Red Card</YellowRedCardTitle>
+          <YellowRedCard>{yellowRedCard}</YellowRedCard>
+          <MatchCountTitle>MatchCount</MatchCountTitle>
+          <MatchCount>{matchCount}</MatchCount>
+          <PenaltyTitle>Penalty</PenaltyTitle>
+          <Penalty>{penalty}</Penalty>
+          </RefereeCard>
+          
+        </ContainerDiv>
+      )
 
 }

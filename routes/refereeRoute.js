@@ -42,6 +42,7 @@ async function getReferees(url) {
               yellowRedCard: yellowRedCard,
               redCard: redCard,
               penalty: penalty,
+              image: ""
             })
             rf.save()
           }
@@ -54,6 +55,43 @@ async function getReferees(url) {
 }
 
 getReferees(refereeUrl);
+
+
+// const refereeImgUrl = "https://tr.wikipedia.org/w/index.php?limit=20&offset=20&profile=default&search=s%C3%BCper+lig+hakemler&title=%C3%96zel:Ara&ns0=1";
+// //const referee_data = [];
+// async function getRefereeImages(url) {
+//   try {
+//     const response = await axios.get(url);
+//     const $ = cheerio.load(response.data);
+//     const referee = $("tr");
+//     referee.each(function () {
+//       var rname = $(this).find("td.searchResultImage-text > div.mw-search-result-heading > a").text();
+//       const image = $(this).find("td.searchResultImage-thumbnail > a > img").attr('src');
+      
+//       rname = rname.replace("ı", "i")
+//       rname = rname.replace("ı", "i")
+      
+
+//       if (rname.length > 1) {
+
+//          Referee.findOne({ name: rname }).then((foundReferee) => {
+//           if(foundReferee){
+//             foundReferee.image = image;
+
+//             foundReferee.save()
+
+//           }
+          
+        
+//         });
+//       }
+//     });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+
+// getRefereeImages(refereeImgUrl);
 
 router.route('/referees').get((req,res)=>{
   Referee.find()
