@@ -28,7 +28,7 @@ export const ContainerDiv = styled.div`
 export const NameTitle = styled.h1`
 width:30%;
 top:10%;
-  margin:5rem auto;
+  margin:2rem auto;
 
 
 
@@ -38,6 +38,21 @@ top:10%;
   text-align: center;
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const Rating = styled.h1`
+position: absolute;
+width:30%;
+top:5%;
+  margin:30px auto;
+
+
+
+  color: white;
+
+  font-size: 2rem;
+  text-align: center;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
@@ -245,8 +260,9 @@ position: relative;
 export const RefereeImg = styled.img`
  margin:30px auto 0 auto;
   border: 7px black;
-  width: 200px;
-  height: 200px;
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
 
 `;
 

@@ -42,7 +42,7 @@ async function getReferees(url) {
               yellowRedCard: yellowRedCard,
               redCard: redCard,
               penalty: penalty,
-              image: ""
+              image: "https://st2.depositphotos.com/4758973/9356/v/600/depositphotos_93565834-stock-illustration-soccer-referee-icon.jpg"
             })
             rf.save()
           }

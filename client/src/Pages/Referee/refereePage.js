@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
-import { ContainerDiv, NameTitle, RedCard, RedCardTitle, RefereeCard, YellowCard, YellowCardTitle,YellowRedCardTitle,YellowRedCard,MatchCountTitle, MatchCount, PenaltyTitle, Penalty, RefereeImg} from "./refereePageElements";
+import { ContainerDiv, NameTitle, RedCard, RedCardTitle, RefereeCard, YellowCard, YellowCardTitle,YellowRedCardTitle,YellowRedCard,MatchCountTitle, MatchCount, PenaltyTitle, Penalty, RefereeImg, Rating} from "./refereePageElements";
 
 export const RefereePage = ()=>{
     const {name} = useParams();
@@ -48,6 +48,7 @@ export const RefereePage = ()=>{
       return(
         <ContainerDiv>
           <RefereeCard>
+          <Rating>Rating: {5}⭐</Rating>
           <RefereeImg src={Img}></RefereeImg>
           <NameTitle>{myName}</NameTitle>
           <RedCardTitle>Red Card</RedCardTitle>
