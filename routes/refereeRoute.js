@@ -4,6 +4,7 @@ const router = express.Router();
 const cheerio = require("cheerio");
 const mongoose = require("mongoose");
 const Referee = mongoose.model("Referee");
+const Rating = mongoose.model("Rating");
 const refereeUrl =
   "https://www.transfermarkt.com.tr/super-lig/schiedsrichter/wettbewerb/TR1/saison_id/2022";
 //const referee_data = [];
@@ -42,6 +43,8 @@ async function getReferees(url) {
               yellowRedCard: yellowRedCard,
               redCard: redCard,
               penalty: penalty,
+              point:0,
+              ratedPeople:0,
               image: "https://st2.depositphotos.com/4758973/9356/v/600/depositphotos_93565834-stock-illustration-soccer-referee-icon.jpg"
             })
             rf.save()
@@ -97,6 +100,49 @@ router.route('/referees').get((req,res)=>{
   Referee.find()
  .then(referees => res.json(referees))
  .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route('/referees').post((req,res)=>{
+  var { point, refName,userName } = req.body;
+  console.log(point)
+  Rating.findOne({ ref: refName,user:userName }).then((rated) => {
+    if (!rated) {
+      const rate = new Rating({
+        user: userName,
+        ref: refName,
+        point: point,
+      })
+      rate.save()
+      Referee.findOne({name:refName}).then((referee)=>{
+        var oldRate = referee.point;
+        oldRate = parseFloat(oldRate) + parseFloat(point);
+
+        referee.point = oldRate,
+        referee.ratedPeople +=1
+        referee.save().then(()=>res.json({message:'Referee rated!'}))
+        .catch(err => res.status(400).json({message:'Error: '+err}));
+      })
+      
+    }
+    else{
+      var oldPoint= rated.point
+      console.log("OldPoint= "+ oldPoint)
+      rated.point = point
+      rated.save()
+      Referee.findOne({name:refName}).then((referee)=>{
+        var oldRate = referee.point
+        oldRate = oldRate - oldPoint
+        thepoint = point
+        total = parseFloat(oldRate) + parseFloat(thepoint)
+        referee.point = total
+        referee.save().then(()=>res.json({message: 'Your old rate changed!'}))
+        .catch(err => res.status(400).json({message: 'Error: '+err}));
+      })
+      
+      
+      
+    }
+  })
+ .catch(err => res.status(400).json({message:'Error: ' + err}));
 });
 router.route('/referees/:name').get((req,res)=>{
   Referee.find()

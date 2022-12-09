@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import {Card,Input } from "reactstrap";
+import {Card,Input,Button } from "reactstrap";
 
 export const ContainerCard = styled(Card)`
   position: absolute;
-  height: 5rem;
+  height: 7rem;
   width: 12rem;
   left: 8%;
   top: 12%;
@@ -28,7 +28,7 @@ export const ContainerDiv = styled.div`
   margin: 0;
   padding: 0;
 
-  height: 100%;
+  height: 80%;
   width: 100%;
   
 `;
@@ -41,34 +41,34 @@ font-size:0.8rem;
 `;
 export const OneInput = styled(Input)`
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 5%;
 
 
 `;
 export const TwoInput = styled(Input)`
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 25%;
 
 
 `;
 export const ThreeInput = styled(Input)`
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 45%;
 
 
 `;
 export const FourInput = styled(Input)`
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 65%;
 
 `;
 export const FiveInput = styled(Input)`
   position: absolute;
-  top: 30%;
+  top: 20%;
   
   left: 85%;
 
@@ -78,7 +78,7 @@ export const One = styled.h1`
   position: absolute;
   font-size: 1rem;
   color:white;
-  top: 60%;
+  top: 45%;
   left: 5%;
 
 
@@ -88,7 +88,7 @@ export const Two = styled.h1`
   font-size: 1rem;
   color:red;
 
-  top: 60%;
+  top: 45%;
   left: 25%;
 
 
@@ -98,7 +98,7 @@ export const Three = styled.h1`
   font-size: 1rem;
   color:orange;
 
-  top: 60%;
+  top: 45%;
   left: 45%;
 
 
@@ -108,7 +108,7 @@ export const Four = styled.h1`
   font-size: 1rem;
   color:yellow;
 
-  top: 60%;
+  top: 45%;
   left: 65%;
 
 `;
@@ -118,9 +118,18 @@ export const Five = styled.h1`
 
   font-size: 1rem;
 
-  top: 60%;
+  top: 45%;
   
   left: 85%;
 
   
+`;
+export const RateButton = styled(Button)`
+ position:absolute;
+ width:40%;
+ height:1.5rem;
+ margin: 0 auto 0 auto;
+ font-size:0.7rem;
+ top: 70%;
+ left:30%;
 `;

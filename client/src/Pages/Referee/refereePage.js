@@ -16,6 +16,9 @@ export const RefereePage = ()=>{
     const[penalty,SetPenalty] = useState([]);
     const[myName,SetName] = useState([]);
     const[Img,SetImg] = useState([]);
+    const[point,SetPoint]=useState([]);
+    const[ratedPeople,SetPeople]=useState([]);
+
 
     useEffect(() => {
         axios
@@ -36,6 +39,8 @@ export const RefereePage = ()=>{
               SetRed(element.redCard)
               SetName(element.name)
               SetImg(element.image)
+              SetPoint(element.point)
+              SetPeople(element.ratedPeople)
                 
               }
               
@@ -50,8 +55,8 @@ export const RefereePage = ()=>{
       return(
         <ContainerDiv>
           <RefereeCard>
-          <RatingCard></RatingCard>
-          <Rating>Rating: {5}⭐</Rating>
+          <RatingCard key = {myName} refName = {myName} userName= "duru@mail.com"></RatingCard>
+          <Rating>Rating: {(Math.round((point/ratedPeople)* 100) / 100).toFixed(1)}⭐</Rating>
           <RefereeImg src={Img}></RefereeImg>
           <NameTitle>{myName}</NameTitle>
           <RedCardTitle>Red Card</RedCardTitle>

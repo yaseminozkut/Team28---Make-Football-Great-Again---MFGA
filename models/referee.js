@@ -30,6 +30,12 @@ const refereeSchema = mongoose.Schema({
     image:{
         type:String,
         required:false
+    },
+    point:{
+        type:Number,
+    },
+    ratedPeople:{
+        type:Number,
     }
 })
 mongoose.model('Referee', refereeSchema);

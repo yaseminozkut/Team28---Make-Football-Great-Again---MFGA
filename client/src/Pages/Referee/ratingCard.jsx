@@ -1,8 +1,33 @@
 import React, { useState } from "react";
-import { ContainerCard,FiveInput,ContainerDiv, TwoInput, ThreeInput, FourInput, OneInput, One, Two, Three, Four,Five, Title } from "./ratingCardElements";
-export const RatingCard = ()=>{
+import axios from "axios";
+import { ContainerCard,FiveInput,ContainerDiv, TwoInput, ThreeInput, FourInput, OneInput, One, Two, Three, Four,Five, Title, RateButton } from "./ratingCardElements";
+export const RatingCard = (props)=>{
 
     const[point,SetPoint]=useState([]);
+    const handleSubmit = ()=>{
+        const needs = {
+            point: point,
+            refName:props.refName,
+            userName:props.userName
+        }
+        console.log(point);
+        if(point >0){
+      axios
+      .post("http://localhost:4000/referees", needs)
+      .then((res) => {
+        if(res.status===200){
+            window.alert(res.data.message)
+            console.log("rated!");
+        }
+        else{
+            console.log("Error happened, cannot rate!");
+        }
+        
+      });
+      
+        }
+    }
+
 
     return(
         <ContainerCard>
@@ -18,7 +43,8 @@ export const RatingCard = ()=>{
             <Four>4</Four>
             <FiveInput type="radio" name="point" value={5} onChange={e=>SetPoint(e.target.value)}/>
             <Five>5</Five>
-            </ContainerDiv>   
+            </ContainerDiv>
+            <RateButton onClick={handleSubmit()}>Rate</RateButton>   
         </ContainerCard>
     )
 }
