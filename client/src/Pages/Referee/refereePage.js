@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { ContainerDiv, NameTitle, RedCard, RedCardTitle, RefereeCard, YellowCard, YellowCardTitle,YellowRedCardTitle,YellowRedCard,MatchCountTitle, MatchCount, PenaltyTitle, Penalty, RefereeImg, Rating} from "./refereePageElements";
+import { RatingCard } from "./ratingCard";
+
 
 export const RefereePage = ()=>{
     const {name} = useParams();
@@ -48,6 +50,7 @@ export const RefereePage = ()=>{
       return(
         <ContainerDiv>
           <RefereeCard>
+          <RatingCard></RatingCard>
           <Rating>Rating: {5}⭐</Rating>
           <RefereeImg src={Img}></RefereeImg>
           <NameTitle>{myName}</NameTitle>
