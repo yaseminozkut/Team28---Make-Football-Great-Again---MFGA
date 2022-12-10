@@ -23,6 +23,7 @@ import {Referee} from './Pages/Referee/referee';
 import {Profile} from './Pages/Profile/ProfilePage';
 import {TeamPage} from './Pages/Teams/TeamPage';
 import {Team} from './Pages/Teams/Team';
+import { Community } from './Pages/Community/Community'
 
 function Routers() {
     return (
@@ -43,6 +44,7 @@ function Routers() {
                 <Route path="currentstats" element={<CurrentStats/>}/>
                 <Route path="profileFront" element={<Auth> <RoleUser> <Profile/> </RoleUser> </Auth>} />
                 <Route path="referee" element={<Referee/>} />
+                <Route path="community" element={<Community />} />
                 {/* <Route path="*" element={<NoPage />} /> */}
             </Route>
             </Routes>
