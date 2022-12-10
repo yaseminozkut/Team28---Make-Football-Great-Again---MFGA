@@ -253,7 +253,7 @@ position: relative;
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
 
-  background: #434242;
+  background:#434242 /*#6B728E*/;
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
 `;
 

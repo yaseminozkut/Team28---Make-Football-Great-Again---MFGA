@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { ContainerDiv, NameTitle, RedCard, RedCardTitle, RefereeCard, YellowCard, YellowCardTitle,YellowRedCardTitle,YellowRedCard,MatchCountTitle, MatchCount, PenaltyTitle, Penalty, RefereeImg, Rating} from "./refereePageElements";
+import { RatingCard } from "./ratingCard";
+
 
 export const RefereePage = ()=>{
     const {name} = useParams();
@@ -14,6 +16,9 @@ export const RefereePage = ()=>{
     const[penalty,SetPenalty] = useState([]);
     const[myName,SetName] = useState([]);
     const[Img,SetImg] = useState([]);
+    const[point,SetPoint]=useState([]);
+    const[ratedPeople,SetPeople]=useState([]);
+
 
     useEffect(() => {
         axios
@@ -34,6 +39,8 @@ export const RefereePage = ()=>{
               SetRed(element.redCard)
               SetName(element.name)
               SetImg(element.image)
+              SetPoint(element.point)
+              SetPeople(element.ratedPeople)
                 
               }
               
@@ -45,10 +52,21 @@ export const RefereePage = ()=>{
         });
       }, [])
 
+      function DetermineRating(point,ratedPeople){
+        if(point === 0){
+          return 0;
+        }
+        else{
+          return (Math.round((point/ratedPeople)* 100) / 100).toFixed(1)
+
+        }
+      }
+
       return(
         <ContainerDiv>
           <RefereeCard>
-          <Rating>Rating: {5}⭐</Rating>
+          <RatingCard key = {myName} refName = {myName} userName= "duru@mail.com"></RatingCard>
+          <Rating>Rating: {DetermineRating(point,ratedPeople)}⭐</Rating>
           <RefereeImg src={Img}></RefereeImg>
           <NameTitle>{myName}</NameTitle>
           <RedCardTitle>Red Card</RedCardTitle>
