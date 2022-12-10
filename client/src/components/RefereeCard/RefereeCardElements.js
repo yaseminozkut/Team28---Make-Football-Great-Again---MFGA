@@ -1,194 +1,66 @@
 import styled from "styled-components";
-import {Card } from "reactstrap";
+import {Card,Button} from "reactstrap";
 
 export const ContainerCard = styled(Card)`
-  position: relative;
+  display: inline-block;
+  
   height: 6rem;
-  width: 28.5rem;
+  width: 20rem;
   border-width: 3px;
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: black;
   top: 6.5rem;
   justify-content: center;
-  margin: 0 auto; /* Added */
+  margin: 15px 20px 15px 20px; /* Added */
   float: none; /* Added */
-  margin-bottom: 10px; /* Added */
 
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
+
+  background: #DD5353;
   
 `;
 
 export const NameTitle = styled.h1`
-  position: absolute;
+  position: relative;
+  display:table;
   top: 5%;
-  left: 35%;
   color: black;
+  margin: 0 auto 0 auto;
   
   text-decoration-thickness: 1px;
   text-alignment: center;
   font-weight: bold;
 
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
-
-export const MatchCountTitle = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 2.2rem;
-  left: 1rem;
-  font-size: 12px;
-  text-decoration: none;
-  color: red;
+export const Rating = styled.h1`
+  position: relative;
+  display:table;
+  top: 8%;
+  color: white;
+  margin: 0 auto 0 auto;
   
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
+  text-decoration-thickness: 1px;
+  text-alignment: center;
+  font-weight: bold;
+
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const GoButton = styled(Button)`
+  position: relative;
+  display:table;
+  top: 20%;
+  margin: 0 auto 0 auto;
+  width: 7rem;
+  height: 1.8rem;
+
+  border: none;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+
+  color: white;
+
+  background: black;
 `;
 
-export const MatchCount = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 3.5rem;
-  left: 3rem;
-  font-size: 14px;
-  text-decoration: none;
-  color: black;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-export const YellowCardTitle = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 2.2rem;
-  left: 7rem;
-  font-size: 12px;
-  text-decoration: none;
-  color: red;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-export const YellowCard = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 3.5rem;
-  left: 9rem;
-  font-size: 14px;
-  text-decoration: none;
-  color: black;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-
-export const YellowRedCardTitle = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 2.2rem;
-  left: 12.5rem;
-  font-size: 12px;
-  text-decoration: none;
-  color: red;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-export const YellowRedCard = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 3.5rem;
-  left: 15.3rem;
-  font-size: 14px;
-  text-decoration: none;
-  color: black;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-export const RedCardTitle = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 2.2rem;
-  left: 19.7rem;
-  font-size: 12px;
-  text-decoration: none;
-  color: red;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-export const RedCard = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 3.5rem;
-  left: 21rem;
-  font-size: 14px;
-  text-decoration: none;
-  color: black;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`;
-
-export const PenaltyTitle = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 2.2rem;
-  left: 24.3rem;
-  font-size: 12px;
-  text-decoration: none;
-  color: red;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`
-
-export const Penalty = styled.h1`
-  position: absolute;
-  color: #fff;
-  margin-bottom: 25px;
-  top: 3.5rem;
-  left: 25.3rem;
-  font-size: 14px;
-  text-decoration: none;
-  color: black;
-  
-  &:hover {
-      color: #c31432;
-      transition: 200ms ease-in;
-  }
-`

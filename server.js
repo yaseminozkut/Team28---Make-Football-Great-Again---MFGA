@@ -17,6 +17,8 @@ require("./models/team");
 require("./models/stat")
 require("./models/recentMatch")
 require("./models/referee");
+require("./models/rating");
+
 
 //cookie handling
 app.use(cookieParser())
@@ -24,7 +26,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "*",
+  origin: "http://localhost:3000",
   credentials: true,
 }));
 
