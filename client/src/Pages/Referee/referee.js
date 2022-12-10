@@ -71,7 +71,7 @@ export const Referee = (props) => {
       
       <DropDownContainer2>
         <DropDownHeader2 onClick={toggling}>
-          {0||selectedOption}
+          {selectedOption||"0"}
         </DropDownHeader2>
         {isOpen && (
           <DropDownListContainer2>
