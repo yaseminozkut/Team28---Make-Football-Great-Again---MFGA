@@ -52,11 +52,21 @@ export const RefereePage = ()=>{
         });
       }, [])
 
+      function DetermineRating(point,ratedPeople){
+        if(point === 0){
+          return 0;
+        }
+        else{
+          return (Math.round((point/ratedPeople)* 100) / 100).toFixed(1)
+
+        }
+      }
+
       return(
         <ContainerDiv>
           <RefereeCard>
           <RatingCard key = {myName} refName = {myName} userName= "duru@mail.com"></RatingCard>
-          <Rating>Rating: {(Math.round((point/ratedPeople)* 100) / 100).toFixed(1)}⭐</Rating>
+          <Rating>Rating: {DetermineRating(point,ratedPeople)}⭐</Rating>
           <RefereeImg src={Img}></RefereeImg>
           <NameTitle>{myName}</NameTitle>
           <RedCardTitle>Red Card</RedCardTitle>
