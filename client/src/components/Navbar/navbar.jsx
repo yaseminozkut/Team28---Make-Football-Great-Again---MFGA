@@ -48,6 +48,9 @@ export const Navbar = ( {toggle} ) => {
               <NavLinks to = '/currentstats'>Current Stats</NavLinks>
             </NavItem>
             <NavItem>
+              <NavLinks to = '/community'>Community</NavLinks>
+            </NavItem>
+            <NavItem>
               <NavLinks to = '/teams'>Teams</NavLinks>
             </NavItem>
             <NavItem>
