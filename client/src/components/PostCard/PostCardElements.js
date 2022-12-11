@@ -47,6 +47,17 @@ export const CustomLike = styled(Button)`
     background-color: #EC2A2A;
 `
 
+export const CustomLikeTitle = styled.p`
+    position: absolute;
+    width: 2.5rem;
+    font-size: 11px;
+    font-family: cursive, fantasy;
+    right: 1.5rem;
+    bottom: -0.1rem;
+
+    border-width: 0;
+`
+
 export const CustomLikeCount = styled.p`
     position: absolute;
     font-size: 10px;
@@ -65,7 +76,7 @@ export const CustomComment = styled(Button)`
 
     border-width: 0;
 
-    background-color: #EC2A2A;
+    background-color: #3E6D9C;
 `
 
 export const CustomCommentCount = styled.p`
