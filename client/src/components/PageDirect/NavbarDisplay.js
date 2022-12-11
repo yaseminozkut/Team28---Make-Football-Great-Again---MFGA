@@ -36,3 +36,10 @@ export const BoardDisp = ({ children }) => {
     }
    return;
 };
+export const RefereeDisp = ({ children }) => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if(user.role === 3){
+        return children;
+    }
+   return;
+};

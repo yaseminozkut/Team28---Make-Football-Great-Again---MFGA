@@ -18,13 +18,14 @@ import CurrentStats from './Pages/CurrentStats/currentStats';
 import AuthContext, { AuthContextProvider } from './context/AuthContext';
 import { useContext } from 'react';
 import { Auth, NoAuth } from './components/PageDirect/Auth';
-import { RoleAdmin, RoleBoardMember, RoleUser } from './components/PageDirect/Role';
+import { RoleAdmin, RoleBoardMember, RoleReferee, RoleUser } from './components/PageDirect/Role';
 import {Referee} from './Pages/Referee/referee';
 import {Profile} from './Pages/Profile/ProfilePage';
 import {TeamPage} from './Pages/Teams/TeamPage';
 import {Team} from './Pages/Teams/Team';
 import { RefereePage } from './Pages/Referee/refereePage';
 import { ChooseReferee } from './Pages/BoardMember/choose/chooseReferee';
+import { RefereeProfile } from './Pages/RefereeProfile/RefereeProfile';
 
 function Routers() {
     return (
@@ -47,7 +48,7 @@ function Routers() {
                 <Route path="profileFront" element={<Auth> <RoleUser> <Profile/> </RoleUser> </Auth>} />
                 <Route path="referee" element={<Referee/>} />
                 <Route path="referee/:name" element={<RefereePage/>} />
-                
+                <Route path="refereeProfile" element={<Auth> <RoleReferee> <RefereeProfile/> </RoleReferee> </Auth>} />
                 {/* <Route path="*" element={<NoPage />} /> */}
             </Route>
             </Routes>
