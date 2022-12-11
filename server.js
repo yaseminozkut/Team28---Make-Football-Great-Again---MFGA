@@ -17,6 +17,7 @@ require("./models/team");
 require("./models/stat")
 require("./models/recentMatch")
 require("./models/referee");
+require("./models/post")
 
 //cookie handling
 app.use(cookieParser())
@@ -32,6 +33,8 @@ const routes = require("./routes/user/userRoute");
 const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
+const postRoute = require("./routes/posts/postRoute")
+
 const path = require('path');
 //Web scrapping
 // require("./web/scraping")
@@ -42,6 +45,7 @@ require("./web-scraping/teamPlayers")
 app.use(express.static('client/build'));
 
 // routes
+app.use('/api', postRoute);
 app.use(refereeRoutes);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)

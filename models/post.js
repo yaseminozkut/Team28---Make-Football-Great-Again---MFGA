@@ -7,11 +7,17 @@ const postSchema = mongoose.Schema({
             name: String
         }
     },
+    content: {
+        type: String,
+        required: true,
+    },
     likeCount: {
-        type: Number
+        type: Number,
+        default: 0,
     },
     commentCount: {
-        type: Number
+        type: Number,
+        default: 0,
     },
     comment: [
         {
@@ -22,9 +28,13 @@ const postSchema = mongoose.Schema({
             content: {
                 type: String
             },
+            default: [],
         }
     ],
 
 
+},
+{
+    timestamps: true
 })
 mongoose.model('Post', postSchema);
