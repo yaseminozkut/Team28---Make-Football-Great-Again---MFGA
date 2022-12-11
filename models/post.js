@@ -31,8 +31,7 @@ const postSchema = mongoose.Schema({
             default: [],
         }
     ],
-
-
+    likeUser: [String]
 },
 {
     timestamps: true

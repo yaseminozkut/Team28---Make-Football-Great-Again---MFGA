@@ -7,8 +7,8 @@ module.exports = {
 
     var postedBy = {
       email: email,
-      name: name
-    }
+      name: name,
+    };
 
     const post = new Post({
       postedBy,
@@ -18,7 +18,7 @@ module.exports = {
       .save()
       .then((post) => {
         res.json({ message: "Posted successfully" });
-        console.log(post.email);
+        // console.log(post.email);
       })
       .catch((err) => {
         console.log(err);
@@ -28,14 +28,11 @@ module.exports = {
   getUserPost: async (req, res) => {
     var { email } = req.body;
 
-
-
-    await Post.find({["postedBy.email"]: email})
-      .then(
-        (post) => {
-            res.json({
-                post
-            })
+    await Post.find({ ["postedBy.email"]: email })
+      .then((post) => {
+        res.json({
+          post,
+        });
       })
       .catch((e) => {
         res.status(404).json({
@@ -50,24 +47,52 @@ module.exports = {
       .catch((err) => res.status(400).json("Error: " + err));
   },
 
-  likeIncrement: async (req, res) => {
-    var { email } = req.body;
+  commentPost: async (req, res) => {},
 
-
-
-    await Post.find({["postedBy.email"]: email})
-      .then(
-        (post) => {
-            res.json({
-                post
-            })
-      })
-      .catch((e) => {
-        res.status(404).json({
-          message: "User not found",
-        });
+  like: async (req, res) => {
+    var { postId, userEmail } = req.body;
+    try {
+      await Post.findByIdAndUpdate(postId, {
+        $push: {
+          likeUser: userEmail,
+        },
+        $inc: {
+          likeCount: 1
+        },
       });
+
+      res.json({ message: "Successfully liked" });
+    } catch (e) {
+      res.status(404).json({ message: e });
+    }
   },
 
-  commentPost: async (req, res) => {},
+  unlike: async (req, res) => {
+    var { postId, userEmail } = req.body;
+
+    await Post.findById(postId)
+      .then(async (post) => {
+        if (post.likeCount > 0) {
+          try {
+            await Post.findByIdAndUpdate(postId, {
+              $pull: {
+                likeUser: userEmail,
+              },
+              $inc: {
+                likeCount: - 1,
+              },
+            });
+
+            res.json({ message: "Successfully Unliked" });
+          } catch (e) {
+            res.status(404).json({ message: e });
+          }
+        }else {
+          res.json({message: "below 0"})
+        }
+      })
+      .catch((e) => {
+        res.json({ message: e });
+      });
+  },
 };

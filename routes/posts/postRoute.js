@@ -11,7 +11,9 @@ router.get('/getUserPost', auth , PostController.getUserPost);
 
 router.get('/getAllPost', PostController.getAllPost);
 
-router.put('/likeIncrement', auth, PostController.likeIncrement);
+router.post('/like', auth, PostController.like);
+
+router.post('/unlike', auth, PostController.unlike);
 
 router.post('/commentPost', auth, PostController.commentPost);
 
