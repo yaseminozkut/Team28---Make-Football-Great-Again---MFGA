@@ -14,19 +14,34 @@ import { Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { PostCard } from "../../components/PostCard/PostCard";
 import Loading from "../../components/Loading/loading";
 import { PostForm } from "../../components/PostForm/PostForm";
+import { DisplayAuth } from "../../components/PageDirect/NavbarDisplay";
 
 
 export const Community = () => {
 
+  const checkUser = localStorage.getItem("currentUser");
+
+
   const [posts, SetPosts] = useState([]);
   const [isForm, setForm] = useState(false);
 
-  console.log(isForm);
+  var email;
+
+  if (checkUser) {
+    email = JSON.parse(localStorage.getItem("currentUser")).email;
+  } else {
+    email = "anonym"
+  }
+
+
+  // console.log(isForm);
 
   useEffect(() => {
+
     axios
         .get("http://localhost:4000/api/getAllPost")
         .then( (res) => {
+          console.log(res.data)
           const posts = res.data;
           SetPosts(posts);
         })
@@ -42,12 +57,25 @@ export const Community = () => {
   }
 
 
+
   const CreatePostHandler = () => {
       setForm(!isForm)
   }
 
 
   function createCard(post) {
+
+    var isLiked = false;
+
+    for(var i = 0 ; i < post.likeUser.length ; i++) {
+      if(post.likeUser[i] === email) {
+        isLiked = true;
+      }
+    }
+
+    console.log(isLiked);
+
+
     return (
       <PostCard
         key={post._id}
@@ -55,6 +83,8 @@ export const Community = () => {
         content={post.content}
         likeCount={post.likeCount}
         commentCount={post.commentCount}
+        postId= {post._id}
+        isLiked = {isLiked}
       />
     );
   }
@@ -80,7 +110,9 @@ export const Community = () => {
                 <MenuItem> more than 10 </MenuItem>
               </SubMenu>
 
-              <PostButton onClick = {CreatePostHandler} >Create Post</PostButton>
+              <DisplayAuth>
+                <PostButton onClick = {CreatePostHandler} >Create Post</PostButton>
+              </DisplayAuth>
             </Menu>
           </CustomSidebar>
         </CustomContainer>
