@@ -17,4 +17,6 @@ router.post('/unlike', auth, PostController.unlike);
 
 router.post('/commentPost', auth, PostController.commentPost);
 
+router.post('/filter', PostController.filter)
+
 module.exports = router;
