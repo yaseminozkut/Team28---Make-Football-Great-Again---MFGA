@@ -19,12 +19,7 @@ export const ContainerDiv = styled.div`
 
   z-index: 0;
   overflow-x: auto;
-  background: linear-gradient(
-    to bottom,
-    #ff3838 0%,
-    #ff4d4d 15.48%,
-    #ffffff 90%
-  );
+  background: #EAE7E7;
   flex: 1;
 `;
 

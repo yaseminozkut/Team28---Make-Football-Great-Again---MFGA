@@ -9,6 +9,15 @@ export const RoleAdmin = ({ children }) => {
     }
    return children;
 };
+export const RoleReferee = ({ children }) => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    console.log(user.role)
+    if(user.role !== 3){
+        console.log(user.role)
+        return <Navigate to="/" />;
+    }
+   return children;
+};
 
 export const RoleUser = ({ children }) => {
     const user = JSON.parse(localStorage.getItem("currentUser"));

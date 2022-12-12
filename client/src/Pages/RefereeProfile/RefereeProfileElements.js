@@ -23,7 +23,7 @@ export const ContainerDiv = styled.div`
 export const NameTitle = styled.h1`
 width:30%;
 top:10%;
-  margin:2rem auto;
+  margin:2rem auto 0 auto;
 
 
 
@@ -34,6 +34,37 @@ top:10%;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const EmailTitle = styled.h1`
+width:30%;
+top:10%;
+  margin:0 auto;
+
+
+
+  color: white;
+
+  font-size: 1.4rem;
+  text-align: center;
+  
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const MatchTitle = styled.h1`
+position:relative;
+width:30%;
+top:15%;
+  margin:0 auto 0 auto;
+
+
+
+  color: white;
+
+  font-size: 1.8rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-align: center;
+  
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 export const Rating = styled.h1`

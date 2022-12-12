@@ -204,7 +204,7 @@ export const Register = () => {
           </StyledNavLink>
         </StyledForm>
       </ContainerCard>
-      <Footer></Footer>
+      
     </ContainerDiv>
   );
 };

@@ -4,9 +4,17 @@ import { useEffect } from "react";
 import axios from "axios";
 import { ContainerDiv, NameTitle, RedCard, RedCardTitle, RefereeCard, YellowCard, YellowCardTitle,YellowRedCardTitle,YellowRedCard,MatchCountTitle, MatchCount, PenaltyTitle, Penalty, RefereeImg, Rating} from "./refereePageElements";
 import { RatingCard } from "./ratingCard";
+import { UserDisp,DisplayAuth } from "../../components/PageDirect/NavbarDisplay";
 
 
 export const RefereePage = ()=>{
+  var email = ""
+  if(localStorage.getItem("currentUser")!== null){
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+     email = user.email;
+
+  }
+ 
     const {name} = useParams();
     const [referees,SetReferees] = useState([]);
     const[yellowCard,SetYellow] = useState([]);
@@ -65,7 +73,11 @@ export const RefereePage = ()=>{
       return(
         <ContainerDiv>
           <RefereeCard>
-          <RatingCard key = {myName} refName = {myName} userName= "duru@mail.com"></RatingCard>
+          <DisplayAuth>
+              <UserDisp>
+                <RatingCard key = {myName} refName = {myName} userName={email}></RatingCard>
+                </UserDisp>
+          </DisplayAuth>
           <Rating>Rating: {DetermineRating(point,ratedPeople)}⭐</Rating>
           <RefereeImg src={Img}></RefereeImg>
           <NameTitle>{myName}</NameTitle>

@@ -50,7 +50,7 @@ export const TeamPage= () =>{
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
+      const result = await axios.get("http://localhost:4000/stat/getStat");
 
       setTeamStat(result.data);
     };
