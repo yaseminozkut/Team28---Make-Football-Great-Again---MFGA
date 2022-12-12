@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Card,Button} from "reactstrap";
 
 export const ContainerDiv = styled.div`
   position: absolute;
@@ -21,6 +22,24 @@ export const ContainerDiv = styled.div`
   flex: 1;
 `;
 
+export const GoButton = styled(Button)`
+  position: absolute;
+  display:table;
+  left:5%;
+  top: 10%;
+  margin: 0 auto 0 auto;
+  width: 10rem;
+  height: 2rem;
+
+  border: none;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  color: white;
+
+  background: black;
+`;
 
 export const InnerContainer = styled.div`
   position: relative;

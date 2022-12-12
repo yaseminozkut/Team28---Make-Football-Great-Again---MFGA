@@ -26,6 +26,7 @@ import {Team} from './Pages/Teams/Team';
 import { RefereePage } from './Pages/Referee/refereePage';
 import { ChooseReferee } from './Pages/BoardMember/choose/chooseReferee';
 import { RefereeProfile } from './Pages/RefereeProfile/RefereeProfile';
+import { RegisterReferee } from './Pages/BoardMember/refereeRegister/registerReferee';
 
 function Routers() {
     return (
@@ -42,6 +43,7 @@ function Routers() {
                 <Route path="admin" element={<Auth> <RoleAdmin> <Admin/> </RoleAdmin> </Auth>} />
                 <Route path="board" element={<Auth> <RoleBoardMember> <BoardMember/> </RoleBoardMember> </Auth>} />
                 <Route path="board/:home/:away" element={<Auth> <RoleBoardMember> <ChooseReferee/></RoleBoardMember> </Auth>} />
+                <Route path="board/register" element={<Auth> <RoleBoardMember> <RegisterReferee/></RoleBoardMember> </Auth>} />
                 <Route path="teams" element={<Team/>} />
                 <Route path="teams/:team" element={<TeamPage/>} />
                 <Route path="currentstats" element={<CurrentStats/>}/>

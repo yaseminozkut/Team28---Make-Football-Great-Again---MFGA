@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { ContainerDiv,FilterTitle, Title,DropDownContainer2,DropDownHeader2,DropDownList2,ListItem2,DropDownListContainer2 } from "./chooseRefereeElements";
+import { ContainerDiv,FilterTitle, Title,DropDownContainer2,DropDownHeader2,DropDownList2,ListItem2,DropDownListContainer2, StyledBackButton } from "./chooseRefereeElements";
 import { Footer } from "../../../components/Footer/Footer";
 import { RefereeCard } from "./chooseCard";
-
+import { useNavigate } from "react-router-dom";
 export const ChooseReferee = (props) => {
+  const navigate = useNavigate();
   const [referees, SetReferees] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -27,6 +28,9 @@ export const ChooseReferee = (props) => {
   if (referees === 0) {
     return <h1>Loading...</h1>;
   }
+  const handleBack = ()=>{
+    navigate("/board")
+}
 
   function createCard(referee) {
     return (
@@ -60,6 +64,7 @@ export const ChooseReferee = (props) => {
   return (
     
     <ContainerDiv>
+    <StyledBackButton onClick={handleBack}>{"<"}Back</StyledBackButton>
 
     <Title>Referees</Title>
     <FilterTitle>Filter Rating</FilterTitle>

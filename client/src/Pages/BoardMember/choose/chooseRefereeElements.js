@@ -110,3 +110,20 @@ font-size: 1.3rem;
 font-weight:bold;
 
 `;
+export const StyledBackButton = styled(Button)`
+  position: absolute;
+  top: 10%;
+  display: flex;
+  width: 8rem;
+  height: 2rem;
+  left: 5%;
+
+  border: none;
+  justify-content: center;
+  font-size:0.8rem;
+  font-weight:bold;
+
+  color: white;
+
+  background: black;
+`;
