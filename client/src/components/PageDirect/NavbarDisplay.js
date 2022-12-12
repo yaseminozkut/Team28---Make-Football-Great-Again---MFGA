@@ -20,7 +20,6 @@ export const UserDisp = ({ children }) => {
     }
    return;
 };
-
 export const AdminDisp = ({ children }) => {
     const user = JSON.parse(localStorage.getItem("currentUser"));
     if(user.role === 1){

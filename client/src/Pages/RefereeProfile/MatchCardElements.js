@@ -53,7 +53,7 @@ export const VsTitle = styled.h1`
   display:table;
   right: 50%;
 
-  top: 30%;
+  top: 40%;
   color: black;
   margin: 0 auto 0 auto;
   
@@ -62,6 +62,22 @@ export const VsTitle = styled.h1`
   font-weight: bold;
 
   font-size: 1.8rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const DateTitle = styled.h1`
+  position: absolute;
+  display:table;
+  right: 46%;
+
+  top: 10%;
+  color: white;
+  margin: 0 auto 0 auto;
+  
+  text-decoration-thickness: 1px;
+  text-alignment: center;
+  font-weight: bold;
+
+  font-size: 1.2rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 

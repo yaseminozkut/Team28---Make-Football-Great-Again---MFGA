@@ -12,6 +12,10 @@ const nextMatch = mongoose.Schema({
     },
     referee:{
         type:String,
+    },
+    date:{
+        type:String,
+        required: true,
     }
 })
 mongoose.model('NextMatch', nextMatch);

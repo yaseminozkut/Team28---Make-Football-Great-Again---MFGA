@@ -1,5 +1,5 @@
 import React from "react";
-import {HomeTitle,AwayTitle,RefereeTitle,GoButton,ContainerCard,vsTitle}from "./nextMatchesElements"
+import {HomeTitle,AwayTitle,RefereeTitle,GoButton,ContainerCard,vsTitle, DateTitle}from "./nextMatchesElements"
 import { useNavigate } from "react-router-dom";
 
 
@@ -27,6 +27,7 @@ export const MatchCard = (props)=>{
             <HomeTitle>{props.home}</HomeTitle>
             <AwayTitle>{props.away}</AwayTitle>
             <RefereeTitle>{props.referee}</RefereeTitle>
+            <DateTitle>{props.date}</DateTitle>
             <GoButton onClick ={handleSubmit}>Select Referee</GoButton>
         </ContainerCard>
     )

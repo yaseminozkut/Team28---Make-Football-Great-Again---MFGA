@@ -13,7 +13,7 @@ export const ContainerCard = styled(Card)`
   
 
 
-  background: #DD5353;
+  background: #A92C2C;
   
 `;
 
@@ -62,10 +62,26 @@ export const vsTitle = styled.h1`
   font-size: 1.2rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
+export const DateTitle = styled.h1`
+  position: absolute;
+  display:table;
+  right: 46%;
+
+  top: 5%;
+  color: white;
+  margin: 0 auto 0 auto;
+  
+  text-decoration-thickness: 1px;
+  text-alignment: center;
+  font-weight: bold;
+
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
 export const RefereeTitle = styled.h1`
   position: relative;
   display:table;
-  top: 40%;
+  top: 30%;
   color: white;
   margin: 0 auto 0 auto;
   
@@ -80,7 +96,7 @@ export const GoButton = styled(Button)`
   position: absolute;
   display:table;
   left:45%;
-  top: 70%;
+  top: 65%;
   margin: 0 auto 0 auto;
   width: 7rem;
   height: 1.8rem;

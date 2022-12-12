@@ -17,7 +17,7 @@ export const ContainerDiv = styled.div`
   
 
   
-  background: gray;
+  background: #EAE7E7;
   flex: 1;
 
   /* @media screen and (max-width: 768px) {
@@ -76,7 +76,7 @@ export const DropDownHeader2 = styled("div")`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1rem;
-  color: #3faffa;
+  color: #A92C2C;
   background: #ffffff;
 `;
 
@@ -89,7 +89,7 @@ export const DropDownList2 = styled("ul")`
   background: #ffffff;
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
-  color: #3faffa;
+  color: #A92C2C;
   font-size: 0.8rem;
   font-weight: 500;
   &:first-child {

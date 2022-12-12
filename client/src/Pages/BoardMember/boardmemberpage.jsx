@@ -31,6 +31,7 @@ const BoardMember = () => {
         key={matches._id}
         home={matches.home}
         away={matches.away}
+        date={matches.date}
         referee={matches.referee}
       />
     );

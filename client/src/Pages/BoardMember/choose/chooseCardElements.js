@@ -14,7 +14,7 @@ export const ContainerCard = styled(Card)`
   float: none; /* Added */
 
 
-  background: #DD5353;
+  background: #A92C2C;
   
 `;
 

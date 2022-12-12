@@ -6,7 +6,7 @@ import {Link as LinkR} from 'react-router-dom';
 
 export const Nav = styled.nav`
     position: relative;
-    background: #DD5353;
+    background: #A92C2C;
     height: 4rem;
     /* margin-top: -80px; */
     width: 100%;
