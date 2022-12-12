@@ -16,6 +16,7 @@ require("./models/player");
 require("./models/team");
 require("./models/stat")
 require("./models/recentMatch")
+require("./models/nextMatch")
 require("./models/referee");
 require("./models/rating");
 
@@ -34,6 +35,7 @@ const routes = require("./routes/user/userRoute");
 const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
+const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
 const path = require('path');
 //Web scrapping
 // require("./web/scraping")
@@ -45,6 +47,7 @@ app.use(express.static('client/build'));
 
 // routes
 app.use(refereeRoutes);
+app.use(nextMatch);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
