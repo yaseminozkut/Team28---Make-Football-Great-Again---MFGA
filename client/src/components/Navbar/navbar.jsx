@@ -64,6 +64,14 @@ export const Navbar = ( {toggle} ) => {
             </Display>
 
             <DisplayAuth>
+              <AdminDisp>
+                <NavItem>
+                    <NavLinks to = '/publishReward'>Publish Reward</NavLinks>
+                  </NavItem>
+                </AdminDisp>
+            </DisplayAuth>
+
+            <DisplayAuth>
               <UserDisp>
                 <NavItem>
                     <NavLinks to = '/profileFront'>User Profile</NavLinks>
