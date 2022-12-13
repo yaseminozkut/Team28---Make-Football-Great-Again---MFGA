@@ -31,6 +31,16 @@ module.exports = {
             console.log(err);
         });
     },
+    oldAwards: async (req, res) =>{
+        Awards.find({status: 0})
+        .then((award) => {
+            res.json(award)
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    },
+
     finishApplication: async (req, res) =>{
     
     },
