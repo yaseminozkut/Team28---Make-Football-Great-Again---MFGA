@@ -42,7 +42,38 @@ module.exports = {
     },
 
     finishApplication: async (req, res) =>{
-    
+        var {id} = req.body
+        var winner;
+        var wonAward;
+        Awards.findById(id)
+        .then((award)=>{
+            wonAward = award
+            if(award.applied.length != 0){
+                winner = award.applied[Math.floor(Math.random() * (award.applied.length))];
+                Awards.findByIdAndUpdate(id, {$set: {winner: winner, status: 0}})
+                .catch((err) => {
+                    res.json(err)
+                });
+
+                User.findOneAndUpdate({email: winner}, {$push: {awards: wonAward}})
+                .catch((err) => {
+                    res.json(err)
+                });
+                res.json(winner)
+            }
+            else{
+                Awards.findByIdAndUpdate(id, {$set: {status: 0}})
+                .catch((err) => {
+                    res.json(err)
+                });
+                res.json({message: "No application"})
+            }
+        })
+        .catch((err) => {
+            res.json(err);
+        });
+        
+
     },
 
     applyAward: async (req, res) => {

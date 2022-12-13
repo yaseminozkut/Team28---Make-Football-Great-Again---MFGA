@@ -352,8 +352,6 @@ router.route('/profile').get((req,res)=>{
  .catch(err => res.status(400).json('Error: ' + err));
 });
 
-<<<<<<< Updated upstream
-=======
 router.route('/api/getPoints').post((req, res) =>{
   const {email} = req.body
   User.findOne({email: email})
@@ -365,7 +363,6 @@ router.route('/api/getPoints').post((req, res) =>{
 });
 
 })
->>>>>>> Stashed changes
 
 
 
