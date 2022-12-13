@@ -28,7 +28,10 @@ there is one sub folder in root directory which is for frontend named client. Se
 ## how to deploy
 to run the website locally:
 open one terminal at root directory and enter
+
 ### nodemon server.js
+
 open one terminal at client folder and enter
+
 ### npm start
 
