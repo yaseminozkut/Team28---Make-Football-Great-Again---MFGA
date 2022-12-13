@@ -29,12 +29,16 @@ there is one sub folder in root directory which is for frontend named client. Se
 to run the website locally:
 open one terminal at root directory and enter
 
-### nodemon server.js
+```
+nodemon server.js
+```
 
 open one terminal at client folder and enter the codes in order
 
-### cd client
-### npm install
-### (npm install) installs the required packages for running the website
-### npm start
+```
+cd client
+npm install
+npm start
+```
+(npm install) installs the required packages for running the website
 
