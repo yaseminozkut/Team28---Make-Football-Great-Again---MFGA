@@ -352,6 +352,17 @@ router.route('/profile').get((req,res)=>{
  .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/api/getPoints').post((req, res) =>{
+  const {email} = req.body
+  User.findOne({email: email})
+  .then((user)=>{
+    res.json(user.points)
+  })
+  .catch((err)=>{
+    console.log(err);
+});
+
+})
 
 
 
