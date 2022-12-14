@@ -300,7 +300,7 @@ async function getKadro(turl){
            
 
         });
-        //console.log(all_teams);
+        console.log(all_teams);
         all_teams.forEach(element => {
           Team.findOne()
             .then((foundUser)=> 

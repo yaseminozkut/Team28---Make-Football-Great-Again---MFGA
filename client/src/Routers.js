@@ -29,6 +29,7 @@ import { RefereeProfile } from './Pages/RefereeProfile/RefereeProfile';
 import { RegisterReferee } from './Pages/BoardMember/refereeRegister/registerReferee';
 import { PublishReward } from './Pages/Admin/AdminPublishReward/publishReward';
 import { Awards } from './Pages/Awards/awards';
+import { Community } from './Pages/Community/Community'
 
 function Routers() {
     return (
@@ -51,6 +52,7 @@ function Routers() {
                 <Route path="currentstats" element={<CurrentStats/>}/>
                 <Route path="profileFront" element={<Auth> <RoleUser> <Profile/> </RoleUser> </Auth>} />
                 <Route path="referee" element={<Referee/>} />
+                <Route path="community" element={<Community />} />
                 <Route path="referee/:name" element={<RefereePage/>} />
                 <Route path="refereeProfile" element={<Auth> <RoleReferee> <RefereeProfile/> </RoleReferee> </Auth>} />
                 <Route path="publishReward" element={<Auth> <RoleAdmin> <PublishReward/> </RoleAdmin> </Auth>} />

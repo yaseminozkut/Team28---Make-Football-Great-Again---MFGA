@@ -14,7 +14,7 @@ const Sidebar = ( {isOpen, toggle} ) => {
           <SidebarLink to="/signup" onClick={toggle}>Register</SidebarLink>
           <SidebarLink to="/currentstats" onClick={toggle}>Current League Stats</SidebarLink>
           <SidebarLink to="/" onClick={toggle}>Referee</SidebarLink>
-          <SidebarLink to="/" onClick={toggle}>About Us</SidebarLink>
+          <SidebarLink to="/community" onClick={toggle}>Community</SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
           <SidebarRoute to = '/login'>Login</SidebarRoute>
