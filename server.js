@@ -29,7 +29,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "*",
+  origin: "https://mfga.herokuapp.com",
   credentials: true,
 }));
 
