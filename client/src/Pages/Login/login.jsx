@@ -101,6 +101,15 @@ export const Login = () => {
 
 
           }
+          else if(response.data.user.role === 3){
+            console.log("Referee logged in");
+            setError("")
+            localStorage.setItem("currentUser", JSON.stringify({name: response.data.user.name, username: response.data.user.username, email: response.data.user.email, password: response.data.user.password, role: response.data.user.role,team: response.data.user.team}))
+            localStorage.setItem("user", response.data.user);
+            navigate("/refereeProfile", {state: response.data});
+
+
+          }
           else{
             console.log(response.data)
             console.log("Logged in");
@@ -157,7 +166,7 @@ export const Login = () => {
           </StyledNavLink>
         </StyledForm>
       </ContainerCard>
-      <Footer></Footer>
+      
     </ContainerDiv>
     
   );

@@ -8,12 +8,7 @@ export const SidebarContainer = styled.aside`
     z-index: 999;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(
-    to bottom,
-    #ff3838 0%,
-    #ff4d4d 15.48%,
-    #ffffff 90%
-  ); */
+    /* background: #EAE7E7; */
     background: #ff3838;
     display: grid;
     align-items: center;

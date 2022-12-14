@@ -5,7 +5,7 @@ import { MobileIcon, Nav, NavbarContainer, NavLogo, NavMenu, NavItem, NavLinks, 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Auth } from '../PageDirect/Auth';
-import { Display, DisplayAuth, UserDisp, AdminDisp, BoardDisp} from '../PageDirect/NavbarDisplay';
+import { Display, DisplayAuth, UserDisp, AdminDisp, BoardDisp,RefereeDisp} from '../PageDirect/NavbarDisplay';
 
 export const Navbar = ( {toggle} ) => {
   const navigate = useNavigate();
@@ -57,6 +57,11 @@ export const Navbar = ( {toggle} ) => {
               <NavLinks to = '/referee'>Referees</NavLinks>
             </NavItem>
 
+
+            <NavItem>
+                <NavLinks to = '/awards'>Awards</NavLinks>
+              </NavItem>
+              
             <Display>
               <NavItem>
                 <NavLinks to = '/signup'>Register</NavLinks>
@@ -65,6 +70,14 @@ export const Navbar = ( {toggle} ) => {
                 <NavBtnLink to='/login'>Login</NavBtnLink>
               </NavBtn>
             </Display>
+
+            <DisplayAuth>
+              <AdminDisp>
+                <NavItem>
+                    <NavLinks to = '/publishReward'>Publish Award</NavLinks>
+                  </NavItem>
+                </AdminDisp>
+            </DisplayAuth>
 
             <DisplayAuth>
               <UserDisp>
@@ -88,6 +101,13 @@ export const Navbar = ( {toggle} ) => {
                     <NavLinks to = '/board'>Board Member Profile</NavLinks>
                   </NavItem>
                 </BoardDisp>
+            </DisplayAuth>
+            <DisplayAuth>
+              <RefereeDisp>
+                <NavItem>
+                    <NavLinks to = '/refereeProfile'>Referee Profile</NavLinks>
+                  </NavItem>
+                </RefereeDisp>
             </DisplayAuth>
 
             <DisplayAuth>
