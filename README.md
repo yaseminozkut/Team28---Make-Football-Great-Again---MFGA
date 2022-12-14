@@ -2,7 +2,7 @@
 
 
 Our deployed website:
-xxxx
+https://mfga.herokuapp.com/
 
 # Description
 This site is for Turkish Super League fans, Turkish Super League Referees and Turkish Super League Board Members that wants to have more information about the league, referees and players. In this platform users can display the league statistics, referee statistics, and player statistics. In this platform users can rate the referees about their performance so that they can contribute to the Turkish Super League referee assignments. In this platform Board Members can see the referee ratings in this website and Board Members can assign referees to upcoming matches. Referees can see the matches that they've been assigned easily. MFGA is a MERN application. Fronetend is built with React.js, backend is built with Javascript, Express.js and MongoDB.  
@@ -10,7 +10,7 @@ This site is for Turkish Super League fans, Turkish Super League Referees and Tu
 
 # User Documentation
 ## How to install and run the software
-There isn't any installation neeeded for accessing the website. You can simply access the website by this link xxxx.
+There isn't any installation neeeded for accessing the website. You can simply access the website by this link https://mfga.herokuapp.com/.
 
 ## How to report a bug
 If you spot a bug and want to inform us about it. You can go to the issues page in github and create a new issue.
