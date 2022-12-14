@@ -32,7 +32,6 @@ export const Profile = () => {
   const password = user.password;
   const role = user.role;
   const status = user.status;
-  const points = user.points;
   
 
 
@@ -96,7 +95,6 @@ export const Profile = () => {
             role: role,
             status: status,
             password: password,
-            points: points,
             team: Selectedteam.team,
           })
         );

@@ -103,6 +103,7 @@ export const Awards = () => {
   if (award === {}) {
     return <Loading></Loading>;
   }
+  
   if (award === null) {
     return (
       <ProSidebarProvider>
@@ -211,7 +212,6 @@ export const Awards = () => {
     .catch((err) => {
         console.log(err);
       });
-
   };
 
   return (
