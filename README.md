@@ -36,6 +36,8 @@ Backend is in the root directory.
 - Node JS
 
 ## The Structure of Main Folder(Backend):
+![Ekran Görüntüsü (203)](https://user-images.githubusercontent.com/88709260/207709963-6b69cd6d-123e-4db4-a12c-b0dab4ab19f9.png)
+![Ekran Görüntüsü (204)](https://user-images.githubusercontent.com/88709260/207709979-0e537425-5659-41d3-a993-4823798cb245.png)
 
 ### controllers folder
 -  These hold all of the callback functions that each route will call
@@ -54,6 +56,7 @@ Backend is in the root directory.
 - the file that backend runs on
 
 ## The Structure of the Client Folder(Frontend):
+![Ekran Görüntüsü (202)](https://user-images.githubusercontent.com/88709260/207710072-81df4c5d-7d93-4a2e-8685-82618866d86c.png)
 
 ### src folder
 - Contains all the files that were used while coding the frontend of the website
