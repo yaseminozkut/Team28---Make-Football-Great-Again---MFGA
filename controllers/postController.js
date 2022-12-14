@@ -3,11 +3,12 @@ const Post = mongoose.model("Post");
 
 module.exports = {
   sendPost: async (req, res) => {
-    var { name, email, content } = req.body;
+    var { name, email, role, content } = req.body;
 
     var postedBy = {
       email: email,
       name: name,
+      role: role
     };
 
     const post = new Post({
@@ -95,4 +96,16 @@ module.exports = {
         res.json({ message: e });
       });
   },
+
+  filter: async (req, res) => {
+    const {likeCount, roleArray} = req.body;
+
+    Post.find({likeCount: {$gte: likeCount} , ["postedBy.role"]: {$in: roleArray}})
+    .then(async (posts) => {
+      await res.json(posts)
+    })
+    .catch(e => {
+      res.json(e)
+    })
+  }
 };

@@ -4,7 +4,8 @@ const postSchema = mongoose.Schema({
     postedBy: {
         type: {
             email: String,
-            name: String
+            name: String,
+            role: Number
         }
     },
     content: {

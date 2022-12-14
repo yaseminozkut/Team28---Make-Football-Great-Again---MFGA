@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 import { Sidebar } from "react-pro-sidebar";
 
+import {ButtonGroup} from "reactstrap";
+
 export const ContainerDiv = styled.div`
   position: absolute;
   top: 0;
@@ -43,8 +45,28 @@ export const PostButton = styled( Button )`
   width: 5.5rem;
   border-width: 0;
 
+  right: 0.88rem;
+  top: 15rem;
+
+  font-size: 12px;
+  
+  justify-self: center;
+  justify-content: center;
+
+
+  &:hover{
+    background-color: #323231;
+  }
+`
+
+export const FilterButton = styled( Button )`
+  position: relative;
+  background-color: #3E6D9C;
+  width: 5.5rem;
+  border-width: 0;
+
   left: 30%;
-  top: 10rem;
+  top: 12rem;
 
   font-size: 12px;
   
@@ -70,6 +92,8 @@ export const PostContainer = styled( Container )`
   position: absolute;
   padding-top: 1rem;
 
+  overflow: scroll;
+
   width: 70%;
   height: 40rem;
   right: 0;
@@ -77,5 +101,20 @@ export const PostContainer = styled( Container )`
 
   @media screen and (max-width: 795px) {
         width: 40%;
+  }
+`
+
+export const CustomButtonGroup = styled(ButtonGroup)`
+  display: grid;
+`
+
+export const CustomRoleButton = styled(Button)`
+  margin-bottom: 0.1rem;
+  border-radius: 0;
+  color: black;
+  border-width: 0.05px;
+
+  &:hover {
+
   }
 `

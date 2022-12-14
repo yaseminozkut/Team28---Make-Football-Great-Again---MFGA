@@ -23,13 +23,13 @@ import {Referee} from './Pages/Referee/referee';
 import {Profile} from './Pages/Profile/ProfilePage';
 import {TeamPage} from './Pages/Teams/TeamPage';
 import {Team} from './Pages/Teams/Team';
+import { Community } from './Pages/Community/Community'
 import { RefereePage } from './Pages/Referee/refereePage';
 import { ChooseReferee } from './Pages/BoardMember/choose/chooseReferee';
 import { RefereeProfile } from './Pages/RefereeProfile/RefereeProfile';
 import { RegisterReferee } from './Pages/BoardMember/refereeRegister/registerReferee';
 import { PublishReward } from './Pages/Admin/AdminPublishReward/publishReward';
 import { Awards } from './Pages/Awards/awards';
-import { Community } from './Pages/Community/Community'
 
 function Routers() {
     return (

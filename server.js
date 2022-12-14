@@ -18,10 +18,10 @@ require("./models/stat")
 require("./models/recentMatch")
 require("./models/nextMatch")
 require("./models/referee");
+require("./models/post")
 require("./models/rating");
 require("./models/award");
 
-require("./models/post")
 
 //cookie handling
 app.use(cookieParser())
