@@ -77,7 +77,7 @@ export const Awards = () => {
     if (isOldAwardsRender) {
       console.log("here");
       axios
-        .get("hhttps://mfga.herokuapp.com/api/oldAwards")
+        .get("https://mfga.herokuapp.com/api/oldAwards")
         .then((res) => {
           setOldAwards(res.data);
           console.log(res.data);
