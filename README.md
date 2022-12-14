@@ -95,3 +95,21 @@ npm start
 ```
 (npm install) installs the required packages for running the website
 
+to deploy the website on remote server (Heroku domain):
+First of all, go to client folder and build the project with npm command.
+```
+cd client
+npm run build
+```
+In this way the build folder properly filled and executed by heroku
+
+Authenticate Heroku account by using following command on terminal located on project folder
+```
+heroku login
+```
+
+Than create a domain by clicking on the New button placed top-right edge of the heroku dashboard.
+
+![Ekran Görüntüsü (201)](https://user-images.githubusercontent.com/88709260/207692211-c4ffa311-709a-444a-93e9-e222c3d47938.png)
+
+After creation of the domain, give references to github account and press deploy button. For proper deployment choose the branch you want to deploy and press deploy button.
