@@ -29,33 +29,33 @@ Backend is in the root directory.
 
 ### The Structure of Main Folder(Backend):
 
-#### controllers
+### controllers
 
-#### models folder contains the mongoose models
+### models folder contains the mongoose models
 -For example, user.js is created for user model
 
-#### routers folder contains all the CRUD operation implementations
+### routers folder contains all the CRUD operation implementations
 -For example, refereeRoutes.js contains the crud operations for referee related pages
 
-#### middleware folder contains the authentication part for backend
+### middleware folder contains the authentication part for backend
 
-#### server.js is the file that backend runs on
+### server.js is the file that backend runs on
 
 ### The Structure of the Client Folder(Frontend):
 
-#### src folder contains all the files that were used while coding the frontend of the website
+### src folder contains all the files that were used while coding the frontend of the website
 It contains the following folders and files 
 
-##### components folder includes the some general components of the project
+#### components folder includes the some general components of the project
 example: Navbar, footer
 
-##### Pages folder contains the implementations of all the pages of the website
+#### Pages folder contains the implementations of all the pages of the website
 example: Homepage, Login, Profile
 
-##### Routers.js file contains all the routes that our website has
+#### Routers.js file contains all the routes that our website has
 example: root '/referees' for the general referee page
 
-##### App.js is the file that frontend runs on
+#### App.js is the file that frontend runs on
 
 ## How to deploy
 to run the website locally:
