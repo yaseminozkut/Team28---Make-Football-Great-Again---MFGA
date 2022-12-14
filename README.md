@@ -83,6 +83,7 @@ to run the website locally:
 open one terminal at root directory and enter
 
 ```
+npm install
 nodemon server.js
 ```
 
@@ -110,6 +111,6 @@ heroku login
 
 Than create a domain by clicking on the New button placed top-right edge of the heroku dashboard.
 
-![Ekran Görüntüsü (201)](https://user-images.githubusercontent.com/88709260/207698468-e05cb9bc-d551-44bb-a027-3f8871adbc3d.png)
+![Ekran Görüntüsü (201)](https://user-images.githubusercontent.com/88709260/207692211-c4ffa311-709a-444a-93e9-e222c3d47938.png)
 
 After creation of the domain, give references to github account and press deploy button. For proper deployment choose the branch you want to deploy and press deploy button.
