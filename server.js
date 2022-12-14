@@ -5,6 +5,9 @@ const cors = require("cors");
 
 const cookieParser = require("cookie-parser");
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json', {assert: { type: "json" }});
+
 const { MONGOURL } = require("./config/index");
 require("dotenv").config();
 
@@ -58,6 +61,7 @@ app.use(nextMatch);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 //app.use(refereeRoutes);
 //const __dirname = path.resolve();
 app.use(express.static(path.join(path.resolve(), "/client/build")));
