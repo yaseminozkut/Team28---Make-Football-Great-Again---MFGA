@@ -19,6 +19,9 @@ If you spot a bug and want to inform us about it. You can go to the issues page 
  There isn't any known bugs.
  
 # Developer Documenation
+Here is our documentation:
+- [Code Documentation] (https://docs.google.com/document/d/15nAiN_72t7PyvEIviAzCuF1svOTWvkq61-BkOqLAgFc/edit)
+- [API Documentation] (https://mfga.herokuapp.com/doc)
 ## Obtaining source code
 Clone the repository directly from github, frontend and backend repositories are at the same repository.
 
