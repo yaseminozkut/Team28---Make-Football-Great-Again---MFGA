@@ -44,6 +44,12 @@ Here is our documentation:
 - Our [API Documentation](https://mfga.herokuapp.com/doc)
 ## Obtaining source code
 Clone the repository directly from github, frontend and backend repositories are at the same repository.
+You can clone the repository with this HTTPS: https://github.com/SU-CS308-22FA/Team28---Make-Football-Great-Again---MFGA.git
+
+Write below command on terminal:
+```
+git clone https://github.com/SU-CS308-22FA/Team28---Make-Football-Great-Again---MFGA.git
+```
 
 ## Layout of files
 ### Project mainly divided in two parts frontend and backend
