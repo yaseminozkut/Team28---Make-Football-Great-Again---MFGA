@@ -356,7 +356,7 @@ router.route('/api/getPoints').post((req, res) =>{
   const {email} = req.body
   User.findOne({email: email})
   .then((user)=>{
-    res.json(user.points)
+    res.json((user != null  ? user.points : 0))
   })
   .catch((err)=>{
     console.log(err);

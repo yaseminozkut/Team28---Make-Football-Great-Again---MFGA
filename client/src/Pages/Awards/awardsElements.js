@@ -16,9 +16,10 @@ export const PRContainer = styled( Container )`
   width: 70%;
   height: 40rem;
   right: -12rem;
-  
   top: 0;
-
+  overflow: scroll;
+  border-width: 2px;
+  border-color: black;
   @media screen and (max-width: 795px) {
         width: 40%;
   }

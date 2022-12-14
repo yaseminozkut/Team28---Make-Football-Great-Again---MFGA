@@ -19,6 +19,7 @@ const awardsSchema = mongoose.Schema({
     },
     winner: {
         type: String,
+        default: ""
     },
     status: {
         type: Number,
