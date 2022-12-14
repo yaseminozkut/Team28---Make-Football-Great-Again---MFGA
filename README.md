@@ -35,7 +35,7 @@ Backend is in the root directory.
 ## The Structure of Main Folder(Backend):
 
 ### controllers folder
-
+-  These hold all of the callback functions that each route will call
 ### models folder
 - Contains the mongoose models
 - For example, user.js is created for user model
