@@ -27,35 +27,56 @@ Clone the repository directly from github, frontend and backend repositories are
 Frontend is in the folder called client.
 Backend is in the root directory.
 
-### The Structure of Main Folder(Backend):
+## The Structure of Main Folder(Backend):
 
-### controllers
+### controllers folder
 
-### models folder contains the mongoose models
--For example, user.js is created for user model
+### models folder
+- Contains the mongoose models
+- For example, user.js is created for user model
 
-### routers folder contains all the CRUD operation implementations
--For example, refereeRoutes.js contains the crud operations for referee related pages
+### routers folder
+- Contains all the CRUD operation implementations
+- For example, refereeRoutes.js contains the crud operations for referee related pages
 
-### middleware folder contains the authentication part for backend
+### middleware folder 
+- Contains the authentication part for backend
 
-### server.js is the file that backend runs on
+### server.js file
+- the file that backend runs on
 
-### The Structure of the Client Folder(Frontend):
+## The Structure of the Client Folder(Frontend):
 
-### src folder contains all the files that were used while coding the frontend of the website
-It contains the following folders and files 
+### src folder
+- Contains all the files that were used while coding the frontend of the website
+- It contains the following folders and files 
 
-#### components folder includes the some general components of the project
-example: Navbar, footer
+### components folder
+- Includes the some general components of the project
+- example: Navbar, footer
 
-#### Pages folder contains the implementations of all the pages of the website
-example: Homepage, Login, Profile
+### Pages folder
+- Contains the implementations of all the pages of the website
+- example: Homepage, Login, Profile
 
-#### Routers.js file contains all the routes that our website has
-example: root '/referees' for the general referee page
+### Routers.js file
+- contains all the routes that our website has
+- example: root '/referees' for the general referee page
 
-#### App.js is the file that frontend runs on
+### App.js file 
+- The file that frontend runs on
+
+## How to build
+to build the app
+open one terminal at root directory and enter
+```
+cd client
+```
+after that
+```
+npm run build
+```
+now, you built the app
 
 ## How to deploy
 to run the website locally:
