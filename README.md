@@ -7,6 +7,26 @@ https://mfga.herokuapp.com/
 # Description
 This site is for Turkish Super League fans, Turkish Super League Referees and Turkish Super League Board Members that wants to have more information about the league, referees and players. In this platform users can display the league statistics, referee statistics, and player statistics. In this platform users can rate the referees about their performance so that they can contribute to the Turkish Super League referee assignments. In this platform Board Members can see the referee ratings in this website and Board Members can assign referees to upcoming matches. Referees can see the matches that they've been assigned easily. MFGA is a MERN application. Fronetend is built with React.js, backend is built with Javascript, Express.js and MongoDB.  
 
+#Motivation
+The main motivation for the project is that there is not any existing sufficient user-friendly
+website for the Turkish Football Federation as well as the fans. Compared to the UEFA and
+premier league, the Turkish Football Federation website is obsolete. In addition, there is a
+common disapprobation can be observed about the referee performances in recent matches.
+
+#Problem & Solution
+The current website of the Turkish Football Federation is not user-friendly and not appropriate
+for the user experience. The main reason that we detect is that the styling is not sufficient and
+not suitable for this era. The solution that we decide is to generate a website which can be
+utilized appropriately by any football fan. Another problem is that the referee performances are
+criticized a lot by the community, but fans do not have any say about referee assignments. To
+solve this problem, we consider a way that is based on a voting mechanism for the referee
+performances. After each match, there will be a survey that fans can vote for the referee's
+performance which contributes to the general ratings of the referees.
+
+#Goal
+- Generate a website that catches the attention of the Turkish Football Fans
+- Better choosing mechanism for the referee assignments
+- More user-friendly UI and UX desig
 
 # User Documentation
 ## How to install and run the software
