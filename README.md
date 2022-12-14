@@ -26,6 +26,11 @@ Clone the repository directly from github, frontend and backend repositories are
 ### Project mainly divided in two parts frontend and backend
 Frontend is in the folder called client.
 Backend is in the root directory.
+### Project is made using MERN stack:
+- Mongo DB
+- Express JS
+- React JS
+- Node JS
 
 ## The Structure of Main Folder(Backend):
 
