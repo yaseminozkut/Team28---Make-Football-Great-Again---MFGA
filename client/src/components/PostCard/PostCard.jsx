@@ -73,12 +73,6 @@ export const PostCard = (props) => {
     <CustomCard>
       <CustomName>{props.name}</CustomName>
       <CustomContent>{props.content}</CustomContent>
-
-        <CustomComment>
-          <FaComment></FaComment>
-        </CustomComment>
-
-      <CustomCommentCount>{props.commentCount}</CustomCommentCount>
       {isLiked ? (
         <CustomLike onClick = {HandleUnlike}>
             <FaThumbsDown></FaThumbsDown>
