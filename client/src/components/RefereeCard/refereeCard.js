@@ -1,22 +1,29 @@
 import React from "react";
-import { ContainerCard, MatchCount, MatchCountTitle, NameTitle, Penalty, PenaltyTitle, RedCard, RedCardTitle, YellowCard, YellowCardTitle, YellowRedCard, YellowRedCardTitle } from "./RefereeCardElements";
+import { ContainerCard,GoButton,NameTitle, Rating } from "./RefereeCardElements";
+import { useNavigate } from "react-router-dom";
+
 
 export const RefereeCard = (props)=>{
+    const navigate = useNavigate();
+    
+
+    
+    const handleSubmit = ()=>{
+        var navigateName = props.name;
+        navigateName = navigateName.replace(" ", "")
+        navigateName = navigateName.replace(" ", "")
+        console.log(navigateName)
+        navigate("/referee/"+navigateName)
+        
+    }
+
 
     
     return(
         <ContainerCard>
             <NameTitle>{props.name}</NameTitle>
-            <MatchCountTitle>Match Count</MatchCountTitle>
-            <MatchCount>{props.matchCount}</MatchCount>
-            <YellowCardTitle>Yellow Card</YellowCardTitle>
-            <YellowCard>{props.yellowCard}</YellowCard>
-            <YellowRedCardTitle>Yellow-Red Card</YellowRedCardTitle>
-            <YellowRedCard>{props.yellowRedCard}</YellowRedCard>
-            <RedCardTitle>Red Card</RedCardTitle>
-            <RedCard>{props.redCard}</RedCard>
-            <PenaltyTitle>Penalty</PenaltyTitle>
-            <Penalty>{props.penalty}</Penalty>
+            <Rating>Rating: {props.rating}</Rating>
+            <GoButton onClick ={handleSubmit}>Go to page</GoButton>
         </ContainerCard>
     )
 

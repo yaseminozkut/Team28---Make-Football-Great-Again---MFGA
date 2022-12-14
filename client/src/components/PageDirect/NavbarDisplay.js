@@ -20,7 +20,6 @@ export const UserDisp = ({ children }) => {
     }
    return;
 };
-
 export const AdminDisp = ({ children }) => {
     const user = JSON.parse(localStorage.getItem("currentUser"));
     if(user.role === 1){
@@ -32,6 +31,13 @@ export const AdminDisp = ({ children }) => {
 export const BoardDisp = ({ children }) => {
     const user = JSON.parse(localStorage.getItem("currentUser"));
     if(user.role === 2){
+        return children;
+    }
+   return;
+};
+export const RefereeDisp = ({ children }) => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if(user.role === 3){
         return children;
     }
    return;

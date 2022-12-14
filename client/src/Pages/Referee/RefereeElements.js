@@ -11,20 +11,13 @@ export const ContainerDiv = styled.div`
   margin: 0;
   padding: 0;
 
-  height: 100%;
+  height: 120%;
   width: 100%;
 
-  justify-content: center;
-
-  z-index: 0;
-  overflow-x: auto;
   
-  background: linear-gradient(
-    to bottom,
-    #ff3838 0%,
-    #ff4d4d 15.48%,
-    #ffffff 90%
-  );
+
+  
+  background: #EAE7E7;
   flex: 1;
 
   /* @media screen and (max-width: 768px) {
@@ -54,16 +47,66 @@ export const ContainerCard = styled(Card)`
 `;
 
 export const Title = styled.h1`
-  position: absolute;
+  position: relative;
+  margin: auto;
   top: 65px;
-  left: 20%;
-  right: 20%;
 
-  color: rgb(0, 0, 0, 0.5);
+  color: black;
+  font-weight: bold;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-align: center;
 
   font-size: 2.18rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+export const DropDownContainer2 = styled("div")`
+  width: 4.4em;
+  
+  position: absolute;
+  right: 6%;
+  top: 10%;
+  margin: 0 auto;
+`;
+
+export const DropDownHeader2 = styled("div")`
+  margin-bottom: 0.8em;
+  padding: 0.4em 2em 0.4em 1em;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  font-size: 1rem;
+  color: #A92C2C;
+  background: #ffffff;
+`;
+
+export const DropDownListContainer2 = styled("div")``;
+
+export const DropDownList2 = styled("ul")`
+  padding: 0;
+  margin: 0;
+  padding-left: 1em;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  color: #A92C2C;
+  font-size: 0.8rem;
+  font-weight: 500;
+  &:first-child {
+    padding-top: 0.8em;
+  }
+`;
+
+export const ListItem2 = styled("li")`
+  list-style: none;
+  margin-bottom: 0.8em;
+`;
+
+export const FilterTitle = styled("h1")`
+  position: absolute;
+  right: 4%;
+  top: 7%;
+font-size: 1.3rem;
+font-weight:bold;
+
 `;
