@@ -4,13 +4,16 @@ import { ContainerCard,FiveInput,ContainerDiv, TwoInput, ThreeInput, FourInput, 
 export const RatingCard = (props)=>{
 
     const[point,SetPoint]=useState([]);
+    const user = JSON.parse(localStorage.getItem("currentUser"));
     const handleSubmit = ()=>{
         const needs = {
             point: point,
             refName:props.refName,
-            userName:props.userName
+            userName:props.userName,
+            email: user.email
         }
         console.log(point);
+        console.log(user.email)
         if(point >0){
       axios
       .post("http://localhost:4000/referees", needs)
@@ -44,7 +47,7 @@ export const RatingCard = (props)=>{
             <FiveInput type="radio" name="point" value={5} onChange={e=>SetPoint(e.target.value)}/>
             <Five>5</Five>
             </ContainerDiv>
-            <RateButton onClick={handleSubmit()}>Rate</RateButton>   
+            <RateButton onClick={handleSubmit}>Rate</RateButton>   
         </ContainerCard>
     )
 }

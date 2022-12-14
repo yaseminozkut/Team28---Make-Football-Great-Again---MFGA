@@ -5,6 +5,7 @@ const cheerio = require("cheerio");
 const mongoose = require("mongoose");
 const Referee = mongoose.model("Referee");
 const Rating = mongoose.model("Rating");
+const User = mongoose.model("User");
 const refereeUrl =
   "https://www.transfermarkt.com.tr/super-lig/schiedsrichter/wettbewerb/TR1/saison_id/2022";
 //const referee_data = [];
@@ -102,9 +103,10 @@ router.route('/referees').get((req,res)=>{
  .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/referees').post((req,res)=>{
-  var { point, refName,userName } = req.body;
+  var { point, refName,userName, email} = req.body;
+  console.log(email)
   console.log(point)
-  Rating.findOne({ ref: refName,user:userName }).then((rated) => {
+  Rating.findOne({ ref: refName,user:userName }).then(async (rated) => {
     if (!rated) {
       const rate = new Rating({
         user: userName,
@@ -112,6 +114,7 @@ router.route('/referees').post((req,res)=>{
         point: point,
       })
       rate.save()
+      await User.findOneAndUpdate({email: email}, {$inc: {points: 2}})
       Referee.findOne({name:refName}).then((referee)=>{
         var oldRate = referee.point;
         oldRate = parseFloat(oldRate) + parseFloat(point);
@@ -121,7 +124,6 @@ router.route('/referees').post((req,res)=>{
         referee.save().then(()=>res.json({message:'Referee rated!'}))
         .catch(err => res.status(400).json({message:'Error: '+err}));
       })
-      
     }
     else{
       var oldPoint= rated.point
