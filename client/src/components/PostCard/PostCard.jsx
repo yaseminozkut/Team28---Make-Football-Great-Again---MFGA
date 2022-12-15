@@ -46,7 +46,7 @@ export const PostCard = (props) => {
     SetLikeCount(likeCount + 1);
 
     axios
-      .post("https://mfga.herokuapp.com//api/like", likeData)
+      .post("https://mfga.herokuapp.com/api/like", likeData)
       .then((res) => {
         console.log(res);
       })
