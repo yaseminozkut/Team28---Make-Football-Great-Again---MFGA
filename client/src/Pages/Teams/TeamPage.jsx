@@ -12,14 +12,6 @@ export const TeamPage= () =>{
   const [players,SetPlayers] = useState([]);
   const {team} = useParams();
 
-  axios.get('http://localhost:4000/teams/'+team)
-  .then(res =>{
-      const players = res.data;
-      SetPlayers(players)
-  })
-  .catch((err)=>{
-      console.log(err);
-  })
 
   const [teamsInfo,SetTeamInfo] = useState([]);
   const [teamsName,SetName] = useState([]);
@@ -43,7 +35,16 @@ export const TeamPage= () =>{
   })
   .catch((err)=>{
       console.log(err);
+  });
+
+  axios.get('http://localhost:4000/teams/'+team)
+  .then(res =>{
+      const players = res.data;
+      SetPlayers(players)
   })
+  .catch((err)=>{
+      console.log(err);
+  });
 }, [])
 
   const [teamStat, setTeamStat] = useState([]);

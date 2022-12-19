@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TeamCard } from "./TeamCard";
 import axios from "axios";
 import { useState } from "react";
@@ -9,14 +9,18 @@ export const Team = ()=>{
 
 
     const [teams,SetTeams] = useState([]);
-    axios.get('http://localhost:4000/profile')
-    .then(res =>{
-        const teams = res.data;
-        SetTeams(teams)
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/profile')
+        .then(res =>{
+            const teams = res.data;
+            SetTeams(teams)
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }, [])
+
     function createCard(team) {
           return (<TeamCard
   
