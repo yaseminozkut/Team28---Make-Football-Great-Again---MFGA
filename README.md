@@ -151,3 +151,4 @@ Than create a domain by clicking on the New button placed top-right edge of the 
 ![Ekran Görüntüsü (201)](https://user-images.githubusercontent.com/88709260/207692211-c4ffa311-709a-444a-93e9-e222c3d47938.png)
 
 After creation of the domain, give references to github account and press deploy button. For proper deployment choose the branch you want to deploy and press deploy button.
+
