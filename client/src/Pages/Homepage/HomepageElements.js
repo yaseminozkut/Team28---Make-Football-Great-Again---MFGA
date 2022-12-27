@@ -31,10 +31,15 @@ export const InnerContainer = styled.div`
   height: 90rem;
 `;
 
+export const StyledBackImage = styled.img`
+  position: absolute;
+  height: 100rem;
+  width: 100rem;
+`;
 
 export const NewsContainer = styled.div`
   position: absolute;
-  padding-top: 1rem;
+  padding-top: 3rem;
 
   /* overflow-y: scroll;
 
@@ -54,15 +59,31 @@ export const NewsContainer = styled.div`
   text-align: -webkit-center;
 
   @media screen and (max-width: 795px) {
-        width: 40%;
+    width: 40%;
   }
-`
+`;
 
+export const DeleteButton = styled(Button)`
+  position: absolute;
+  border-radius: 0;
+  top: 5px;
+  background: transparent;
+  color: black;
+  border-width: 0;
+  width: 25px;
+  height: 27px;
+  right: 5px;
 
-export const CustomSidebar = styled( Sidebar )`
+  &:hover {
+    background-color: transparent;
+    color: black;
+  }
+`;
+
+export const CustomSidebar = styled.div`
   left: 82%;
-  position: fixed;
-  top: -4rem;
+  position: absolute;
+  top: 5rem;
   height: 12.68%;
   width: 16rem;
 
@@ -87,20 +108,19 @@ export const CustomHeaderTFFNews = styled.h3`
   background-color: black;
   color: white;
   margin-top: 1rem;
-`
+`;
 
 export const TFFButton = styled(Button)`
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   border-radius: 0px;
   border-width: 0px;
   width: 100%;
 
   --bs-btn-active-bg: black;
 
-
   &:hover {
-    background-color: rgba(0,0,0,0);
-    color: rgba(0,0,0,0)
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
   }
 `;
 
@@ -112,7 +132,7 @@ export const CustomImageTFF = styled.img`
 
 export const UpComingMatchContainer = styled.div`
   position: absolute;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
 
   top: 4rem;
   bottom: 0;
