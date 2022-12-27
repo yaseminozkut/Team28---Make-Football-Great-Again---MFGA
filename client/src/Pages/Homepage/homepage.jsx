@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { FaTimes } from "react-icons/fa";
 import { Menu, ProSidebarProvider, SubMenu } from "react-pro-sidebar";
 import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
@@ -12,6 +13,7 @@ import {
   CustomImage,
   CustomImageTFF,
   CustomSidebar,
+  DeleteButton,
   Fixture,
   InnerContainer,
   NewsContainer,
@@ -19,11 +21,15 @@ import {
   TFFButton,
   UpcomingMatch,
   UpComingMatchContainer,
+  StyledBackImage
 } from "./HomepageElements";
 
 const Homepage = () => {
   const [recentMatch, setRecentMatch] = useState([]);
   const [news, setNews] = useState([]);
+
+  const [isNewsActive, setNewsActive] = useState(true);
+  const [isNewsUseEffectActive, setNewsUseEffectActive] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +52,13 @@ const Homepage = () => {
 
     fetchData();
   }, []);
+
+  //Render Page According to the button press
+  useEffect(() => {
+    if (isNewsUseEffectActive) {
+      setNewsUseEffectActive(false);
+    }
+  });
 
   const [data, setData] = useState({ data: [] });
   const [isLoading, setIsLoading] = useState(false);
@@ -134,21 +147,44 @@ const Homepage = () => {
         {isLoading && <h2>Loading...</h2>}
         <ContainerDiv>
           <InnerContainer>
+
             {/* <CustomImage
               src="https://i.pinimg.com/originals/b2/7c/2d/b27c2d3cfbc89a37042cdc5a01be60c4.png"
               alt="PageImage"
             ></CustomImage> */}
-
-            <NewsContainer>
-              {[...news].map((n) => (
-                <NewsCard key={n.id} full_text={n.full_text} />
-              ))}
-            </NewsContainer>
+            {isNewsActive ? (
+              <NewsContainer>
+                <DeleteButton
+                  onClick={() => {
+                    setNewsActive(false);
+                    setNewsUseEffectActive(true);
+                  }}
+                >
+                  <FaTimes
+                    style={{
+                      position: "absolute",
+                      top: "3px",
+                      left: "3.89px",
+                    }}
+                  ></FaTimes>
+                </DeleteButton>
+                {[...news].map((n) => (
+                  <NewsCard key={n.id} full_text={n.full_text} />
+                ))}
+              </NewsContainer>
+            ) : (
+              <h1>News Is Not Active</h1>
+            )}
 
             <CustomSidebar>
               <CustomHeaderTFFNews>TFF NEWS</CustomHeaderTFFNews>
               <>
-                <TFFButton>
+                <TFFButton
+                  onClick={() => {
+                    setNewsActive(true);
+                    setNewsUseEffectActive(true);
+                  }}
+                >
                   <CustomImageTFF
                     src="https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Turkish_Football_Federation_crest.svg/1200px-Turkish_Football_Federation_crest.svg.png"
                     alt="my image"
