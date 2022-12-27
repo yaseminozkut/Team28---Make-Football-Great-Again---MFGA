@@ -3,6 +3,7 @@ import { TeamCard } from "./TeamCard";
 import axios from "axios";
 import { useState } from "react";
 import { ContainerDiv } from "./teamsElements";
+import { Footer } from "../../components/Footer/Footer";
 
 
 export const Team = ()=>{
@@ -30,7 +31,9 @@ export const Team = ()=>{
     return(
         <ContainerDiv>
                 {teams.map(createCard)}
+                <Footer></Footer>
         </ContainerDiv>
+
 
 
 

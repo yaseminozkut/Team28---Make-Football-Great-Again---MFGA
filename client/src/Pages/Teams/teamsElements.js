@@ -28,7 +28,7 @@ position:relative;
 width:20%;
 
   top: 22%;
-  margin:auto;
+  margin: 0 auto;
 
 
 
@@ -116,11 +116,15 @@ export const TeamCard = styled(Card)`
 
 export const TeamImg = styled.img`
  position:absolute;
- left:43.5%;
+
   top: 3%;
   border: 7px #432C7A;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+
+  height: auto;
+  left:43.5%;
+  right:43.5%;
+  margin: 0 auto;
 
 `;
 export const standingsTitle = styled.h1`
