@@ -4,6 +4,8 @@ import { ProSidebarProvider, Menu, MenuItem,} from "react-pro-sidebar";
 // import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
+import { TopScorerCard, ScorersCard} from "../../components/TopScorer/topScorerCard";
+import { CustomCard2, CustomCardContainer, CustomEmptyContainer, CustomGoalTitle2, CustomNameTitle, CustomRankTitle, CustomTeamTitle } from "../../components/TopScorer/topScorerCardElements";
 // import useFetch from "../../Hooks/useFetch";
 
 import {
@@ -215,6 +217,10 @@ const CurrentStats = () => {
         </ContainerDiv>
         : <>
         <ContainerDiv>
+            <CustomCardContainer>
+              <TopScorerCard props={topScorerStat}></TopScorerCard>
+            </CustomCardContainer>
+            <CustomEmptyContainer></CustomEmptyContainer>
         </ContainerDiv>
         </>
         }
