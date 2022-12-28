@@ -4,6 +4,7 @@ import { ProSidebarProvider, Menu, MenuItem,} from "react-pro-sidebar";
 // import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
+import { AssistsCard, TopAssistCard } from "../../components/TopAssist/topAssistCard";
 import { TopScorerCard, ScorersCard} from "../../components/TopScorer/topScorerCard";
 import { CustomCard2, CustomCardContainer, CustomEmptyContainer, CustomGoalTitle2, CustomNameTitle, CustomRankTitle, CustomTeamTitle } from "../../components/TopScorer/topScorerCardElements";
 // import useFetch from "../../Hooks/useFetch";
@@ -26,6 +27,7 @@ const CurrentStats = () => {
   const [isPlayer, setIsPlayer] = useState(false);
   const [isPlayerRender, setIsPlayerRender] = useState(false);
   var rank = 1;
+  var rank2 = 1;
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:4000/stat/getStat");
@@ -48,7 +50,6 @@ const CurrentStats = () => {
       //console.log(result.data)
     };
     fetchData();
-    
   }, []);
 
   console.log(topScorerStat)
@@ -142,6 +143,17 @@ const CurrentStats = () => {
         key={scorer.player.id}
         rank = {rank}
         props={scorer}
+      />
+    );
+  }
+
+  function createAssistsCard(assist) {
+    rank2 += 1;
+    return (
+      <AssistsCard
+        key={assist.player.id}
+        rank = {rank2}
+        props={assist}
       />
     );
   }
