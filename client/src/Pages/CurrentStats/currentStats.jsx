@@ -21,6 +21,7 @@ const CurrentStats = () => {
   const [scorersStat, setScorersStat] = useState([]);
   const [isPlayer, setIsPlayer] = useState(false);
   const [isPlayerRender, setIsPlayerRender] = useState(false);
+  var rank = 1;
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:4000/stat/getStat");
@@ -112,6 +113,17 @@ const CurrentStats = () => {
       setIsLoading(false);
     }
   };
+
+  function createScorersCard(scorer) {
+    rank += 1;
+    return (
+      <ScorersCard
+        key={scorer.player.id}
+        rank = {rank}
+        props={scorer}
+      />
+    );
+  }
 
   console.log([...teamStat].sort((a, b) => (a.rank < b.rank ? -1 : 1)));
 
