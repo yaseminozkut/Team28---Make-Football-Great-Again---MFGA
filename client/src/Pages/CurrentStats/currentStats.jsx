@@ -219,6 +219,13 @@ const CurrentStats = () => {
         <ContainerDiv>
             <CustomCardContainer>
               <TopScorerCard props={topScorerStat}></TopScorerCard>
+              <CustomCard2>
+                <CustomRankTitle>Rank</CustomRankTitle>
+                <CustomTeamTitle>Team</CustomTeamTitle>
+                <CustomNameTitle>Name Surname</CustomNameTitle>
+                <CustomGoalTitle2>Goal</CustomGoalTitle2>
+              </CustomCard2>
+              {scorersStat.map(createScorersCard)}
             </CustomCardContainer>
             <CustomEmptyContainer></CustomEmptyContainer>
         </ContainerDiv>
