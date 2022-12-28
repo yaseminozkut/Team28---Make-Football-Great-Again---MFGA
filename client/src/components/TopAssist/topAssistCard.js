@@ -25,3 +25,13 @@ export const TopAssistCard = ({props}) => {
   );
 };
 
+export const AssistsCard = ({props,rank}) => {
+    return (
+      <CustomAssistCard2>
+      <CustomAssistRankTitle>{rank}.</CustomAssistRankTitle>
+      <CustomTeamImage2 src={props.statistics[0].team.logo} alt="Team"></CustomTeamImage2>
+      <CustomName2>{props.player.name}</CustomName2>
+      <CustomAssistCount2>{props.statistics[0].goals.assists}</CustomAssistCount2>
+      </CustomAssistCard2>
+    );
+  };
