@@ -2,8 +2,11 @@ import { Card, CardText } from "reactstrap";
 import styled from "styled-components";
 
 export const CustomCard = styled(Card)`
-  width: 90%;
-  height: 13%;
+  margin-top: 81px;
+  left: 8rem;
+
+  width: 71%;
+  height: 14rem;
   margin-bottom: 15px;
   background-color: white;
   font-family: sans-serif, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
