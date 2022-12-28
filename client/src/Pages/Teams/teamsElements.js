@@ -29,7 +29,7 @@ export const TeamNameTitle = styled.h1`
     width: 20rem;
     top: 22%;
     margin: auto;
-    left: 12rem;
+    left: 15rem;
     display: inline-block;
     color: black;
     font-size: 2.5rem;
@@ -41,13 +41,13 @@ export const TeamNameTitle = styled.h1`
 `;
 
 export const TeamContainer = styled.div`
-    position: absolute;
+position: absolute;
     left: 0px;
     top: 4rem;
     border: solid;
     border-width: 1px;
     border-color: black;
-    width: 500px;
+    width: 657px;
     background-color: transparent;
     height: 256px;
 `
@@ -81,7 +81,7 @@ export const StatsTitle = styled.h1`
   position:absolute;
   width: 5rem;
 
-  left: 32rem;
+  left: 47rem;
 
   top: 5rem;
   margin:auto;
@@ -97,15 +97,29 @@ export const StatsTitle = styled.h1`
 
 export const StatContainer = styled.div`
     position: absolute;
-    left: 31.2rem;
+    left: 41rem;
     top: 4rem;
     border: solid;
     border-width: 1px;
     border-color: black;
-    width: 657px;
+    width: 275px;
     background-color: transparent;
     height: 256px;
 `;
+
+
+export const InfoContainer = styled.div`
+    position: absolute;
+    left: 58.15rem;
+    top: 4rem;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 588px;
+    background-color: transparent;
+    height: 256px;
+`;
+
 
 export const StyledHr = styled.hr`
    position:absolute;
@@ -150,7 +164,7 @@ export const TeamCard = styled(Card)`
 
 export const TeamImg = styled.img`
   position: absolute;
-  left: 1rem;
+  left: 4.2rem;
   top: 5rem;
   z-index: 999;
   border: 7px #432C7A;
@@ -161,7 +175,7 @@ export const TeamImg = styled.img`
 
 export const ImgBox = styled.div`
     position: absolute;
-    left: 0px;
+    left: 50px;
     top: 4rem;
     border-width: 1px;
     border-color: black;
@@ -170,20 +184,105 @@ export const ImgBox = styled.div`
     background: black;
 `;
 
-export const standingsTitle = styled.h1`
+export const RankTitle = styled.div`
+
+  border-width: 3px;
+  width: 13rem;
 
   color: black;
   position: absolute;
   
   text-decoration-thickness: 1px;
-  left:10px;
+  left:43rem;
   text-align: center;
   font-weight: bold;
   margin-top:50px;
 
-  font-size: 2.5rem;
+  top: 5rem;
+
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
+
+export const WinTitle = styled.div`
+
+  border-width: 3px;
+  width: 13rem;
+
+  color: black;
+  position: absolute;
+  
+  text-decoration-thickness: 1px;
+  left:43rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top:50px;
+
+  top: 7rem;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+
+export const LoseTitle = styled.div`
+
+  border-width: 3px;
+  width: 13rem;
+
+  color: black;
+  position: absolute;
+  
+  text-decoration-thickness: 1px;
+  left:43rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top:50px;
+
+  top: 9rem;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+
+export const DrawTitle = styled.div`
+
+  border-width: 3px;
+  width: 13rem;
+
+  color: black;
+  position: absolute;
+  
+  text-decoration-thickness: 1px;
+  left:43rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top:50px;
+
+  top: 11rem;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+export const PointTitle = styled.div`
+
+  border-width: 3px;
+  width: 13rem;
+
+  color: black;
+  position: absolute;
+  
+  text-decoration-thickness: 1px;
+  left:43rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top:50px;
+
+  top: 13rem;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+
+
 export const StandingCard = styled(Card)`
   position: absolute;
   height: 10rem;  
@@ -201,4 +300,17 @@ export const StandingCard = styled(Card)`
   margin-bottom: 10px; /* Added */
   background: white;
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
+`;
+
+
+export const PostContainer = styled.div`
+    position: absolute;
+    left: 41rem;
+    top: 20rem;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 863.5px;
+    background-color: transparent;
+    height: 541px;
 `;
