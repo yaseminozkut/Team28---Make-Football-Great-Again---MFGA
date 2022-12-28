@@ -121,6 +121,10 @@ export const InfoContainer = styled.div`
     width: 588px;
     background-color: transparent;
     height: 256px;
+
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar { display: none; }
 `;
 
 
