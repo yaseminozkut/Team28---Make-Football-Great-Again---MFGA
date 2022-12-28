@@ -55,6 +55,9 @@ position: absolute;
 
 export const PlayerTitle = styled.h1`
     position: absolute;
+
+    left: 1rem;
+    
     width: 5rem;
     top: 21rem;
     margin: auto;
