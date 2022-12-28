@@ -5,6 +5,7 @@ import { ProSidebarProvider, Menu, MenuItem,} from "react-pro-sidebar";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
 import { AssistsCard, TopAssistCard } from "../../components/TopAssist/topAssistCard";
+import { CustomAssistCard2, CustomAssistCardContainer, CustomAssistNameTitle, CustomAssistRankTitle, CustomAssistTeamTitle, CustomAssistTitle2 } from "../../components/TopAssist/topAssistCardElements";
 import { TopScorerCard, ScorersCard} from "../../components/TopScorer/topScorerCard";
 import { CustomCard2, CustomCardContainer, CustomEmptyContainer, CustomGoalTitle2, CustomNameTitle, CustomRankTitle, CustomTeamTitle } from "../../components/TopScorer/topScorerCardElements";
 // import useFetch from "../../Hooks/useFetch";
@@ -259,6 +260,18 @@ const CurrentStats = () => {
               {scorersStat.map(createScorersCard)}
             </CustomCardContainer>
             <CustomEmptyContainer></CustomEmptyContainer>
+
+            <CustomAssistCardContainer>
+              <TopAssistCard props={topAssistStat}></TopAssistCard>
+              <CustomAssistCard2>
+                <CustomAssistRankTitle>Rank</CustomAssistRankTitle>
+                <CustomAssistTeamTitle>Team</CustomAssistTeamTitle>
+                <CustomAssistNameTitle>Name Surname</CustomAssistNameTitle>
+                <CustomAssistTitle2>Assist</CustomAssistTitle2>
+              </CustomAssistCard2>
+              {assistsStat.map(createAssistsCard)}
+            </CustomAssistCardContainer>
+
         </ContainerDiv>
         </>
         }
