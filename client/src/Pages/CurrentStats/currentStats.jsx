@@ -15,9 +15,10 @@ import {
 
 const CurrentStats = () => {
   const [teamStat, setTeamStat] = useState([]);
-
   const [topScorerStat, setTopScorerStat] = useState([]);
   const [scorersStat, setScorersStat] = useState([]);
+  const [isPlayer, setIsPlayer] = useState(false);
+  const [isPlayerRender, setIsPlayerRender] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:4000/stat/getStat");
@@ -44,6 +45,12 @@ const CurrentStats = () => {
   }, []);
   console.log(topScorerStat)
   console.log(scorersStat)
+  useEffect(() => {
+    if (isPlayerRender) {
+      console.log("rendered")
+      setIsPlayerRender(false)
+    }
+  });
 
   const API_URL = "https://mocki.io/v1/05d02231-7231-407c-8245-e60595d5fa5f";
 
@@ -134,6 +141,8 @@ const CurrentStats = () => {
                 </MenuItem>
               </Menu>
           </CustomSidebar>
+        {!isPlayer?
+        <ContainerDiv>
       {err && <h2>{err}</h2>}
       {isLoading && <h2>Loading...</h2>}
       <LeagueTableContainer>
@@ -189,7 +198,13 @@ const CurrentStats = () => {
           </tbody>
         </LeagueTable>
       </LeagueTableContainer>
-    </ContainerDiv>
+        </ContainerDiv>
+        : <>
+        <ContainerDiv>
+        </ContainerDiv>
+        </>
+        }
+        
       </PRGlobalContainer>
       <Footer></Footer>
     </ProSidebarProvider>
