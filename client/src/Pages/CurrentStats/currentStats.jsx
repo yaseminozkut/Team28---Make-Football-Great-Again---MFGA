@@ -21,6 +21,8 @@ const CurrentStats = () => {
   const [teamStat, setTeamStat] = useState([]);
   const [topScorerStat, setTopScorerStat] = useState([]);
   const [scorersStat, setScorersStat] = useState([]);
+  const [topAssistStat, setTopAssistStat] = useState([]);
+  const [assistsStat, setAssistsStat] = useState([]);
   const [isPlayer, setIsPlayer] = useState(false);
   const [isPlayerRender, setIsPlayerRender] = useState(false);
   var rank = 1;
@@ -48,8 +50,25 @@ const CurrentStats = () => {
     fetchData();
     
   }, []);
+
   console.log(topScorerStat)
   console.log(scorersStat)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("http://localhost:4000/api/getTopAssist");
+
+      setTopAssistStat(result.data[0]);
+      setAssistsStat(result.data.slice(1));
+
+      //console.log(result.data)
+    };
+    fetchData();
+  }, []);
+
+  console.log(topAssistStat)
+  console.log(assistsStat)
+
   useEffect(() => {
     if (isPlayerRender) {
       console.log("rendered")

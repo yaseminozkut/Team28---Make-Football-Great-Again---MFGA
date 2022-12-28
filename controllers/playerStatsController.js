@@ -36,7 +36,6 @@ module.exports = {
   getTopScorer: async (req, res) => {
       axios(config)
       .then(function (response) {
-        console.log(response)
         res.json(response.data.response.slice(0,10));
       })
       .catch(function (error) {
