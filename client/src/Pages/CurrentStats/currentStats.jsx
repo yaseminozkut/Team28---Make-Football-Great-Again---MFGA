@@ -8,8 +8,10 @@ import Loading from "../../components/Loading/loading";
 
 import {
   ContainerDiv,
+  CustomSidebar,
   LeagueTable,
   LeagueTableContainer,
+  PRGlobalContainer,
   RefreshButton,
 } from "./CurrentStatsElements";
 
