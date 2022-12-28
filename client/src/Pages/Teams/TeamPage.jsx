@@ -21,6 +21,7 @@ import {
   PointTitle,
   PostContainer,
   InfoContainer,
+  StyledP,
 } from "./teamsElements";
 import { PlayerCard } from "./PlayerCard";
 import CustomPaginationActionsTable from "../../components/MUITable/CustomMuıTable";
@@ -63,6 +64,7 @@ export const TeamPage = () => {
           if (cleanName === team) {
             SetName(element.name);
             SetImg(element.url);
+            SetTeamInfo(element.content)
           }
         });
       })
@@ -221,7 +223,7 @@ export const TeamPage = () => {
       <ImgBox></ImgBox> {/*Not functional, just styling */}
       <TeamContainer></TeamContainer> {/*Not functional, just styling */}
       <StatContainer></StatContainer> {/*Not functional, just styling */}
-      <InfoContainer></InfoContainer> {/*Not functional, just styling */}
+      <InfoContainer><StyledP>{teamsInfo}</StyledP></InfoContainer> {/*Not functional, just styling */}
       <PlayerContainer></PlayerContainer> {/*Not functional, just styling */}
       <TeamImg src={teamsImg} />
       <TeamNameTitle>{teamsName}</TeamNameTitle>
