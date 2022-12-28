@@ -321,3 +321,11 @@ export const PostContainer = styled.div`
 
     ::-webkit-scrollbar { display: none; }
 `;
+
+export const StyledP = styled.p`
+
+  top: 2rem;  
+  position: absolute;
+  left: 16px;
+
+`;
