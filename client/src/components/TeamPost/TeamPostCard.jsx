@@ -2,19 +2,16 @@ import React from "react";
 import { Card, CardBody, CardImg, CardText, CardTitle } from "reactstrap";
 import { CustomCard, TFFAvatar, CustomCardText } from "./TeamPostCardElements";
 
-export const TeamPostCard = (props) => {
+export const TeamPostCard = ({content, imageURL}) => {
   return (
     <CustomCard>
       <TFFAvatar
-        src="https://pbs.twimg.com/profile_images/1583812988913549312/AMcNHO2m_400x400.jpg"
-        alt="Tff Logo"
+        src={imageURL}
+        alt="Team Logo"
       />
 
       <CustomCardText>
-        Nef Stadyumu’nda tüyleri diken diken eden o muhteşem koreografi! 😍 “Ey
-        yükselen yeni nesil, İstikbal sizindir. Cumhuriyeti biz kurduk, onu
-        yüceltecek ve yaşatacak sizlersiniz.” İLELEBET İZİNDEYİZ ATAM! 🇹🇷
-        #Cumhuriyetin100üGalatasaray
+        {content}
       </CustomCardText>
     </CustomCard>
   );
