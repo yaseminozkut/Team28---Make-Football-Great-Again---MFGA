@@ -13,5 +13,9 @@ const bugSchema = mongoose.Schema({
         type: Boolean, 
         required: true
     },
+    Time: {
+        type: String, 
+    }
+
 })
 mongoose.model('Bugs', bugSchema);

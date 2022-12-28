@@ -257,6 +257,5 @@ export const RefereeImg = styled.img`
   border: 10px black;
   width: 200px;
   height: auto;
-
 `;
 
