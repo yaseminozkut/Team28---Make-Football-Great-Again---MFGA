@@ -26,6 +26,8 @@ import { PlayerCard } from "./PlayerCard";
 import CustomPaginationActionsTable from "../../components/MUITable/CustomMuıTable";
 import { TeamPostCard } from "../../components/TeamPost/TeamPostCard";
 
+import {FaTwitter} from 'react-icons/fa'
+
 
 //Material UI packets
 
@@ -127,6 +129,14 @@ export const TeamPage = () => {
       <CustomPaginationActionsTable players={players} team={team}></CustomPaginationActionsTable>
 
       <PostContainer>
+          <FaTwitter style={{
+            position: "absolute",
+            width: "5rem",
+            height: "2rem",
+            left: "1rem",
+            top: "1rem",
+            color: "rgb(29, 155, 240)",
+          }}></FaTwitter>
           <TeamPostCard></TeamPostCard>
       </PostContainer>
 
