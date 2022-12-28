@@ -1,6 +1,4 @@
 var axios = require('axios');
-const topAssistData = require("../client/data/topAssist.json")
-const topScorerData = require("../client/data/topScorer.json")
 /*
 var config = {
     method: 'get',
