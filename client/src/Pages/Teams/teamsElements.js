@@ -19,70 +19,104 @@ export const ContainerDiv = styled.div`
 
   z-index: 0;
   overflow-x: auto;
-  background: #EAE7E7;
+  /* background: #eae7e7; */
+  background-color: white;
   flex: 1;
 `;
 
 export const TeamNameTitle = styled.h1`
-position:relative;
-width:20%;
+    position: absolute;
+    width: 20rem;
+    top: 22%;
+    margin: auto;
+    left: 12rem;
+    display: inline-block;
+    color: black;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
 
-  top: 22%;
-  margin:auto;
-
-
-
-  color: black;
-
-  font-size: 2.5rem;
-  text-align: center;
-  font-weight: bold;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-variant: petite-caps;
+    font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif;
 `;
+
+export const TeamContainer = styled.div`
+    position: absolute;
+    left: 0px;
+    top: 4rem;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 500px;
+    background-color: transparent;
+    height: 256px;
+`
+
+
 export const PlayerTitle = styled.h1`
-position:relative;
-width:10%;
-
-  top: 48%;
-  margin: auto;
-
-
-
-  color: black;
-
-  font-size: 1.6rem;
-  text-align: center;
- 
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    position: absolute;
+    width: 5rem;
+    top: 21rem;
+    margin: auto;
+    color: black;
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif;
 `;
-export const StatsTitle = styled.h1`
-position:relative;
-width:10%;
 
-  top: 28%;
+export const PlayerContainer = styled.div`
+    position: absolute;
+    left: 0;
+    top: 20rem;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 657px;
+    background-color: transparent;
+    height: 541px;
+`;
+
+
+export const StatsTitle = styled.h1`
+  position:absolute;
+  width: 5rem;
+
+  left: 32rem;
+
+  top: 5rem;
   margin:auto;
   
-
-
+  display: inline-block;
 
   color: black;
 
   font-size: 1.6rem;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+export const StatContainer = styled.div`
+    position: absolute;
+    left: 31.2rem;
+    top: 4rem;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 657px;
+    background-color: transparent;
+    height: 256px;
 `;
 
 export const StyledHr = styled.hr`
-   position:relative;
+   position:absolute;
    width:100%;
 
-   top: 21%;
+   top: 20rem;
   
 
 
-  border-style: dotted none none ;
-  border-color: red;
-  border-width: 10px;
+  border-color: black;
+  border-width: 2px;
   height: 10px;
   margin: 0 auto;
 
@@ -115,14 +149,27 @@ export const TeamCard = styled(Card)`
 `;
 
 export const TeamImg = styled.img`
- position:absolute;
- left:43.5%;
-  top: 3%;
+  position: absolute;
+  left: 1rem;
+  top: 5rem;
+  z-index: 999;
   border: 7px #432C7A;
-  width: 200px;
-  height: 200px;
+  width: 175px;
+  height: 175px;
 
 `;
+
+export const ImgBox = styled.div`
+    position: absolute;
+    left: 0px;
+    top: 4rem;
+    border-width: 1px;
+    border-color: black;
+    width: 210px;
+    height: 233px;
+    background: black;
+`;
+
 export const standingsTitle = styled.h1`
 
   color: black;
