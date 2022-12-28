@@ -14,9 +14,17 @@ import {
   TeamContainer,
   StatContainer,
   PlayerContainer,
+  RankTitle,
+  WinTitle,
+  LoseTitle,
+  DrawTitle,
+  PointTitle,
+  PostContainer,
+  InfoContainer,
 } from "./teamsElements";
 import { PlayerCard } from "./PlayerCard";
 import CustomPaginationActionsTable from "../../components/MUITable/CustomMuıTable";
+import { TeamPostCard } from "../../components/TeamPost/TeamPostCard";
 
 
 //Material UI packets
@@ -90,10 +98,11 @@ export const TeamPage = () => {
 
   return (
     <ContainerDiv>
-      <ImgBox></ImgBox>
+      <ImgBox></ImgBox> {/*Not functional, just styling */}
       <TeamContainer></TeamContainer> {/*Not functional, just styling */}
-      <StatContainer></StatContainer>
-      <PlayerContainer></PlayerContainer>
+      <StatContainer></StatContainer> {/*Not functional, just styling */}
+      <InfoContainer></InfoContainer> {/*Not functional, just styling */}
+      <PlayerContainer></PlayerContainer> {/*Not functional, just styling */}
       <TeamImg src={teamsImg} />
       <TeamNameTitle>{teamsName}</TeamNameTitle>
       <PlayerTitle>Players</PlayerTitle>
@@ -101,18 +110,27 @@ export const TeamPage = () => {
       {teamStat
         .filter((CurrentTeam) => CurrentTeam.team === team.trim())
         .map((filteredTeam) => (
-          <StandingCard>
-            <standingsTitle>Rank: {filteredTeam.rank}</standingsTitle>
-            <standingsTitle>Win: {filteredTeam.win}</standingsTitle>
-            <standingsTitle>Lose: {filteredTeam.lose}</standingsTitle>
-            <standingsTitle>Draw: {filteredTeam.draw}</standingsTitle>
-            <standingsTitle>Point: {filteredTeam.point}</standingsTitle>
-          </StandingCard>
+          <>
+            {/* {console.log(filteredTeam)} */}
+
+              <RankTitle>Rank: {filteredTeam.rank}</RankTitle>
+              <WinTitle>Win: {filteredTeam.win}</WinTitle>
+              <LoseTitle>Lose: {filteredTeam.lose}</LoseTitle>
+              <DrawTitle>Draw: {filteredTeam.draw}</DrawTitle>
+              <PointTitle>Point: {filteredTeam.point}</PointTitle>
+
+          </>
         ))}
       <StyledHr></StyledHr>
       {/* {players.map(createCard)} */}
 
       <CustomPaginationActionsTable players={players} team={team}></CustomPaginationActionsTable>
+
+      <PostContainer>
+          <TeamPostCard></TeamPostCard>
+      </PostContainer>
+
+
     </ContainerDiv>
   );
 };
