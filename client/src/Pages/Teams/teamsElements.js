@@ -313,4 +313,8 @@ export const PostContainer = styled.div`
     width: 863.5px;
     background-color: transparent;
     height: 541px;
+
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar { display: none; }
 `;
