@@ -192,7 +192,7 @@ export const CustomTotalPassesTitle = styled.p`
 `
 export const CustomTotalPassesCount = styled.p`
     position: absolute;
-    width: 2.5rem;
+    width: 4.5rem;
     font-size: 44px;
     font-family: 'Bebas Neue',sans-serif;
     top: 10rem;
