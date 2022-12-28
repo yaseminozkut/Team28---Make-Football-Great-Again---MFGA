@@ -24,3 +24,13 @@ export const TopScorerCard = ({props}) => {
   );
 };
 
+export const ScorersCard = ({props,rank}) => {
+    return (
+      <CustomCard2>
+      <CustomRankTitle>{rank}.</CustomRankTitle>
+      <CustomTeamImage2 src={props.statistics[0].team.logo} alt="Team"></CustomTeamImage2>
+      <CustomName2>{props.player.name}</CustomName2>
+      <CustomGoalCount2>{props.statistics[0].goals.total}</CustomGoalCount2>
+      </CustomCard2>
+    );
+  };
