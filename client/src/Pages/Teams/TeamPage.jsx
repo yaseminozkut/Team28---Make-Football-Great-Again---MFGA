@@ -27,6 +27,7 @@ import CustomPaginationActionsTable from "../../components/MUITable/CustomMuıTa
 import { TeamPostCard } from "../../components/TeamPost/TeamPostCard";
 
 import {FaTwitter} from 'react-icons/fa'
+import Loading from "../../components/Loading/loading";
 
 
 //Material UI packets
@@ -36,11 +37,18 @@ export const TeamPage = () => {
   const [players, SetPlayers] = useState([]);
   const { team } = useParams();
 
-  var teamURL, teamImage;
+  var teamURL = "";
+   var teamImage;
+  const [tweetArray, setTweetArray] = useState([]);
+
+
 
   const [teamsInfo, SetTeamInfo] = useState([]);
   const [teamsName, SetName] = useState([]);
   const [teamsImg, SetImg] = useState([]);
+  const [isContentDownloaded, setIsContentDownloaded] = useState(true);
+
+
   useEffect(() => {
     axios
       .get("http://localhost:4000/profile")
@@ -85,6 +93,22 @@ export const TeamPage = () => {
     fetchData();
   }, []);
 
+
+  useEffect(()=> {
+    if(teamURL != "" && isContentDownloaded) {
+     
+     const fetchData = async () => {
+       const result = await axios.post("http://localhost:4000/api/teamPosts", {screen_name: teamURL});
+ 
+       setTweetArray(result.data);
+     };
+ 
+     fetchData();
+ 
+     setIsContentDownloaded(false);
+    } 
+   })  
+ 
 
   if(team === 'Galatasaray') {
     console.log("Team is Galatasaray")
@@ -181,23 +205,16 @@ export const TeamPage = () => {
     teamURL = "istanbulspor"
     teamImage = "https://pbs.twimg.com/profile_images/1590980260543320072/LomhiDQ3_400x400.jpg"
   }
+  console.log(tweetArray)
 
 
-  
-  // function createCard(player) {
-  //   var playerTeam = player.team;
-  //   playerTeam = playerTeam.replace(" ", "");
-  //   playerTeam = playerTeam.replace(" ", "");
-  //   if (playerTeam === team) {
-  //     return (
-  //       <tr key={player._id}>
-  //         <th>{player.name}</th>
-  //         <th>{player.position}</th>
-  //         <th>{player.birth}</th>
-  //       </tr>
-  //     );
-  //   }
-  // }
+  if(players.length === 0) {
+    return <Loading></Loading>
+  }
+
+  if(tweetArray.length !== 5) {
+    return <Loading></Loading>
+  }
 
   return (
     <ContainerDiv>
@@ -238,11 +255,12 @@ export const TeamPage = () => {
             top: "1rem",
             color: "rgb(29, 155, 240)",
           }}></FaTwitter>
-          <TeamPostCard></TeamPostCard>
-          <TeamPostCard></TeamPostCard>
-          <TeamPostCard></TeamPostCard>
-          <TeamPostCard></TeamPostCard>
-          <TeamPostCard></TeamPostCard>
+
+
+          {[...tweetArray].map((t) => (
+            <TeamPostCard content={t.full_text} imageURL={teamImage}></TeamPostCard>
+          ))}
+
       </PostContainer>
 
 
