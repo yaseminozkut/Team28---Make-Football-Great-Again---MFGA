@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ProSidebarProvider, Menu, MenuItem,} from "react-pro-sidebar";
 // import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
@@ -92,7 +93,30 @@ const CurrentStats = () => {
   console.log("dummy data" + data);
 
   return (
-    <ContainerDiv>
+    <ProSidebarProvider>
+      <PRGlobalContainer>
+        <CustomSidebar>
+              <Menu>
+                <MenuItem
+                  onClick={() => {
+                  setIsPlayer(false);
+                  setIsPlayerRender(true);
+                }}
+                >
+                  {" "}
+                  Standings{" "}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                  setIsPlayer(true);
+                  setIsPlayerRender(true);
+                }}
+                >
+                  {" "}
+                  Player Statistics{" "}
+                </MenuItem>
+              </Menu>
+          </CustomSidebar>
       {err && <h2>{err}</h2>}
       {isLoading && <h2>Loading...</h2>}
       <LeagueTableContainer>
@@ -148,8 +172,10 @@ const CurrentStats = () => {
           </tbody>
         </LeagueTable>
       </LeagueTableContainer>
-      <Footer />
     </ContainerDiv>
+      </PRGlobalContainer>
+      <Footer></Footer>
+    </ProSidebarProvider>
   );
 };
 
