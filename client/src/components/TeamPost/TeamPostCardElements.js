@@ -7,7 +7,7 @@ export const CustomCard = styled(Card)`
 
   width: 71%;
   height: 14rem;
-  margin-bottom: 15px;
+  margin-bottom: -27px;
   background-color: white;
   font-family: sans-serif, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
