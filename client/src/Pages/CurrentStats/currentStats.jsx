@@ -16,6 +16,8 @@ import {
 const CurrentStats = () => {
   const [teamStat, setTeamStat] = useState([]);
 
+  const [topScorerStat, setTopScorerStat] = useState([]);
+  const [scorersStat, setScorersStat] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:4000/stat/getStat");
@@ -24,9 +26,24 @@ const CurrentStats = () => {
 
       //console.log(result.data)
     };
-
     fetchData();
+    
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("http://localhost:4000/api/getTopScorer");
+
+      setTopScorerStat(result.data[0]);
+      setScorersStat(result.data.slice(1));
+
+      //console.log(result.data)
+    };
+    fetchData();
+    
+  }, []);
+  console.log(topScorerStat)
+  console.log(scorersStat)
 
   const API_URL = "https://mocki.io/v1/05d02231-7231-407c-8245-e60595d5fa5f";
 
