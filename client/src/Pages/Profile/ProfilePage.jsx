@@ -57,6 +57,7 @@ export const Profile = () => {
   }, [])
 
   const [teamStat, setTeamStat] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,6 +68,18 @@ export const Profile = () => {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userPosts = await axios.post("http://localhost:4000/api/getUserPost", {email});
+
+      setUserPosts(userPosts.data.post);
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(userPosts);
 
 
   const handleSubmit = (e) => {
