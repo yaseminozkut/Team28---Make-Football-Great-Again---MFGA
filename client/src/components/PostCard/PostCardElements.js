@@ -21,7 +21,7 @@ export const CustomCard = styled(Card)`
 export const CustomName = styled.p`
     position: relative;
     display: inline-block;
-    font-family: 'Sacramento' , cursive, fantasy;
+    font-family: 'Bebas Neue';
     font-size: 16px;
     font-weight: bold;
 
@@ -51,7 +51,7 @@ export const CustomLikeTitle = styled.p`
     position: absolute;
     width: 2.5rem;
     font-size: 11px;
-    font-family: cursive, fantasy;
+    font-family: 'Oswald Regular';
     right: 1.5rem;
     bottom: -0.1rem;
 
