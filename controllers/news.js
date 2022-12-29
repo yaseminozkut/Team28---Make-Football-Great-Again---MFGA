@@ -32,4 +32,20 @@ module.exports = {
       }
     });
   },
+
+
+  showPosts: async (req, res) => {
+    var {screen_name} = req.body;
+
+    var params = {screen_name: screen_name, count: 5, tweet_mode: 'extended'};
+    client.get('statuses/user_timeline', params, function(error, tweets, response) {
+      if (!error) {
+        res.json(tweets);
+      }else {
+        res.json(error)
+      }
+    });
+
+  }
+
 };
