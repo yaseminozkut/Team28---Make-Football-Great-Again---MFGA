@@ -15,6 +15,10 @@ import {
   DropDownContainer,
   DropDownHeader,
   StandingCard,
+  BackgroundImage,
+  ProfileImage,
+  PostsTitle,
+  PostContainer,
 } from "./ProfileElements";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Footer } from "../../components/Footer/Footer";
@@ -111,12 +115,25 @@ export const Profile = () => {
     return <h1>Loading...</h1>
   }
 
+  if(userPosts.length === 0) return <Loading></Loading>;
+
   return (
     <ContainerDiv>
-      <ContainerCard>
+    <BackgroundImage src="https://thumbs.dreamstime.com/b/football-red-background-landscape-format-panoramic-banner-soccer-ball-black-white-artificial-turf-space-text-good-117406190.jpg"></BackgroundImage>
+    <ProfileImage src="https://cdn-icons-png.flaticon.com/512/4978/4978390.png"></ProfileImage>
         <NameTitle>{user.name}</NameTitle>
         <TeamTitle>My Team</TeamTitle>
         <UsernameTitle>{user.username}</UsernameTitle>
+        <PostsTitle>My Posts</PostsTitle>
+        {teamStat.filter(CurrentTeam => CurrentTeam.team === team.trim()).map(filteredTeam => (
+          <StandingCard>
+          <standingsTitle>Rank: {filteredTeam.rank}</standingsTitle>
+          <standingsTitle>Win: {filteredTeam.win}</standingsTitle>
+          <standingsTitle>Lose: {filteredTeam.lose}</standingsTitle>
+          <standingsTitle>Draw: {filteredTeam.draw}</standingsTitle>
+          <standingsTitle>Point: {filteredTeam.point}</standingsTitle>
+        </StandingCard>
+  ))}
         <DropDownContainer>
           <DropDownHeader onClick={toggling}>
             {user.team || "Select Team"}
@@ -137,19 +154,11 @@ export const Profile = () => {
           )}
         </DropDownContainer>
         <StyledNavLink active href="/edit">
-          Edit
+          Edit Profile
         </StyledNavLink>
-        {teamStat.filter(CurrentTeam => CurrentTeam.team === team.trim()).map(filteredTeam => (
-          <StandingCard>
-          <standingsTitle>Rank: {filteredTeam.rank}</standingsTitle>
-          <standingsTitle>Win: {filteredTeam.win}</standingsTitle>
-          <standingsTitle>Lose: {filteredTeam.lose}</standingsTitle>
-          <standingsTitle>Draw: {filteredTeam.draw}</standingsTitle>
-          <standingsTitle>Point: {filteredTeam.point}</standingsTitle>
-        </StandingCard>
-  ))}
+
         
-      </ContainerCard>
+      
     </ContainerDiv>
   );
 };
