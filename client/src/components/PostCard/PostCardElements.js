@@ -20,7 +20,7 @@ export const CustomCard = styled(Card)`
 
 export const CustomName = styled.p`
     position: relative;
-
+    display: inline-block;
     font-family: 'Sacramento' , cursive, fantasy;
     font-size: 16px;
     font-weight: bold;
@@ -87,3 +87,14 @@ export const CustomCommentCount = styled.p`
     bottom: 0;
 
 ` 
+export const CustomDelete = styled(Button)`
+    position: absolute;
+    z-index: 999;
+    width: 1.5rem;
+    font-size: 11px;
+    font-family: cursive, fantasy;
+    right: 0.5rem;
+    top: 0.5rem;
+    border-width: 0;
+    background-color: #EC2A2A;
+`
