@@ -121,3 +121,13 @@ export const CustomDoneEdit = styled(Button)`
     background-color: #EC2A2A;
 `
 
+export const CustomEditInput = styled(Input)`
+  position: absolute;
+  top: 2rem;
+  left: 0.5rem;
+  width: 20rem;
+  height: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  background: rgb(0, 0, 0, 0.1);
+`;
