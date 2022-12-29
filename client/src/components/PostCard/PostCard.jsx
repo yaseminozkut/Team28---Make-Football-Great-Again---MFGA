@@ -97,17 +97,39 @@ export const PostCard = (props) => {
   );
 };
 
-export const ProfilePostCard = ({props, name}) => {
+export const ProfilePostCard = ({props, name, postId}) => {
+  console.log(postId)
+  const [isRender, setIsRender] = useState(true)
+  const HandleDelete = () => {
+    setIsRender(false)
+    axios
+      .post("http://localhost:4000/api/deletePost", {postId})
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
-    <CustomCard>
-      <CustomDelete><FaTrash style={{position: "relative",right: "0.3rem"}}></FaTrash></CustomDelete>
-      <CustomName>{name}</CustomName>
-      <CustomContent>{props.content}</CustomContent>
-      <CustomLikeTitle>
-          Likes:
-      </CustomLikeTitle>
-      <CustomLikeCount>{props.likeCount}</CustomLikeCount>
-    </CustomCard>
+    <>
+        {isRender ? (
+      <>
+        <CustomCard>
+        <CustomDelete onClick={HandleDelete}><FaTrash style={{position: "relative",right: "0.3rem"}}></FaTrash></CustomDelete>
+        <CustomName>{name}</CustomName>
+        <CustomContent>{props.content}</CustomContent>
+        <CustomLikeTitle>
+            Likes:
+        </CustomLikeTitle>
+        <CustomLikeCount>{props.likeCount}</CustomLikeCount>
+      </CustomCard>
+    </>
+    ) :
+    (<></>)
+    }
+    </>
   );
 };
 
