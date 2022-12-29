@@ -115,10 +115,23 @@ export const ProfilePostCard = ({props, name, postId}) => {
       });
   };
   const [isEditRender, setIsEditRender] = useState(false)
+  const [newContent, setNewContent] = useState(props.content)
   const HandleEdit = () => {
     setIsEditRender(true)
   };
 
+  const HandleDoneEdit = (e) => {
+    e.preventDefault();
+    setIsEditRender(false)
+    setIsRenderAgain(true)
+    axios.post("http://localhost:4000/api/updatePost", {postId, newContent})
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  };
 
   return (
     <>
