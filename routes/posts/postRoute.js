@@ -19,4 +19,6 @@ router.post('/commentPost', auth, PostController.commentPost);
 
 router.post('/filter', PostController.filter)
 
+router.post('/deletePost', auth, PostController.deletePost);
+
 module.exports = router;
