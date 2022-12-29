@@ -4,8 +4,8 @@ import {Card,Button } from "reactstrap";
 
 
 export const ContainerCard = styled(Card)`
-  height: 5rem;  
-  width: 18rem;
+  height: 15rem;  
+  width: 25rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius:5%;
@@ -27,8 +27,10 @@ export const ContainerCard = styled(Card)`
 `;
 export const NameTitle = styled.h1`
   position: absolute;
-  top: 5%;
+  bottom: 12%;
   left: 5%;
+  right: 5%;
+
 
 
   color: black;
@@ -37,26 +39,41 @@ export const NameTitle = styled.h1`
   text-align: center;
   font-weight: bold;
 
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+
+export const TeamImg = styled.img`
+  position:absolute;
+  top: 5%;
+  border: 7px #432C7A;
+  width: 110px;
+  left:10%;
+  right:10%;
+
+
+  height: auto;
+  margin: 0 auto;
+
 `;
 
 export const GoButton = styled(Button)`
   position: absolute;
-  top: 40%;
-  right: 5%;
+  bottom:1%;
+  left:10%;
+  right:10%;
   display: flex;
   width: 7rem;
+  margin: 0 auto;
   height: 1.8rem;
-
   border: none;
   justify-content: center;
   font-size: 11px;
   font-weight: bold;
 
-  color: black;
+  color: white;
 
-  background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
+  background: #A92C2C;
 `;
 
 

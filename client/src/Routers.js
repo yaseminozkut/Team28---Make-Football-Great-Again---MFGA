@@ -32,6 +32,8 @@ import { PublishReward } from './Pages/Admin/AdminPublishReward/publishReward';
 import { Awards } from './Pages/Awards/awards';
 import { BugReport } from './Pages/BugReport/bugReport';
 import { BugControl } from './Pages/Admin/AdminBugControl/bugControl';
+import { BugFix } from './Pages/Admin/AdminBugControl/Fix-Bug/bugFix';
+import { FixedBugs } from './Pages/FixedBugs/fixedBugs';
 
 function Routers() {
     return (
@@ -60,10 +62,10 @@ function Routers() {
                 <Route path="publishReward" element={<Auth> <RoleAdmin> <PublishReward/> </RoleAdmin> </Auth>} />
                 <Route path="awards" element={<Awards/>} />
                 <Route path="bugReport" element={<BugReport/>} />
+                <Route path="fixedBugs" element={<FixedBugs/>} />
                 <Route path="bugControl" element={<Auth> <RoleAdmin><BugControl/></RoleAdmin></Auth>} />
+                <Route path="bugFix/:id" element={<Auth> <RoleAdmin><BugFix/></RoleAdmin></Auth>} />
 
-
-                
                 {/* <Route path="*" element={<NoPage />} /> */}
             </Route>
             </Routes>
