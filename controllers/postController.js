@@ -107,5 +107,27 @@ module.exports = {
     .catch(e => {
       res.json(e)
     })
+  },
+
+  deletePost: async (req, res) => {
+    const {postId} = req.body;
+    console.log(postId);
+    try{
+      await Post.findByIdAndDelete(postId)
+      res.json({ message: "Post deleted successfully" });
+    }
+    catch (e){
+      res.json(e)
+    }
+    /*
+    Post.findOneAndDelete({_id: postId})
+    .then(async (del) => {
+      res.json({ message: "Post deleted successfully" })
+      }
+    )
+    .catch(e => {
+      res.json(e)
+    })
+    */
   }
 };
