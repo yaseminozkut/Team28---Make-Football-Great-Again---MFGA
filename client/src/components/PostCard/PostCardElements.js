@@ -1,4 +1,4 @@
-import { Button, Card } from "reactstrap";
+import { Button, Card, Input} from "reactstrap";
 import styled from "styled-components";
 
 
@@ -98,3 +98,16 @@ export const CustomDelete = styled(Button)`
     border-width: 0;
     background-color: #EC2A2A;
 `
+
+export const CustomEdit = styled(Button)`
+    position: absolute;
+    z-index: 999;
+    width: 1.5rem;
+    font-size: 11px;
+    font-family: cursive, fantasy;
+    right: 2.5rem;
+    top: 0.5rem;
+    border-width: 0;
+    background-color: #EC2A2A;
+`
+export const CustomDoneEdit = styled(Button)`
