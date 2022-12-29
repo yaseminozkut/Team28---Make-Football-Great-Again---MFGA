@@ -7,21 +7,30 @@ export const ContainerDiv = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-
   margin: 0;
   padding: 0;
-
   height: 100%;
   width: 100%;
-
   justify-content: center;
-
   z-index: 0;
   overflow-x: auto;
   background: #EAE7E7;
   flex: 1;
 `;
 
+export const BackgroundImage = styled.img`
+    position: absolute;
+    width: 100%;
+    height: 25rem;
+`
+export const ProfileImage = styled.img`
+    position: absolute;
+    width: 12%;
+    top: 19rem;
+    left: 3rem;
+    border-radius: 100%;
+    background: white;
+`
 export const ContainerCard = styled(Card)`
   position: absolute;
   left:25%;
@@ -33,30 +42,27 @@ export const ContainerCard = styled(Card)`
   border-bottom-left-radius: 5%;
   border-top-left-radius: 5%;
   border-bottom-right-radius:5%;
-  
   top: 10%;
-  
-
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
-
   background: white;
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
 `;
 
 export const StandingCard = styled(Card)`
-  left:25%;
+  left:86%;
   position: absolute;
-  height: 15rem;  
-  width: 30rem;
+  height: 9rem;  
+  width: 8rem;
+  text-align: center;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius:5%;
   border-bottom-left-radius: 5%;
   border-top-left-radius: 5%;
   border-bottom-right-radius:5%;
-  top: 40%;
+  top: 50%;
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
@@ -65,97 +71,100 @@ export const StandingCard = styled(Card)`
 `;
 
 export const NameTitle = styled.h1`
-  position: relative;
- 
-top: 14%;
-
-  color: black;
-  
+  position: absolute;
+  display: inline-block;
+  top: 18rem;
+  left: 20rem;
+  color: white;
   text-decoration-thickness: 1px;
-  text-align: center;
-  font-weight: bold;
-
   font-size: 2.5rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Bebas Neue',sans-serif;
 `;
+
+export const PostsTitle = styled.h1`
+  position: absolute;
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  top: 34rem;
+  left: 5rem;
+  color: black;
+  text-decoration-thickness: 1px;
+  font-size: 2.5rem;
+  font-family: 'Bebas Neue',sans-serif;
+`;
+
 export const standingsTitle = styled.h1`
 
   color: black;
   position: absolute;
-  
   text-decoration-thickness: 1px;
   left:10px;
   text-align: center;
   font-weight: bold;
   margin-top:50px;
-
   font-size: 2.5rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 
 
 export const UsernameTitle = styled.h1`
-  position: relative;
-  top: 16%;
-  
-  
-
-  color: rgb(0, 0, 0, 0.5);
-
-  text-align: center;
-
+  position: absolute;
+  display: inline-block;
+  top: 21rem;
+  left: 20rem;
+  color: white;
+  /*{color: rgb(0, 0, 0, 0.5);}*/
   font-size: 1.8rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  
+  font-weight: 200;
 `;
 export const StyledButton = styled(Button)`
-  position: absolute   ;
+  position: absolute;
   top: 5%;
- right: 4%;
-
+  right: 4%;
   border: none;
   justify-content: center;
   font-weight: bold;
-  
-
   color: rgb(0, 0, 0, 0.8);
-
   background: linear-gradient(to right, #ff3838 0%, #ff4d4d 0%, #ffffff 2000%);
 `;
+
 export const StyledNavLink = styled(NavLink)`
   position: absolute;
-  top: 5%;
-  left: 4%;
-  color: #ff3838;
+  top: 25rem;
+  left: 16%;
+  color: black;
   font-weight: bold;
-  
+  &:hover {
+      color: #c31432;
+      transition: 200ms ease-in;
+  }
 `
 
 export const TeamTitle = styled.h1`
   position: absolute;
-  top: 5%;
+  top: 18rem;
   right: 7%;
-  
-  
-
-  color: rgb(0, 0, 0, 0.5);
-
+  color: white;
   text-align: center;
-  color:black;
-  font-weight:bold;
   font-size: 2rem;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: 'Bebas Neue',sans-serif;
 `;
 
-
-
-
-
 export const DropDownContainer = styled("div")`
-  width: 10.5em;
+  width: 10.5rem;
   margin: 0 auto;
   position: absolute;
-  top: 12%;
-  right: 5%;
+  top: 21rem;
+  right: 4.5%;
+`;
+export const PostContainer = styled("div")`
+  width: 45rem;
+  margin: 0 auto;
+  position: absolute;
+  top: 39rem;
+  left: 4rem;
 `;
 
 export const DropDownHeader = styled("div")`
