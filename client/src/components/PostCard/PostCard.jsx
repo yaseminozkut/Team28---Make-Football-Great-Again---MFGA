@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-import { FaHeart, FaComment, FaThumbsDown, FaThumbsUp, FaTrash} from "react-icons/fa";
+import { FaHeart, FaComment, FaThumbsDown, FaThumbsUp, FaTrash, FaEdit} from "react-icons/fa";
 
 import { Display, DisplayAuth } from "../PageDirect/NavbarDisplay";
 
@@ -15,6 +15,9 @@ import {
   CustomLikeCount,
   CustomLikeTitle,
   CustomDelete,
+  CustomEdit,
+  CustomEditInput,
+  CustomDoneEdit,
 } from "./PostCardElements";
 
 export const PostCard = (props) => {
@@ -111,6 +114,11 @@ export const ProfilePostCard = ({props, name, postId}) => {
         console.log(e);
       });
   };
+  const [isEditRender, setIsEditRender] = useState(false)
+  const HandleEdit = () => {
+    setIsEditRender(true)
+  };
+
 
   return (
     <>
