@@ -43,7 +43,10 @@ export const Navbar = ( {toggle} ) => {
             <FaBars/>
           </MobileIcon>
           <NavMenu>
-
+          
+          <NavItem>
+              <NavLinks to = '/search'>Search 🔍</NavLinks>
+            </NavItem>
             <NavItem>
               <NavLinks to = '/currentstats'>Current Stats</NavLinks>
             </NavItem>
@@ -56,8 +59,7 @@ export const Navbar = ( {toggle} ) => {
             <NavItem>
               <NavLinks to = '/referee'>Referees</NavLinks>
             </NavItem>
-
-
+            
             <NavItem>
                 <NavLinks to = '/awards'>Awards</NavLinks>
               </NavItem>
