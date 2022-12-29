@@ -1,5 +1,31 @@
-import { Button, Table } from "reactstrap";
+import { Button, Table, Container} from "reactstrap";
 import styled from "styled-components";
+import {
+  Sidebar,
+} from "react-pro-sidebar";
+
+export const PRGlobalContainer = styled.div`
+  position: relative;
+`
+
+export const PRContainer = styled( Container )`
+  position: absolute;
+  padding-top: 4rem;
+  width: 70%;
+  height: 40rem;
+  right: -12rem;
+  top: 0;
+  overflow: scroll;
+  border-width: 2px;
+  border-color: black;
+  @media screen and (max-width: 795px) {
+        width: 40%;
+  }
+`
+export const CustomSidebar = styled( Sidebar )`
+  height: 48rem;
+  background-color: #E8E8E8;
+`
 
 export const ContainerDiv = styled.div`
   position: absolute;
@@ -24,11 +50,11 @@ export const ContainerDiv = styled.div`
 
 export const LeagueTableContainer = styled.div`
     background: white;
-    position: relative;
-    left: 18%;
+    position: absolute;
+    left: 25%;
     width: 60rem;
     height: 58rem;
-    margin-top: 10rem;
+    margin-top: 2rem;
 `
 
 export const LeagueTable = styled(Table)`

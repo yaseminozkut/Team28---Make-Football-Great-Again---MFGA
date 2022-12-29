@@ -5,6 +5,9 @@ const cors = require("cors");
 
 const cookieParser = require("cookie-parser");
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json', {assert: { type: "json" }});
+
 const { MONGOURL } = require("./config/index");
 require("dotenv").config();
 
@@ -39,6 +42,8 @@ const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
 const postRoute = require("./routes/posts/postRoute")
 const newsRoute = require('./routes/news/newsRoute')
+
+const playerStatsRoute = require("./routes/playerStats/playerStatsRoute")
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
 const award = require("./routes/awards/awardsRoute")
 const path = require('path');
@@ -53,6 +58,7 @@ app.use(express.static('client/build'));
 
 // routes
 app.use('/api', newsRoute)
+app.use('/api', playerStatsRoute);
 app.use('/api', postRoute);
 app.use('/api', award);
 app.use(refereeRoutes);
@@ -60,6 +66,7 @@ app.use(nextMatch);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 //app.use(refereeRoutes);
 //const __dirname = path.resolve();
 app.use(express.static(path.join(path.resolve(), "/client/build")));
