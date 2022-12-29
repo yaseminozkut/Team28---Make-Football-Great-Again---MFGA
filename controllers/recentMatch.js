@@ -33,6 +33,10 @@ module.exports = {
         } else {
           //Match is not found
 
+          if(skor === "undefined-undefined") {
+            skor = "not played";
+          }
+
           const recentMatch = new Recent({
             skor,
             date,
@@ -43,7 +47,7 @@ module.exports = {
           await recentMatch
             .save()
             .then((rec) => {
-              console.log(rec);
+              // console.log(rec);
               res.status(200).json({
                 message: "Recent match is successfully saved",
                 rec: rec,
@@ -65,7 +69,12 @@ module.exports = {
     // res.send("dsfsdfds")
 
     Recent.find()
-    .then(data => res.json(data))
+    .then(data => {
+
+      // console.log(data.slice(0,1))
+      
+      res.json(data.slice(0,7))
+    })
     .catch(error => res.json(error))
   },
 };

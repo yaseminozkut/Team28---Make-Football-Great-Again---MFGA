@@ -41,6 +41,7 @@ const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
 const postRoute = require("./routes/posts/postRoute")
+const newsRoute = require('./routes/news/newsRoute')
 
 const playerStatsRoute = require("./routes/playerStats/playerStatsRoute")
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
@@ -49,12 +50,14 @@ const path = require('path');
 //Web scrapping
 // require("./web/scraping")
 require("./web-scraping/teamPlayers")
+require('./web-scraping/newsScraper/scrapeNews')
 // require('./web-scraping/newsScraper/scrapeNews')
 //require('./web-scraping/newsScraper/scrapeTffNews')
 
 app.use(express.static('client/build'));
 
 // routes
+app.use('/api', newsRoute)
 app.use('/api', playerStatsRoute);
 app.use('/api', postRoute);
 app.use('/api', award);
