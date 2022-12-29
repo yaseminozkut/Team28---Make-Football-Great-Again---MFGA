@@ -149,7 +149,20 @@ export const ProfilePostCard = ({props, name, postId}) => {
         <CustomCard>
         <CustomDelete onClick={HandleDelete}><FaTrash style={{position: "relative",right: "0.3rem"}}></FaTrash></CustomDelete>
         <CustomName>{name}</CustomName>
+        {!isEditRender?
+        <>
+        <CustomEdit onClick ={HandleEdit}> <FaEdit style={{position: "relative",right: "0.3rem"}}></FaEdit></CustomEdit>
         <CustomContent>{props.content}</CustomContent>
+        </>
+        :
+        <>
+        <CustomEditInput defaultValue={props.content} 
+        onChange={(e)=> {setNewContent(e.target.value)}}>
+
+        </CustomEditInput>
+        <CustomDoneEdit onClick={HandleDoneEdit}>Done</CustomDoneEdit>
+        </>
+        }
         <CustomLikeTitle>
             Likes:
         </CustomLikeTitle>
