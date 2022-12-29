@@ -7,7 +7,7 @@ const PostController = require("../../controllers/postController");
 
 router.post('/post', auth, PostController.sendPost);
 
-router.get('/getUserPost', auth , PostController.getUserPost);
+router.post('/getUserPost', auth , PostController.getUserPost);
 
 router.get('/getAllPost', PostController.getAllPost);
 
