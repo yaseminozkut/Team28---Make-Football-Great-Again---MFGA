@@ -103,6 +103,15 @@ export const PostCard = (props) => {
 export const ProfilePostCard = ({props, name, postId}) => {
   console.log(postId)
   const [isRender, setIsRender] = useState(true)
+  const [isRenderAgain, setIsRenderAgain] = useState(false)
+  
+  useEffect(() => {
+    if(isRenderAgain){
+      props.content = newContent
+      setIsRenderAgain(false);
+    }
+  });
+
   const HandleDelete = () => {
     setIsRender(false)
     axios
