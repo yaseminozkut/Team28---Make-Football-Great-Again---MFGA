@@ -131,10 +131,10 @@ export const CustomImageTFF = styled.img`
 `;
 
 export const UpComingMatchContainer = styled.div`
-  position: absolute;
+  position: relative;
   background: rgba(0, 0, 0, 0.7);
 
-  top: 4rem;
+  top: -6rem;
   bottom: 0;
 
   display: inline-block;

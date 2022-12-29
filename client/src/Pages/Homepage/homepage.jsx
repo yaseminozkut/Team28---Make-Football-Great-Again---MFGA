@@ -210,10 +210,12 @@ const Homepage = () => {
                 Refresh Feed{" "}
               </RecentMatchButton>
             </UpComingMatchContainer>
+            <Footer></Footer>
           </InnerContainer>
-          <Footer></Footer>
+          
         </ContainerDiv>
       </ProSidebarProvider>
+      
     </>
   );
 };
