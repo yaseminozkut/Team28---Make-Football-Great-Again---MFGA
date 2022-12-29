@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-import { FaHeart, FaComment, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
+import { FaHeart, FaComment, FaThumbsDown, FaThumbsUp, FaTrash} from "react-icons/fa";
 
 import { Display, DisplayAuth } from "../PageDirect/NavbarDisplay";
 
@@ -14,6 +14,7 @@ import {
   CustomCommentCount,
   CustomLikeCount,
   CustomLikeTitle,
+  CustomDelete,
 } from "./PostCardElements";
 
 export const PostCard = (props) => {
@@ -95,3 +96,18 @@ export const PostCard = (props) => {
     </CustomCard>
   );
 };
+
+export const ProfilePostCard = ({props, name}) => {
+  return (
+    <CustomCard>
+      <CustomDelete><FaTrash style={{position: "relative",right: "0.3rem"}}></FaTrash></CustomDelete>
+      <CustomName>{name}</CustomName>
+      <CustomContent>{props.content}</CustomContent>
+      <CustomLikeTitle>
+          Likes:
+      </CustomLikeTitle>
+      <CustomLikeCount>{props.likeCount}</CustomLikeCount>
+    </CustomCard>
+  );
+};
+
