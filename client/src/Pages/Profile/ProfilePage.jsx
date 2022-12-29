@@ -150,6 +150,7 @@ export const Profile = () => {
         <TeamTitle>My Team</TeamTitle>
         <UsernameTitle>{user.username}</UsernameTitle>
         <PostsTitle>My Posts</PostsTitle>
+        <PostContainer>{userPosts.map(createCard)}</PostContainer>
         {teamStat.filter(CurrentTeam => CurrentTeam.team === team.trim()).map(filteredTeam => (
           <StandingCard>
           <standingsTitle>Rank: {filteredTeam.rank}</standingsTitle>
