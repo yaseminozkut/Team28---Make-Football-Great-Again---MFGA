@@ -24,6 +24,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
 import { useEffect } from "react";
+import { ProfilePostCard } from "../../components/PostCard/PostCard";
 
 export const Profile = () => {
   const location = useLocation();
@@ -81,6 +82,17 @@ export const Profile = () => {
 
   console.log(userPosts);
 
+  function createCard(post) {
+    const name = user.name;
+    return (
+      <ProfilePostCard
+        key={post._id}
+        props={post}
+        name={name}
+        postId={post._id}
+      />
+    );
+  }
 
   const handleSubmit = (e) => {
     navigate("/edit");
