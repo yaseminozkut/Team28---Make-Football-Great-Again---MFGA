@@ -21,4 +21,6 @@ router.post('/filter', PostController.filter)
 
 router.post('/deletePost', auth, PostController.deletePost);
 
+router.post('/updatePost', auth, PostController.updatePost);
+
 module.exports = router;
