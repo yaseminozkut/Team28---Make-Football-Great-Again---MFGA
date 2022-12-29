@@ -119,15 +119,16 @@ module.exports = {
     catch (e){
       res.json(e)
     }
-    /*
-    Post.findOneAndDelete({_id: postId})
-    .then(async (del) => {
-      res.json({ message: "Post deleted successfully" })
-      }
-    )
-    .catch(e => {
+  },
+  updatePost: async (req, res) => {
+    const {postId, newContent} = req.body;
+    console.log(postId);
+    try{
+      await Post.findByIdAndUpdate(postId, {content: newContent})
+      res.json({ message: "Post updated successfully" });
+    }
+    catch (e){
       res.json(e)
-    })
-    */
+    }
   }
 };
