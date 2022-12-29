@@ -111,3 +111,13 @@ export const CustomEdit = styled(Button)`
     background-color: #EC2A2A;
 `
 export const CustomDoneEdit = styled(Button)`
+    position: absolute;
+    z-index: 999;
+    width: 4.5rem;
+    font-size: 11px;
+    left: 16rem;
+    top: 5rem;
+    border-width: 0;
+    background-color: #EC2A2A;
+`
+
