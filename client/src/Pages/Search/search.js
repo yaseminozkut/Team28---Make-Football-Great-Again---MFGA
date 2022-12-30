@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ContainerDiv,DataDiv,SearchButton,SearchDiv, SearchInput, SearchLogo, SmallDataA,SmallDataP, Title } from "./searchPageElements";
+import { Footer } from "../../components/Footer/Footer";
 
 
 
@@ -71,6 +72,27 @@ export const Search = ()=>{
                 })}
             </DataDiv>
             )}
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        <Footer></Footer>
         </ContainerDiv>
     )
 }
