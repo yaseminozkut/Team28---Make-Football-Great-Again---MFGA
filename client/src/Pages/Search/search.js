@@ -1,15 +1,17 @@
 import React,{useState,useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ContainerDiv,DataDiv,SearchButton,SearchDiv, SearchInput, SearchLogo, SmallDataA,SmallDataP, Title } from "./searchPageElements";
 
 
 
 export const Search = ()=>{
+    const navigate = useNavigate();
     const [data,setData] = useState([])
     const [filteredData,setFiltered] = useState([])
     useEffect(() => {
         axios
-            .get("http://localhost:4000/referees")
+            .get("http://localhost:4000/searchData")
             .then( (res) => {
               const data = res.data;
               setData(data);
@@ -33,6 +35,23 @@ export const Search = ()=>{
         
 
       }
+      const handleSubmit = (e)=>{
+       
+        const needs = {
+            name: e,
+        }
+        axios
+        .post("http://localhost:4000/searchData/count", needs)
+        .then((res) => {
+          if(res.status===200){
+             console.log("count added !");
+          }
+          else{
+              console.log("Error happened, cannot add count!");
+          }
+        
+        });
+      }
 
 
 
@@ -44,8 +63,8 @@ export const Search = ()=>{
             </SearchDiv>
             {filteredData.length != 0 && (
             <DataDiv>
-                {filteredData.slice(0,15).map((value) =>{
-                    return(<SmallDataA href="">
+                {filteredData.slice(0,15).map((value,key) =>{
+                    return(<SmallDataA href={"http://localhost:3000"+value.route}>
                     <SmallDataP>{value.name}</SmallDataP>
                     </SmallDataA>
                     );

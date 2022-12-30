@@ -25,6 +25,7 @@ require("./models/post")
 require("./models/rating");
 require("./models/award");
 require("./models/bugs");
+require("./models/searchData")
 
 
 
@@ -45,8 +46,7 @@ const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
 const postRoute = require("./routes/posts/postRoute")
 const bugsRoute = require("./routes/bugs/bugsRoute")
-
-
+const searchRoute = require("./routes/searchData/searchData")
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
 const award = require("./routes/awards/awardsRoute")
 const path = require('path');
@@ -62,6 +62,7 @@ app.use(express.static('client/build'));
 app.use('/api', postRoute);
 app.use('/api', award);
 app.use(refereeRoutes);
+app.use(searchRoute);
 app.use(nextMatch);
 app.use(bugsRoute);
 app.use('/recentmatch', recentMatch)

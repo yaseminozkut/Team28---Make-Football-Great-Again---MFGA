@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ContainerDiv, UserTitle } from "./adminpageElements";
+import { BannedDiv, BannedTitle, ContainerDiv, UserTitle,BanDiv } from "./adminpageElements";
 import {RegisterBoard} from "./AdminComponents/registerBoardMember";
 import { UserCard,BannedCard } from "./AdminComponents/UserCard";
 import axios from "axios";
@@ -52,10 +52,14 @@ export const Admin = () =>{
         <ContainerDiv>
                   <RegisterBoard /> 
                   <UserTitle>Users List</UserTitle>
-                  
+                  <BanDiv>
                   {users.map(createCard)}
-                  <UserTitle>Banned List</UserTitle>
+                  </BanDiv>
+                  
+                  <BannedTitle>Banned List</BannedTitle>
+                  <BannedDiv>
                   {users.map(createBannedCard)}
+                  </BannedDiv>
     
             
         </ContainerDiv>

@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
 const searchDataSchema = mongoose.Schema({
-    comment: {
+    name: {
         type: String,
         required: true,
     },
-    url: {
+    route: {
         type: String, 
         required: true
     },
-    Counter: {
+    counter: {
         type: Number, 
     }
 
