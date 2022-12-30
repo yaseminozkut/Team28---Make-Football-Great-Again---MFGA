@@ -87,7 +87,7 @@ export const PostsTitle = styled.h1`
   text-decoration: underline;
   text-decoration-thickness: from-font;
   top: 34rem;
-  left: 5rem;
+  left: 45%;
   color: black;
   text-decoration-thickness: 1px;
   font-size: 2.5rem;
@@ -164,7 +164,7 @@ export const PostContainer = styled("div")`
   margin: 0 auto;
   position: absolute;
   top: 39rem;
-  left: 4rem;
+  left: 32%;
 `;
 
 export const DropDownHeader = styled("div")`
