@@ -4,9 +4,9 @@ import { Button, Card, Form, Input, Label } from "reactstrap";
 export const ContainerCard = styled(Card)`
 position:absolute;
 
-  right: 40%;
+  right: 30%;
   height: 20rem;
-  width: 15rem;
+  width: 20rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
   border-top-right-radius:20%;
@@ -40,18 +40,19 @@ export const Title = styled.h1`
 
 export const StyledForm = styled(Form)`
   width: 90%;
-  height: 85%;
+  height: 80%;
   position: absolute;
-  top: 13%;
+  top: 10%;
   left: 5%;
 `;
 
 export const StyledInputName = styled(Input)`
   position: absolute;
-  top: 8%;
-  left: 2rem;
-  width: 80%;
-  height: 10%;
+  top: 15%;
+  left:5%;
+
+  width: 90%;
+  height: 15%;
 
   border: none;
   border-radius: 1rem;
@@ -61,10 +62,11 @@ export const StyledInputName = styled(Input)`
 
 export const StyledInputRoute = styled(Input)`
   position: absolute;
-  top: 31%;
-  left: 2rem;
-  width: 80%;
-  height: 10%;
+  top: 50%;
+  left:5%;
+ 
+  width: 90%;
+  height: 15%;
 
 
   border: none;
@@ -88,7 +90,7 @@ export const StyledNameLabel = styled(Label)`
 export const StyledRouteLabel = styled(Label)`
   position: absolute;
   left: 1.5rem;
-  top: 24%;
+  top: 35%;
 
   font-size: 1.1rem;
 
@@ -97,10 +99,10 @@ export const StyledRouteLabel = styled(Label)`
 
 export const StyledButton = styled(Button)`
   position: absolute;
-  top: 93%;
+  bottom: 10%;
   display: flex;
   width: 50%;
-  height: 7%;
+  height: 15%;
   left: 25%;
 
   border: none;

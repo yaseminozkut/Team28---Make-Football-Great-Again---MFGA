@@ -83,7 +83,7 @@ export const Navbar = ( {toggle} ) => {
             <DisplayAuth>
               <AdminDisp>
                 <NavItem>
-                    <NavLinks to = '/bugControl'>Bug Control</NavLinks>
+                    <NavLinks to = '/bugControl'>Control Bugs</NavLinks>
                   </NavItem>
                 </AdminDisp>
             </DisplayAuth>
@@ -99,7 +99,7 @@ export const Navbar = ( {toggle} ) => {
             <DisplayAuth>
               <AdminDisp>
                 <NavItem>
-                    <NavLinks to = '/admin'>Admin Profile</NavLinks>
+                    <NavLinks to = '/admin'>Admin Panel</NavLinks>
                   </NavItem>
                 </AdminDisp>
             </DisplayAuth>
