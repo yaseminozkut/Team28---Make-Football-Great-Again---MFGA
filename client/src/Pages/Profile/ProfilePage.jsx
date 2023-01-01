@@ -140,7 +140,6 @@ export const Profile = () => {
     return <h1>Loading...</h1>
   }
 
-  if(userPosts.length === 0) return <Loading></Loading>;
 
   return (
     <ContainerDiv>
@@ -150,7 +149,7 @@ export const Profile = () => {
         <TeamTitle>My Team</TeamTitle>
         <UsernameTitle>{user.username}</UsernameTitle>
         <PostsTitle>My Posts</PostsTitle>
-        <PostContainer>{userPosts.map(createCard)}</PostContainer>
+        {userPosts.length === 0 ? <></> : <PostContainer>{userPosts.map(createCard)}</PostContainer>}
         {teamStat.filter(CurrentTeam => CurrentTeam.team === team.trim()).map(filteredTeam => (
           <StandingCard>
           <standingsTitle>Rank: {filteredTeam.rank}</standingsTitle>
