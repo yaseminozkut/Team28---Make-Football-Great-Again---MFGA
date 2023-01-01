@@ -71,7 +71,8 @@ export const CustomBox2 = styled(Card)`
 `
 export const CustomName = styled.p`
     position: absolute;
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'bebas-neue-by-fontfabric', sans-serif;
+    font-weight: bold;
     font-size: 1.5rem;
     top: 1rem;
     left: 7rem;
@@ -87,7 +88,8 @@ export const CustomSurname = styled.p`
 
 export const CustomName2 = styled.p`
     position: absolute;
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'bebas-neue-by-fontfabric',sans-serif;
+    font-weight: bold;
     font-size: 1rem;
     top: 1rem;
     left: 11rem;
@@ -151,7 +153,8 @@ export const CustomAssistTitle = styled.p`
     position: absolute;
     width: 4.5rem;
     font-size: 24px;
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'bebas-neue-by-fontfabric',sans-serif;
+    font-weight: bold;
     top: 8rem;
     left: 2rem;
     color: #f1dada;
@@ -175,7 +178,8 @@ export const CustomAssistCount = styled.p`
 `
 export const CustomAssistCount2 = styled.p`
     position: absolute;
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'bebas-neue-by-fontfabric',sans-serif;
+    font-weight: bold;
     font-size: 1rem;
     top: 1rem;
     left: 19rem;
@@ -185,7 +189,8 @@ export const CustomTotalPassesTitle = styled.p`
     position: absolute;
     width: 4.5rem;
     font-size: 24px;
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'bebas-neue-by-fontfabric',sans-serif;
+    font-weight: bold;
     top: 13rem;
     left: 2rem;
     color: #f1dada;
@@ -203,7 +208,8 @@ export const CustomPassAccuracyTitle = styled.p`
     position: absolute;
     width: 5.5rem;
     font-size: 24px;
-    font-family: 'Bebas Neue',sans-serif;
+    font-family: 'bebas-neue-by-fontfabric',sans-serif;
+    font-weight: bold;
     top: 18rem;
     left: 2rem;
     color: #f1dada;
