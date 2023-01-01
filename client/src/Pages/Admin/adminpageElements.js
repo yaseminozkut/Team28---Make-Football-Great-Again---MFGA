@@ -81,6 +81,7 @@ position:absolute;
   color: black;
   text-decoration: underline;
   text-decoration-thickness: 1px;
+  text-align:center;
 
   font-size: 2rem;
   font-weight: bold;

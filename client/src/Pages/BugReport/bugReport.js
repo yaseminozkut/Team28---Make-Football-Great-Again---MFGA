@@ -2,6 +2,7 @@ import React,{useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ContainerCard, ContainerDiv, StyledForm, Title,DropDownContainer2,DropDownHeader2,DropDownList2,DropDownListContainer2,ListItem2, StyledFilterLabel, StyledInputComment, StyledButton } from "./bugReportElements";
+import { Footer } from "../../components/Footer/Footer";
 
 
 export const BugReport = ()=>{
@@ -77,6 +78,15 @@ export const BugReport = ()=>{
         </StyledForm>
 
         </ContainerCard>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+
+        <Footer></Footer>
+        
         </ContainerDiv>
 
     )
