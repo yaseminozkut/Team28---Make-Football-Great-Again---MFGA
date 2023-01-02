@@ -82,8 +82,9 @@ export const StyledInputComment = styled.textarea`
   right: 10%;
   margin: 0 auto;
   text-align: top;
-  Row: 40;
-  Column: 40;
+  
+  Row: 3;
+  Column: 10;
   width: 75%;
   height:40%;
   resize:none;

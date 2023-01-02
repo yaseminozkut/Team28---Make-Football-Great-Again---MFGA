@@ -78,6 +78,13 @@ export const Navbar = ( {toggle} ) => {
                   </NavItem>
                 </AdminDisp>
             </DisplayAuth>
+            <DisplayAuth>
+              <AdminDisp>
+                <NavItem>
+                    <NavLinks to = '/bugControl'>Bug Control</NavLinks>
+                  </NavItem>
+                </AdminDisp>
+            </DisplayAuth>
 
             <DisplayAuth>
               <UserDisp>

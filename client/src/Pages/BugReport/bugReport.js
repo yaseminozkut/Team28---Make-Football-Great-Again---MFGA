@@ -70,7 +70,9 @@ export const BugReport = ()=>{
       <StyledInputComment
       value={comment}
       onChange={(event) => setComment(event.target.value)}
-      placeholder="Please explain the bug that you found"></StyledInputComment>
+      placeholder="Please explain the bug that you found, maximum 200 characters" maxLength= {200}>
+        
+      </StyledInputComment>
       <StyledButton onClick={handleSubmit}>Report</StyledButton>
         </StyledForm>
 
