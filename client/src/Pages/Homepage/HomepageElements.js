@@ -1,3 +1,4 @@
+import { Sidebar } from "react-pro-sidebar";
 import { Button, Card } from "reactstrap";
 import styled from "styled-components";
 
@@ -18,7 +19,8 @@ export const ContainerDiv = styled.div`
 
   z-index: 0;
   overflow-x: auto;
-  background: #EAE7E7;
+  /* background: #eae7e7; */
+  background-color: white;
   flex: 1;
 `;
 
@@ -29,11 +31,110 @@ export const InnerContainer = styled.div`
   height: 90rem;
 `;
 
-export const UpComingMatchContainer = styled.div`
+export const StyledBackImage = styled.img`
   position: absolute;
-  background: rgba(255, 255, 255, 0.8);
+  height: 100rem;
+  width: 100rem;
+`;
 
+export const NewsContainer = styled.div`
+  position: absolute;
+  padding-top: 3rem;
+
+  /* overflow-y: scroll;
+
+  ::-webkit-scrollbar {display:none;} */
+
+  border-style: groove;
+  border-color: black;
+
+  left: 25%;
+
+  width: 50%;
+  height: 95rem;
   top: 5rem;
+
+  font-variant-caps: all-small-caps;
+
+  text-align: -webkit-center;
+
+  @media screen and (max-width: 795px) {
+    width: 40%;
+  }
+`;
+
+export const DeleteButton = styled(Button)`
+  position: absolute;
+  border-radius: 0;
+  top: 5px;
+  background: transparent;
+  color: black;
+  border-width: 0;
+  width: 25px;
+  height: 27px;
+  right: 5px;
+
+  &:hover {
+    background-color: transparent;
+    color: black;
+  }
+`;
+
+export const CustomSidebar = styled.div`
+  left: 82%;
+  position: absolute;
+  top: 5rem;
+  height: 12.68%;
+  width: 16rem;
+
+  background-color: bottom;
+`;
+
+export const CustomImage = styled.img`
+  position: absolute;
+  width: 1261px;
+  height: 550px;
+  top: 4rem;
+  left: 16rem;
+
+  opacity: 0.8;
+  @media screen and (max-width: 809px) {
+    left: 0;
+  }
+`;
+
+export const CustomHeaderTFFNews = styled.h3`
+  text-align: -webkit-center;
+  background-color: black;
+  color: white;
+  margin-top: 1rem;
+`;
+
+export const TFFButton = styled(Button)`
+  background: rgba(0, 0, 0, 0);
+  border-radius: 0px;
+  border-width: 0px;
+  width: 100%;
+
+  --bs-btn-active-bg: black;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+  }
+`;
+
+export const CustomImageTFF = styled.img`
+  margin-top: 10px;
+  width: 70px;
+  height: fit-content;
+`;
+
+export const UpComingMatchContainer = styled.div`
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+
+  top: -6rem;
   bottom: 0;
 
   display: inline-block;
@@ -41,9 +142,7 @@ export const UpComingMatchContainer = styled.div`
   text-align: center;
 
   height: 100rem;
-  width: 20rem;
-
-  border-top-right-radius: 5rem;
+  width: 16rem;
 
   @media screen and (max-width: 809px) {
     display: none;
@@ -62,7 +161,7 @@ export const Fixture = styled.h4`
   text-align: center;
   justify-content: center;
   align-items: center;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 export const UpcomingMatch = styled(Card)`
@@ -75,23 +174,17 @@ export const UpcomingMatch = styled(Card)`
   width: 85%;
   margin-top: 2rem;
 
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
 
   &:hover {
-    background: linear-gradient(
-      to right,
-      #ff4d4d 2.48%,
-      #ffffff 100%
-    );
+    background: white;
 
     transition: 0.2s ease-in-out;
   }
 `;
 
-
-
-export const RecentMatchButton = styled( Button ) ` 
+export const RecentMatchButton = styled(Button)`
   position: relative;
   left: 0;
   top: 5rem;
-`
+`;
