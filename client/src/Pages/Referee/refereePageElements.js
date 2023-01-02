@@ -254,10 +254,9 @@ position: relative;
 
 export const RefereeImg = styled.img`
  margin:30px auto 0 auto;
-  border: 7px black;
-  border-radius: 100%;
-  width: 300px;
-  height: 300px;
+  border: 10px black;
+  width: 200px;
+  height: auto;
 
 `;
 

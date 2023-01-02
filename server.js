@@ -24,6 +24,9 @@ require("./models/referee");
 require("./models/post")
 require("./models/rating");
 require("./models/award");
+require("./models/bugs");
+
+
 
 
 //cookie handling
@@ -32,6 +35,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
+  origin: "http://localhost:3000",
   origin: "http://localhost:3000",
   credentials: true,
 }));
@@ -42,6 +46,8 @@ const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
 const postRoute = require("./routes/posts/postRoute")
 const newsRoute = require('./routes/news/newsRoute')
+const bugsRoute = require("./routes/bugs/bugsRoute")
+
 
 const playerStatsRoute = require("./routes/playerStats/playerStatsRoute")
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
@@ -63,6 +69,7 @@ app.use('/api', postRoute);
 app.use('/api', award);
 app.use(refereeRoutes);
 app.use(nextMatch);
+app.use(bugsRoute);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);

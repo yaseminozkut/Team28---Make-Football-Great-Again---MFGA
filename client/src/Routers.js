@@ -30,6 +30,7 @@ import { RefereeProfile } from './Pages/RefereeProfile/RefereeProfile';
 import { RegisterReferee } from './Pages/BoardMember/refereeRegister/registerReferee';
 import { PublishReward } from './Pages/Admin/AdminPublishReward/publishReward';
 import { Awards } from './Pages/Awards/awards';
+import { BugReport } from './Pages/BugReport/bugReport';
 
 function Routers() {
     return (
@@ -57,6 +58,8 @@ function Routers() {
                 <Route path="refereeProfile" element={<Auth> <RoleReferee> <RefereeProfile/> </RoleReferee> </Auth>} />
                 <Route path="publishReward" element={<Auth> <RoleAdmin> <PublishReward/> </RoleAdmin> </Auth>} />
                 <Route path="awards" element={<Awards/>} />
+                <Route path="bugReport" element={<BugReport/>} />
+
                 
                 {/* <Route path="*" element={<NoPage />} /> */}
             </Route>
