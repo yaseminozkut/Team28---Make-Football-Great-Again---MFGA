@@ -1,12 +1,10 @@
 import React, {useState,useEffect} from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { ContainerDiv,DropDownContainer2,DropDownHeader2,DropDownList2,DropDownListContainer2,ListItem2,FilterTitle, NoBugTitle } from "./bugControlElements";
 import { BugCard } from "./bugCard";
 import { Footer } from "../../../components/Footer/Footer";
 
 export const BugControl = ()=>{
-    const navigate = useNavigate();
     const [bugs, setBugs] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
@@ -35,6 +33,18 @@ export const BugControl = ()=>{
                 <br/>
                 <br/>
                 <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+
                 <Footer></Footer>
             </ContainerDiv>
         )
@@ -55,6 +65,7 @@ export const BugControl = ()=>{
           />
         );
       }
+      //Dropdown for bug types
       function mapBug(bug) {
         if(bug.isDone === false){
             if(bug.type === selectedOption){

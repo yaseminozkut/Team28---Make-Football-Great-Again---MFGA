@@ -27,6 +27,7 @@ export const Team = ()=>{
   
             key={team._id}
             name={team.name}
+            image={team.url}
           />
                 );
         

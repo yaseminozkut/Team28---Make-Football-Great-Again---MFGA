@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import axios from "axios";
 import { ContainerCard, Comment, TypeTitle, DoneButton, DeleteButton, DateTitle } from "./bugCardElements";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 export const BugCard = (props)=>{
     const navigate = useNavigate();
+    const id = props.id;
 
 
     const handleDelete = (e)=>{
         e.preventDefault();
-        const id = props.id;
+        
         console.log(props.id)
 
         axios.delete("http://localhost:4000/bugs",{data: {id:id}})
@@ -30,6 +31,11 @@ export const BugCard = (props)=>{
             console.log(err);
         });
         
+        
+    }
+    const handleDone = ()=>{
+        navigate("/bugFix/"+id)
+        
     }
     
     return(
@@ -38,7 +44,7 @@ export const BugCard = (props)=>{
             <DateTitle>{props.time}</DateTitle>
             <Comment>{props.comment}</Comment>
             <DeleteButton onClick = {handleDelete}>Delete</DeleteButton>
-            <DoneButton>Done</DoneButton>
+            <DoneButton onClick = {handleDone}>Done</DoneButton>
         </ContainerCard>
     )
 }
