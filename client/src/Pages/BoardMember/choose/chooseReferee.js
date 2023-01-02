@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { ContainerDiv,FilterTitle, Title ,StyledBackButton } from "./chooseRefereeElements";
+import { ContainerDiv,FilterTitle, Title ,StyledBackButton, RefereeDiv,ImportanceTitle, ImportanceNumberTitle } from "./chooseRefereeElements";
 import { Footer } from "../../../components/Footer/Footer";
 import { RefereeCard } from "./chooseCard";
 import { useNavigate,useParams } from "react-router-dom";
@@ -47,7 +47,10 @@ export const ChooseReferee = (props) => {
       <RefereeCard
         key={referee._id}
         name={referee.name}
-        rating ={CalculatePoint(referee)}
+        image={referee.image}
+        matchCount ={referee.matchCount}
+        rating ={CalculateRating(referee)}
+        point = {CalculatePoint(referee)}
         
       />
     );
@@ -143,7 +146,6 @@ export const ChooseReferee = (props) => {
 
       }
     });
-    console.log(HomeAwayRank)
     if (HomeAwayRank <= 20 && HomeAwayRank >= 15) {
       
       return 75;
@@ -174,17 +176,16 @@ export const ChooseReferee = (props) => {
     const totalPoint = rating + redCard + yellowCard + yellowRedCard + penalty
     return totalPoint;
   }
-  function Importance(ImpStr,ImpInt) {
-    
-  }
 
   return (
     
     <ContainerDiv>
     <StyledBackButton onClick={handleBack}>{"<"}Back</StyledBackButton>
 
-    <Title>Referees</Title>
     
+    
+    <RefereeDiv>
+    <Title>Suitable Referees For This Match</Title>
     {referees.filter((referee)=> {
       if(CalculateRank(home,away) === 75){
         MatchImportance = 75;
@@ -194,32 +195,36 @@ export const ChooseReferee = (props) => {
       }
       else if(CalculateRank(home,away) === 60){
         
-        if(CalculatePoint(referee) >= 60 && 75 > CalculatePoint(referee))
+        if(CalculatePoint(referee) >= 60 && 75 > CalculatePoint(referee)){
         MatchImportance = 60;
         MatchImportanceStr = "High Importance";
         return (CalculatePoint(referee))
+        }
       }
       else if(CalculateRank(home,away) === 50){
-        if(CalculatePoint(referee) >= 50 && 60 > CalculatePoint(referee))
+        if(CalculatePoint(referee) >= 50 && 60 > CalculatePoint(referee)){
         MatchImportance = 50;
         MatchImportanceStr = "Medium Importance";
         return (CalculatePoint(referee))
+        }
       }
       else{
-        if(CalculatePoint(referee) >= 0 && 50 > CalculatePoint(referee))
+        if(CalculatePoint(referee) >= 0 && 50 > CalculatePoint(referee)){
+
+        
         MatchImportance = 0;
         MatchImportanceStr = "Low Importance";
         return (CalculatePoint(referee))
+        }
       }
       }).map(createCard)} 
-      <FilterTitle>Match Importance = {MatchImportance} { MatchImportanceStr}</FilterTitle>
-       <br></br>
-       <br></br>
-       <br></br>
-       <br></br>
-       <br></br>
 
-      <Footer></Footer>
+      </RefereeDiv>
+      <ImportanceTitle>Match Importance: { MatchImportanceStr}</ImportanceTitle>
+      <ImportanceNumberTitle>Importance Number: {MatchImportance} </ImportanceNumberTitle>
+      <br/>
+       <Footer></Footer>
+      
     
     </ContainerDiv>
   );

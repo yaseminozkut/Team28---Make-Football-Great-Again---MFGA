@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 export const MatchCard = (props)=>{
     const navigate = useNavigate();
     
@@ -19,6 +20,14 @@ export const MatchCard = (props)=>{
         navigate("/board/"+props.home +"/"+ props.away)
         
     }
+    const ButtonTitle =()=>{
+        if(props.referee !== null && props.referee !== ""){
+            return "Change Assigned Referee";
+        }
+        else{
+            return "Assign A Referee"; 
+        }
+    }
 
 
     
@@ -28,7 +37,7 @@ export const MatchCard = (props)=>{
             <AwayTitle>{props.away}</AwayTitle>
             <RefereeTitle>{props.referee}</RefereeTitle>
             <DateTitle>{props.date}</DateTitle>
-            <GoButton onClick ={handleSubmit}>Select Referee</GoButton>
+            <GoButton onClick ={handleSubmit}>{ButtonTitle()}</GoButton>
         </ContainerCard>
     )
 

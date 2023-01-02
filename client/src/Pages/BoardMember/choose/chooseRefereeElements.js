@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Button, Card, Form, Input, Label, NavLink } from "reactstrap";
 
 export const ContainerDiv = styled.div`
+
   position: absolute;
   top: 0;
   left: 0;
@@ -10,14 +11,34 @@ export const ContainerDiv = styled.div`
 
   margin: 0;
   padding: 0;
-
-  height: 120%;
+  height: 100%;
   width: 100%;
-
-  
-
-  
+  text-align: center;
   background: #EAE7E7;
+  flex: 1;
+
+  /* @media screen and (max-width: 768px) {
+        display: none;
+  } */
+`;
+export const RefereeDiv = styled.div`
+&::-webkit-scrollbar {
+  display: none;
+}
+  position: relative;
+  top: 17%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border:3px solid black;
+  margin: 0;
+  padding: 0;
+  height: 80%;
+  width: 100%;
+  text-align: center;
+  background: #EAE7E7;
+  overflow: hidden;
+  overflow-y:auto;
   flex: 1;
 
   /* @media screen and (max-width: 768px) {
@@ -58,6 +79,35 @@ export const Title = styled.h1`
   text-align: center;
 
   font-size: 2.18rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const ImportanceTitle = styled.h1`
+  position: absolute;
+  left:10%;
+  right: 10%;
+  margin: 0 auto;
+  top: 65px;
+
+  color: black;
+  font-weight: bold;
+
+  text-align: center;
+
+  font-size: 2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const ImportanceNumberTitle = styled.h1`
+  position: absolute;
+  left:10%;
+  right: 10%;
+  margin: 0 auto;
+  top: 120px;
+
+  color: black;
+
+  text-align: center;
+
+  font-size: 1.6rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 
