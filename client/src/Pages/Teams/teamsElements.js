@@ -14,8 +14,8 @@ export const ContainerDiv = styled.div`
 
   height: 100%;
   width: 100%;
-
   justify-content: center;
+  text-align:center;
 
   z-index: 0;
   overflow-x: auto;
@@ -28,7 +28,7 @@ position:relative;
 width:20%;
 
   top: 22%;
-  margin:auto;
+  margin: 0 auto;
 
 
 
@@ -101,7 +101,6 @@ export const TeamCard = styled(Card)`
   display: inline-block;
   
   top: 10%;
-  left:10%;
   
   
 
@@ -116,11 +115,15 @@ export const TeamCard = styled(Card)`
 
 export const TeamImg = styled.img`
  position:absolute;
- left:43.5%;
+
   top: 3%;
   border: 7px #432C7A;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+
+  height: auto;
+  left:43.5%;
+  right:43.5%;
+  margin: 0 auto;
 
 `;
 export const standingsTitle = styled.h1`
@@ -149,9 +152,9 @@ export const StandingCard = styled(Card)`
   border-bottom-right-radius:5%;
   top: 38%;
   left: 43.5%;
+  right: 43.5%;
   margin: 0 auto; /* Added */
-  float: none; /* Added */
-  margin-bottom: 10px; /* Added */
+
   background: white;
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
 `;

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { ContainerDiv, UserTitle } from "./adminpageElements";
+import { BannedDiv, BannedTitle, ContainerDiv, UserTitle,BanDiv, GeneralTitle } from "./adminpageElements";
 import {RegisterBoard} from "./AdminComponents/registerBoardMember";
 import { UserCard,BannedCard } from "./AdminComponents/UserCard";
 import axios from "axios";
+import { Footer } from "../../components/Footer/Footer";
+import { SearchDataAdd } from "./AdminComponents/searchDataAdd";
 
 export const Admin = () =>{
 
     const [users,SetUsers] = useState([]);
-    axios.get('https://mfga.herokuapp.com/api/admin')
+    axios.get('http://localhost:4000/api/admin')
     .then(res =>{
         const users = res.data;
         SetUsers(users)
@@ -50,14 +52,19 @@ export const Admin = () =>{
         }
     return(
         <ContainerDiv>
+                <GeneralTitle>Admin Panel</GeneralTitle>
                   <RegisterBoard /> 
+                  <SearchDataAdd/>
                   <UserTitle>Users List</UserTitle>
-                  
+                  <BanDiv>
                   {users.map(createCard)}
-                  <UserTitle>Banned List</UserTitle>
+                  </BanDiv>
+                  
+                  <BannedTitle>Banned List</BannedTitle>
+                  <BannedDiv>
                   {users.map(createBannedCard)}
-    
-            
+                  </BannedDiv>
+                  
         </ContainerDiv>
    
     )

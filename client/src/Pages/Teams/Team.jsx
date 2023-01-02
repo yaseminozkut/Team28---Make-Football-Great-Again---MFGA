@@ -3,13 +3,14 @@ import { TeamCard } from "./TeamCard";
 import axios from "axios";
 import { useState } from "react";
 import { ContainerDiv } from "./teamsElements";
+import { Footer } from "../../components/Footer/Footer";
 
 
 export const Team = ()=>{
 
 
     const [teams,SetTeams] = useState([]);
-    axios.get('https://mfga.herokuapp.com/profile')
+    axios.get('http://localhost:4000/profile')
     .then(res =>{
         const teams = res.data;
         SetTeams(teams)
@@ -22,6 +23,7 @@ export const Team = ()=>{
   
             key={team._id}
             name={team.name}
+            image={team.url}
           />
                 );
         
@@ -30,7 +32,9 @@ export const Team = ()=>{
     return(
         <ContainerDiv>
                 {teams.map(createCard)}
+                <Footer></Footer>
         </ContainerDiv>
+
 
 
 

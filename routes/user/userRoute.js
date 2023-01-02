@@ -241,88 +241,88 @@ router.route('/edit').post(auth, (req,res)=>{
 
 
 
-const axios = require("axios");
-const cheerio = require("cheerio");
-const GalatasarayUrl = "https://www.transfermarkt.com/fenerbahce-istanbul/startseite/verein/36"
-const galatasaray_kadro_data = []
-async function getGalatarasayKadro(url){
+// const axios = require("axios");
+// const cheerio = require("cheerio");
+// const GalatasarayUrl = "https://www.transfermarkt.com/fenerbahce-istanbul/startseite/verein/36"
+// const galatasaray_kadro_data = []
+// async function getGalatarasayKadro(url){
 
-  try{
-      const response = await axios.get(url);
-      const $=cheerio.load(response.data)
-      const kadro = $("tr");
-      kadro.each(function(){
-          const pname= $(this).find(".hide").text();
-          const position= $(this).find("tr:nth-child(2) td").text();
-          const birth= $(this).find("td:nth-child(4)").text();
-         if(pname.length > 1)
-   {
-          galatasaray_kadro_data.push({pname,position,birth});
-          Player.findOne({name: pname})
-      .then((foundUser)=> 
-      {
-        if (!foundUser) {
-          const pl = new Player({
-            name: pname,
-            position: position,
-            birth: birth,
-            team: "Fenerbahce"
-          })
-          pl.save()
-                        }
-     })
-    }
-                          });
+//   try{
+//       const response = await axios.get(url);
+//       const $=cheerio.load(response.data)
+//       const kadro = $("tr");
+//       kadro.each(function(){
+//           const pname= $(this).find(".hide").text();
+//           const position= $(this).find("tr:nth-child(2) td").text();
+//           const birth= $(this).find("td:nth-child(4)").text();
+//          if(pname.length > 1)
+//    {
+//           galatasaray_kadro_data.push({pname,position,birth});
+//           Player.findOne({name: pname})
+//       .then((foundUser)=> 
+//       {
+//         if (!foundUser) {
+//           const pl = new Player({
+//             name: pname,
+//             position: position,
+//             birth: birth,
+//             team: "Fenerbahce"
+//           })
+//           pl.save()
+//                         }
+//      })
+//     }
+//                           });
       
-     }
-  catch(err){
-      console.log(err);
-  }
-}
-getGalatarasayKadro(GalatasarayUrl);
+//      }
+//   catch(err){
+//       console.log(err);
+//   }
+// }
+// getGalatarasayKadro(GalatasarayUrl);
 
-const turl = "https://www.mackolik.com/puan-durumu/t%C3%BCrkiye-s%C3%BCper-lig/482ofyysbdbeoxauk19yg7tdt"
-const all_teams = []
+// const turl = "https://www.mackolik.com/puan-durumu/t%C3%BCrkiye-s%C3%BCper-lig/482ofyysbdbeoxauk19yg7tdt"
+// const all_teams = []
 
-async function getKadro(turl){
+// async function getKadro(turl){
 
-    try{
-        const response = await axios.get(turl);
-        const $=cheerio.load(response.data)
-        const tr = $("tr");
+//     try{
+//         const response = await axios.get(turl);
+//         const $=cheerio.load(response.data)
+//         const tr = $("tr");
 
-        tr.each(function(){
-            teamname= $(this).find(".rupclose , .p0c-competition-tables__team-name--full").text();
-           if(teamname.length > 1){
-            all_teams.push({teamname});
+//         tr.each(function(){
+//             teamname= $(this).find(".rupclose , .p0c-competition-tables__team-name--full").text();
+//            if(teamname.length > 1){
+//             all_teams.push({teamname});
             
-           }
+//            }
            
 
-        });
+//         });
 
-        all_teams.forEach(element => {
-          Team.findOne()
-            .then((foundUser)=> 
-            {
-              if (!foundUser) {
-                const teams = new Team({
-                  name: element.teamname,
-                })
+//         all_teams.forEach(element => {
+//           Team.findOne()
+//             .then((foundUser)=> 
+//             {
+//               if (!foundUser) {
+//                 const teams = new Team({
+//                   name: element.teamname,
+//                 })
                 
-                teams.save()
-                              }
-           })
-        });
+//                 teams.save()
+//                               }
+//            })
+//         });
            
 
-    }
-    catch(err){
-        console.log(err);
-    }
-}
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
+// }
 
-getKadro(turl);
+// getKadro(turl);
 
 
 router.route('/teams/:team').get((req,res)=>{

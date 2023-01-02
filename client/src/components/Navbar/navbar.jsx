@@ -16,7 +16,7 @@ export const Navbar = ( {toggle} ) => {
     e.preventDefault();
     localStorage.removeItem("currentUser");
     localStorage.removeItem("user");
-    axios.get("https://mfga.herokuapp.com/logout")
+    axios.get("http://localhost:4000/logout")
     .then(async (res)=>{
         if(res.status===200){
             await getLoggedIn();
@@ -43,7 +43,10 @@ export const Navbar = ( {toggle} ) => {
             <FaBars/>
           </MobileIcon>
           <NavMenu>
-
+          
+          <NavItem>
+              <NavLinks to = '/search'>Search 🔍</NavLinks>
+            </NavItem>
             <NavItem>
               <NavLinks to = '/currentstats'>Current Stats</NavLinks>
             </NavItem>
@@ -56,8 +59,7 @@ export const Navbar = ( {toggle} ) => {
             <NavItem>
               <NavLinks to = '/referee'>Referees</NavLinks>
             </NavItem>
-
-
+            
             <NavItem>
                 <NavLinks to = '/awards'>Awards</NavLinks>
               </NavItem>
@@ -78,6 +80,13 @@ export const Navbar = ( {toggle} ) => {
                   </NavItem>
                 </AdminDisp>
             </DisplayAuth>
+            <DisplayAuth>
+              <AdminDisp>
+                <NavItem>
+                    <NavLinks to = '/bugControl'>Control Bugs</NavLinks>
+                  </NavItem>
+                </AdminDisp>
+            </DisplayAuth>
 
             <DisplayAuth>
               <UserDisp>
@@ -90,7 +99,7 @@ export const Navbar = ( {toggle} ) => {
             <DisplayAuth>
               <AdminDisp>
                 <NavItem>
-                    <NavLinks to = '/admin'>Admin Profile</NavLinks>
+                    <NavLinks to = '/admin'>Admin Panel</NavLinks>
                   </NavItem>
                 </AdminDisp>
             </DisplayAuth>

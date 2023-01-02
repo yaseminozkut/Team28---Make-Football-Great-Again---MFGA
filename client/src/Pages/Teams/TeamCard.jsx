@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerCard, GoButton, NameTitle,ContainerDiv} from "./TeamCardElements";
+import { ContainerCard, GoButton, NameTitle,ContainerDiv,TeamImg} from "./TeamCardElements";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -21,7 +21,8 @@ export const TeamCard = (props)=>{
 
     
     return(
-        <ContainerCard>        
+        <ContainerCard>
+            <TeamImg src={props.image}/>        
             <NameTitle>{props.name}</NameTitle>
             <GoButton onClick={handleSubmit}>Go team Page</GoButton>          
         </ContainerCard>

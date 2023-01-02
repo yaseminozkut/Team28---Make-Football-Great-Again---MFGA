@@ -9,10 +9,10 @@ position:absolute;
   width: 24rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
-  border-top-right-radius:20%;
-  border-bottom-left-radius: 20%;
-  border-top-left-radius: 20%;
-  border-bottom-right-radius:20%;
+  border-top-right-radius:15%;
+  border-bottom-left-radius: 15%;
+  border-top-left-radius: 15%;
+  border-bottom-right-radius:15%;
   top: 20%;
 
   margin: 0 auto; /* Added */

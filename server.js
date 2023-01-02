@@ -24,6 +24,10 @@ require("./models/referee");
 require("./models/post")
 require("./models/rating");
 require("./models/award");
+require("./models/bugs");
+require("./models/searchData")
+
+
 
 
 //cookie handling
@@ -32,7 +36,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: "https://mfga.herokuapp.com",
+  origin: "http://localhost:3000",
   credentials: true,
 }));
 
@@ -41,7 +45,8 @@ const statRoute = require('./routes/stat/statRoute')
 const recentMatch = require('./routes/recentMatchRoute/recentMatchRoute')
 const refereeRoutes = require("./routes/refereeRoute");
 const postRoute = require("./routes/posts/postRoute")
-
+const bugsRoute = require("./routes/bugs/bugsRoute")
+const searchRoute = require("./routes/searchData/searchData")
 const nextMatch = require("./routes/nextMatch/nextMatchesRoute")
 const award = require("./routes/awards/awardsRoute")
 const path = require('path');
@@ -57,7 +62,9 @@ app.use(express.static('client/build'));
 app.use('/api', postRoute);
 app.use('/api', award);
 app.use(refereeRoutes);
+app.use(searchRoute);
 app.use(nextMatch);
+app.use(bugsRoute);
 app.use('/recentmatch', recentMatch)
 app.use("/stat", statRoute)
 app.use( routes);
