@@ -90,9 +90,7 @@ export const Search = ()=>{
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-        <Footer></Footer>
+            
         </ContainerDiv>
     )
 }

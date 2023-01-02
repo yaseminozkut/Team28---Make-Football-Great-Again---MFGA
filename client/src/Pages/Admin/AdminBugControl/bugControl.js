@@ -109,7 +109,7 @@ export const BugControl = ()=>{
       <br/>
       <br/>
 
-      <Footer></Footer>
+      
         </ContainerDiv>
     )
 }

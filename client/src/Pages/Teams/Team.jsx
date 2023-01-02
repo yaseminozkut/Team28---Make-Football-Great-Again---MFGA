@@ -36,7 +36,7 @@ export const Team = ()=>{
     return(
         <ContainerDiv>
                 {teams.map(createCard)}
-                <Footer></Footer>
+                
         </ContainerDiv>
 
 
