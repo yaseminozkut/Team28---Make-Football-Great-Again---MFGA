@@ -21,16 +21,58 @@ export const ContainerDiv = styled.div`
   flex: 1;
 `;
 
-export const UserTitle = styled.h1`
-position:relative;
-width:30%;
+export const BanDiv = styled.div`
+  position: absolute;
+  top:25%;
+  left:5%;
+  width:40rem;
+  height: 300px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  overflow-y:auto;
+  background: #EAE7E7;
+`;
+export const BannedDiv = styled.div`
+  position: absolute;
+  top:75%;
+  left:5%;
+  width:40rem;
+  height: 300px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  overflow-y:auto;
+  background: #EAE7E7;
+`;
 
-  top: 15%;
+export const UserTitle = styled.h1`
+position:absolute;
+ width:15%;
+
+  top: 20%;
   left: 10%;
 
 
 
-  color: rgb(0, 0, 0, 0.5);
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
+export const BannedTitle = styled.h1`
+  position:absolute;
+  width:15%;
+
+  top: 70%;
+  left: 10%;
+
+
+
+  color: black;
   text-decoration: underline;
   text-decoration-thickness: 1px;
 

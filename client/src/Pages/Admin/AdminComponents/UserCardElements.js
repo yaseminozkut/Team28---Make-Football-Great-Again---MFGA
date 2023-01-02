@@ -6,18 +6,14 @@ export const ContainerCard = styled(Card)`
   width: 28rem;
   border-width: 3px;
   border-color: rgba(255, 255, 255, 0.5);
-  border-top-right-radius:10%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
-  border-bottom-right-radius:10%;
-  
-  top: 15%;
-  right: 35%;
-
+  border-top-right-radius:2%;
+  border-bottom-left-radius: 2%;
+  border-top-left-radius: 2%;
+  border-bottom-right-radius:2%;
+  top: 5%;
   margin: 0 auto; /* Added */
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
-
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 32px 0 rgba(50, 50, 100, 0.37);
 `;
