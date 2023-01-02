@@ -83,8 +83,6 @@ export const BugReport = ()=>{
         <br/>
         <br/>
         <br/>
-
-
         <Footer></Footer>
         
         </ContainerDiv>
