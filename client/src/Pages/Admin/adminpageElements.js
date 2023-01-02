@@ -23,6 +23,7 @@ export const ContainerDiv = styled.div`
 
 export const BanDiv = styled.div`
   position: absolute;
+  border:2px solid black;
   top:25%;
   left:5%;
   width:40rem;
@@ -35,7 +36,9 @@ export const BanDiv = styled.div`
 `;
 export const BannedDiv = styled.div`
   position: absolute;
-  top:75%;
+  border:2px solid black;
+
+  top:65%;
   left:5%;
   width:40rem;
   height: 300px;
@@ -63,11 +66,32 @@ position:absolute;
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
+
+export const GeneralTitle = styled.h1`
+position:absolute;
+ width:20%;
+
+  top: 10%;
+  left: 10%;
+  right:10%;
+  margin:0 auto;
+
+
+
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-align:center;
+
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+`;
 export const BannedTitle = styled.h1`
   position:absolute;
   width:15%;
 
-  top: 70%;
+  top: 60%;
   left: 10%;
 
 

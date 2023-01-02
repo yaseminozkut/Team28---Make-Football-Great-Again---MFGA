@@ -60,7 +60,7 @@ export const Search = ()=>{
         <ContainerDiv>
         <Title>Search Engine 🔍</Title>
             <SearchDiv>
-                <SearchInput type = "text" placeholder = "Enter something..." onChange ={handleFilter}/>
+                <SearchInput type = "text" placeholder = "Enter something that you want to find..." onChange ={handleFilter}/>
             </SearchDiv>
             {filteredData.length != 0 && (
             <DataDiv>
