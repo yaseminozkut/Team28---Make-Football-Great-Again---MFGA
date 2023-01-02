@@ -52,7 +52,7 @@ export const ChooseReferee = (props) => {
       />
     );
   }
-  
+  // Calculating Average Rating of referee
   function CalculateRating(referee){
 
     if (referee.point === 0 ) {
@@ -63,6 +63,8 @@ export const ChooseReferee = (props) => {
     }
 
   }
+  // Calculating Average Yellow Card statistics of referee
+
   function CalculateYellow(referee){
     const myAverage = (Math.round((referee.yellowCard/referee.matchCount)* 100) / 100).toFixed(2);
 
@@ -77,6 +79,8 @@ export const ChooseReferee = (props) => {
     }
 
   }
+  // Calculating Average Red Card statistics of referee
+
   function CalculateRed(referee){
     const myAverage = (Math.round((referee.redCard/referee.matchCount)* 100) / 100).toFixed(2);
 
@@ -91,6 +95,8 @@ export const ChooseReferee = (props) => {
     }
 
   }
+  // Calculating Average YellowRed Card statistics of referee
+
   function CalculateYellowRed(referee){
     const myAverage = (Math.round((referee.yellowRedCard/referee.matchCount)* 100) / 100).toFixed(2);
 
@@ -105,6 +111,8 @@ export const ChooseReferee = (props) => {
     }
 
   }
+  // Calculating Average Penalty statistics of referee
+
   function CalculatePenalty(referee){
     const myAverage = (Math.round((referee.penalty/referee.matchCount)* 100) / 100).toFixed(2);
 
@@ -119,6 +127,7 @@ export const ChooseReferee = (props) => {
     }
 
   }
+  // Calculating the match importance by teams rank
   function CalculateRank(home, away){
     var HomeAwayRank = 0
     var pointArray = [10,10,10,9,9,8,8,5,5,3,3,3,2,2,2,1,1,1,1]
@@ -154,6 +163,7 @@ export const ChooseReferee = (props) => {
       return 0;
     }
   }
+  //Calculating total Algorithm point for filtering the referees
   function CalculatePoint(referee){
     MatchImportance = CalculateRank(home,away)
     const rating = ((CalculateRating(referee) * 20)* 80) /100;
