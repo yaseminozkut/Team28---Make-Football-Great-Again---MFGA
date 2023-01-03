@@ -62,7 +62,7 @@ export const BugReport = ()=>{
           <DropDownListContainer2>
             <DropDownList2>
               {options.map(option => (
-                <ListItem2 onClick={onOptionClicked(option)} key={Math.random()}>
+                <ListItem2 name = {option} onClick={onOptionClicked(option)} key={Math.random()}>
                   {option}
                 </ListItem2>
               ))}

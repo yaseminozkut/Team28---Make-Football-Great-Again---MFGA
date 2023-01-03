@@ -60,12 +60,12 @@ export const Search = ()=>{
         <ContainerDiv>
         <Title>Search Engine 🔍</Title>
             <SearchDiv>
-                <SearchInput type = "text" placeholder = "Enter something that you want to find..." onChange ={handleFilter}/>
+                <SearchInput name = "search" type = "text" placeholder = "Enter something that you want to find..." onChange ={handleFilter}/>
             </SearchDiv>
             {filteredData.length != 0 && (
             <DataDiv>
                 {filteredData.slice(0,15).map((value,key) =>{
-                    return(<SmallDataA href={"http://localhost:3000"+value.route}>
+                    return(<SmallDataA name={value.name} href={"http://localhost:3000"+value.route}>
                     <SmallDataP>{value.name}</SmallDataP>
                     </SmallDataA>
                     );
