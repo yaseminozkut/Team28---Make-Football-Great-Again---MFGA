@@ -53,7 +53,9 @@ export const BugReport = ()=>{
         <StyledForm>
         <StyledFilterLabel>Select The Bug Type</StyledFilterLabel>
         <DropDownContainer2>
-        <DropDownHeader2 onClick={toggling}>
+        <DropDownHeader2 
+        name= "type"
+        onClick={toggling}>
           {selectedOption||"Select Type"}
         </DropDownHeader2>
         {isOpen && (
@@ -70,11 +72,13 @@ export const BugReport = ()=>{
       </DropDownContainer2>
       <StyledInputComment
       value={comment}
+      name = "comment"
       onChange={(event) => setComment(event.target.value)}
       placeholder="Please explain the bug that you found, maximum 200 characters" maxLength= {200}>
         
       </StyledInputComment>
-      <StyledButton onClick={handleSubmit}>Report</StyledButton>
+      <StyledButton onClick={handleSubmit}
+      name = "report">Report</StyledButton>
         </StyledForm>
 
         </ContainerCard>
