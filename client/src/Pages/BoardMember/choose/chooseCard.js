@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerCard,GoButton,NameTitle, Rating } from "./chooseCardElements";
+import { ContainerCard,GoButton,MatchCount,NameTitle, Point, Rating, RefereeImg } from "./chooseCardElements";
 import { useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -50,6 +50,8 @@ export const RefereeCard = (props)=>{
     return(
         <ContainerCard>
             <NameTitle>{props.name}</NameTitle>
+            <MatchCount>MatchCount: {props.matchCount}</MatchCount>
+            <Point>Point: {props.point}</Point>
             <Rating>Rating: {props.rating}</Rating>
             <GoButton onClick ={handleSubmit}>Assign</GoButton>
         </ContainerCard>

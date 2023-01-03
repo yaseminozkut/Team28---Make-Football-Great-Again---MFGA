@@ -15,11 +15,18 @@ export const PRContainer = styled( Container )`
   padding-top: 4rem;
   width: 70%;
   height: 40rem;
-  right: -12rem;
+  right: 5rem;
   top: 0;
   overflow: scroll;
+
+  background-color: aliceblue;
+
   border-width: 2px;
   border-color: black;
+
+  text-align: -webkit-center;
+  box-sizing: content-box;
+
   @media screen and (max-width: 795px) {
         width: 40%;
   }

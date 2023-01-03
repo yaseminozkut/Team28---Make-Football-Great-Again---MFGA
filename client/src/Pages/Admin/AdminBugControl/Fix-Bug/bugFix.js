@@ -19,6 +19,7 @@ export const BugFix = ()=>{
                 comment: comment,
                 type:type,
             }
+            //Get bugs from database and check if isDone true;
 
           axios
           .post("http://localhost:4000/bugFix/:id", needs)
@@ -41,6 +42,7 @@ export const BugFix = ()=>{
 
 
       };
+
     return (
         <ContainerDiv>
         <ContainerCard>

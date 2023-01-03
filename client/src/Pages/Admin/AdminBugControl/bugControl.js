@@ -65,6 +65,7 @@ export const BugControl = ()=>{
           />
         );
       }
+      //Dropdown for bug types
       function mapBug(bug) {
         if(bug.isDone === false){
             if(bug.type === selectedOption){
@@ -108,7 +109,7 @@ export const BugControl = ()=>{
       <br/>
       <br/>
 
-      <Footer></Footer>
+      
         </ContainerDiv>
     )
 }

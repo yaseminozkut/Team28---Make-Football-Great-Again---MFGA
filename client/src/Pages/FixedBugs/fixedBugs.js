@@ -34,11 +34,6 @@ export const FixedBugs = ()=>{
         <ContainerDiv>
         <Title>Fixed Bugs</Title>
         {bugs.map(createCard)}
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Footer></Footer>
         </ContainerDiv>
         
       )

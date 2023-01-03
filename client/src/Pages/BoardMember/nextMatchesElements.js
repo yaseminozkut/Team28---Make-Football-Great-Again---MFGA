@@ -3,8 +3,8 @@ import {Card,Button} from "reactstrap";
 
 export const ContainerCard = styled(Card)`
   
-  height: 6rem;
-  width: 55%;
+  height: 10rem;
+  width: 65%;
   border-width: 3px;
   border-color: black;
   top: 6.5rem;
@@ -13,36 +13,39 @@ export const ContainerCard = styled(Card)`
   
 
 
-  background: #A92C2C;
+  background: grey;
   
 `;
 
 export const HomeTitle = styled.h1`
   position: absolute;
   display:table;
-  left: 20%;
-  top: 8%;
+  left: 5%;
+  width: 40%;
+  top: 30%;
   color: black;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   
   text-decoration-thickness: 1px;
-  text-alignment: center;
+  text-align: center;
   font-weight: bold;
 
   font-size: 1.8rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 export const AwayTitle = styled.h1`
+  
   position: absolute;
+  width: 40%;
   display:table;
-  right: 20%;
+  right: 5%;
 
-  top: 8%;
+  top: 30%;
   color: black;
   margin: 0 auto 0 auto;
   
   text-decoration-thickness: 1px;
-  text-alignment: center;
+  text-align: center;
   font-weight: bold;
 
   font-size: 1.8rem;
@@ -65,28 +68,35 @@ export const vsTitle = styled.h1`
 export const DateTitle = styled.h1`
   position: absolute;
   display:table;
-  right: 46%;
+  width: 20%;
+  right: 10%;
+  left: 10%;
 
-  top: 5%;
-  color: white;
-  margin: 0 auto 0 auto;
+  top: 15%;
+  color: #A92C2C;
+  margin: 0 auto;
   
   text-decoration-thickness: 1px;
-  text-alignment: center;
+  text-align: center;
+
   font-weight: bold;
 
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 `;
 export const RefereeTitle = styled.h1`
-  position: relative;
+  position: absolute;
   display:table;
-  top: 30%;
+  width:30%;
+  bottom: 27%;
   color: white;
-  margin: 0 auto 0 auto;
+  left:10%;
+  right:10%;
+
+  margin: 0 auto;
   
   text-decoration-thickness: 1px;
-  text-alignment: center;
+  text-align: center;
   font-weight: bold;
 
   font-size: 1.4rem;
@@ -95,11 +105,15 @@ export const RefereeTitle = styled.h1`
 export const GoButton = styled(Button)`
   position: absolute;
   display:table;
-  left:45%;
-  top: 65%;
-  margin: 0 auto 0 auto;
-  width: 7rem;
+  
+  bottom: 5%;
+  
+  width: 15rem;
   height: 1.8rem;
+  left:10%;
+  right:10%;
+  margin: 0 auto;
+
 
   border: none;
   justify-content: center;
