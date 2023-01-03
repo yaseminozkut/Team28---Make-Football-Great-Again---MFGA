@@ -73,7 +73,7 @@ export const TeamPage = () => {
       });
 
     axios
-      .get("http://localhost:4000/teams/" + team)
+      .get("http://localhost:4000/teams/players")
       .then((res) => {
         const players = res.data;
         SetPlayers(players);

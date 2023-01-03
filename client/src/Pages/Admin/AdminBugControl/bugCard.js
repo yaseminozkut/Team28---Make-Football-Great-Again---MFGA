@@ -20,7 +20,7 @@ export const BugCard = (props)=>{
             if(res.status===200){
                 console.log("Deleted");
                 
-                window.alert(res.data.messsage)
+                window.alert(res.data.message)
                 window.location.reload();
             }
             else{
