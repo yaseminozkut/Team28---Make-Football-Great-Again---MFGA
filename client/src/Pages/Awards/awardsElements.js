@@ -18,9 +18,6 @@ export const PRContainer = styled( Container )`
   right: 5rem;
   top: 0;
   overflow: scroll;
-
-  background-color: aliceblue;
-
   border-width: 2px;
   border-color: black;
 
