@@ -10,7 +10,7 @@ export const FixedBugs = ()=>{
 
     useEffect(() => {
         axios
-            .get("https://mfga.herokuapp.com/fixedBugs")
+            .get("https://mfga.herokuapp.com/fixBug")
             .then( (res) => {
               const bugs = res.data;
               setBugs(bugs);
