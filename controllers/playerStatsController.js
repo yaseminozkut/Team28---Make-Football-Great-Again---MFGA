@@ -28,7 +28,7 @@ var config2 = {
 
 var config2 = {
     method: 'get',
-    url: 'https://63aca89234c46cd7ae876877.mockapi.io/assist',
+    url: 'https://mocki.io/v1/04d6f457-b0f9-4de2-a66f-e7e1148a7c27',
   };
 
 module.exports = {
@@ -47,8 +47,8 @@ module.exports = {
   getTopAssist: async (req, res) => {
     axios(config2)
     .then(function (response) {
-      res.json(response.data[0].response.slice(0,10));
-      //res.json(response.data.response.slice(0,10));
+      //res.json(response.data[0].response.slice(0,10));
+      res.json(response.data.response.slice(0,10));
     })
     .catch(function (error) {
       res.json({error});
