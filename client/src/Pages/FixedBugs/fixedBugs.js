@@ -10,7 +10,7 @@ export const FixedBugs = ()=>{
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/fixedBugs")
+            .get("https://mfga.herokuapp.com/fixBug")
             .then( (res) => {
               const bugs = res.data;
               setBugs(bugs);
@@ -34,11 +34,6 @@ export const FixedBugs = ()=>{
         <ContainerDiv>
         <Title>Fixed Bugs</Title>
         {bugs.map(createCard)}
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Footer></Footer>
         </ContainerDiv>
         
       )

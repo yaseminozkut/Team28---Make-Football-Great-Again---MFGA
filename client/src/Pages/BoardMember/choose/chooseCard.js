@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerCard,GoButton,NameTitle, Rating } from "./chooseCardElements";
+import { ContainerCard,GoButton,MatchCount,NameTitle, Point, Rating, RefereeImg } from "./chooseCardElements";
 import { useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -27,7 +27,7 @@ export const RefereeCard = (props)=>{
         
         if(navigateAwayName.length >0){
       axios
-      .post("http://localhost:4000/board/nextMatches", needs)
+      .post("https://mfga.herokuapp.com/board/nextMatches", needs)
       .then((res) => {
         if(res.status===200){
             window.alert(res.data.message)
@@ -50,6 +50,8 @@ export const RefereeCard = (props)=>{
     return(
         <ContainerCard>
             <NameTitle>{props.name}</NameTitle>
+            <MatchCount>MatchCount: {props.matchCount}</MatchCount>
+            <Point>Point: {props.point}</Point>
             <Rating>Rating: {props.rating}</Rating>
             <GoButton onClick ={handleSubmit}>Assign</GoButton>
         </ContainerCard>

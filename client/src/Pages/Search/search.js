@@ -12,7 +12,7 @@ export const Search = ()=>{
     const [filteredData,setFiltered] = useState([])
     useEffect(() => {
         axios
-            .get("http://localhost:4000/searchData")
+            .get("https://mfga.herokuapp.com/searchData")
             .then( (res) => {
               const data = res.data;
               setData(data);
@@ -42,7 +42,7 @@ export const Search = ()=>{
             name: e,
         }
         axios
-        .post("http://localhost:4000/searchData/count", needs)
+        .post("https://mfga.herokuapp.com/searchData/count", needs)
         .then((res) => {
           if(res.status===200){
              console.log("count added !");
@@ -60,12 +60,12 @@ export const Search = ()=>{
         <ContainerDiv>
         <Title>Search Engine 🔍</Title>
             <SearchDiv>
-                <SearchInput type = "text" placeholder = "Enter something that you want to find..." onChange ={handleFilter}/>
+                <SearchInput name = "search" type = "text" placeholder = "Enter something that you want to find..." onChange ={handleFilter}/>
             </SearchDiv>
             {filteredData.length != 0 && (
             <DataDiv>
                 {filteredData.slice(0,15).map((value,key) =>{
-                    return(<SmallDataA href={"http://localhost:3000"+value.route}>
+                    return(<SmallDataA name={value.name} href={"https://mfga.herokuapp.com"+value.route}>
                     <SmallDataP>{value.name}</SmallDataP>
                     </SmallDataA>
                     );
@@ -90,9 +90,7 @@ export const Search = ()=>{
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-        <Footer></Footer>
+            
         </ContainerDiv>
     )
 }

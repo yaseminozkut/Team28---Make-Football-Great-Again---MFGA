@@ -1,31 +1,82 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ProSidebarProvider, Menu, MenuItem,} from "react-pro-sidebar";
 // import { Button } from "reactstrap";
 import { Footer } from "../../components/Footer/Footer";
 import Loading from "../../components/Loading/loading";
+import { AssistsCard, TopAssistCard } from "../../components/TopAssist/topAssistCard";
+import { CustomAssistCard2, CustomAssistCardContainer, CustomAssistNameTitle, CustomAssistRankTitle, CustomAssistTeamTitle, CustomAssistTitle2 } from "../../components/TopAssist/topAssistCardElements";
+import { TopScorerCard, ScorersCard} from "../../components/TopScorer/topScorerCard";
+import { CustomCard2, CustomCardContainer, CustomEmptyContainer, CustomGoalTitle2, CustomNameTitle, CustomRankTitle, CustomTeamTitle } from "../../components/TopScorer/topScorerCardElements";
 // import useFetch from "../../Hooks/useFetch";
 
 import {
   ContainerDiv,
+  CustomSidebar,
   LeagueTable,
   LeagueTableContainer,
+  PRGlobalContainer,
   RefreshButton,
 } from "./CurrentStatsElements";
 
 const CurrentStats = () => {
   const [teamStat, setTeamStat] = useState([]);
-
+  const [topScorerStat, setTopScorerStat] = useState([]);
+  const [scorersStat, setScorersStat] = useState([]);
+  const [topAssistStat, setTopAssistStat] = useState([]);
+  const [assistsStat, setAssistsStat] = useState([]);
+  const [isPlayer, setIsPlayer] = useState(false);
+  const [isPlayerRender, setIsPlayerRender] = useState(false);
+  var rank = 1;
+  var rank2 = 1;
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("http://localhost:4000/stat/getStat");
+      const result = await axios.get("https://mfga.herokuapp.com/stat/getStat");
 
       setTeamStat(result.data);
 
       //console.log(result.data)
     };
+    fetchData();
+    
+  }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("https://mfga.herokuapp.com/api/getTopScorer");
+
+      setTopScorerStat(result.data[0]);
+      setScorersStat(result.data.slice(1));
+
+      //console.log(result.data)
+    };
     fetchData();
   }, []);
+
+  console.log(topScorerStat)
+  console.log(scorersStat)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.get("https://mfga.herokuapp.com/api/getTopAssist");
+
+      setTopAssistStat(result.data[0]);
+      setAssistsStat(result.data.slice(1));
+
+      //console.log(result.data)
+    };
+    fetchData();
+  }, []);
+
+  console.log(topAssistStat)
+  console.log(assistsStat)
+
+  useEffect(() => {
+    if (isPlayerRender) {
+      console.log("rendered")
+      setIsPlayerRender(false)
+    }
+  });
 
   const API_URL = "https://mocki.io/v1/05d02231-7231-407c-8245-e60595d5fa5f";
 
@@ -67,7 +118,7 @@ const CurrentStats = () => {
         console.log(currentData);
 
         axios
-          .post("http://localhost:4000/stat/statOrder", currentData)
+          .post("https://mfga.herokuapp.com/stat/statOrder", currentData)
           .then((res) => {
             if (res.status === 200) {
               console.log(res.data);
@@ -86,13 +137,60 @@ const CurrentStats = () => {
     }
   };
 
+  function createScorersCard(scorer) {
+    rank += 1;
+    return (
+      <ScorersCard
+        key={scorer.player.id}
+        rank = {rank}
+        props={scorer}
+      />
+    );
+  }
+
+  function createAssistsCard(assist) {
+    rank2 += 1;
+    return (
+      <AssistsCard
+        key={assist.player.id}
+        rank = {rank2}
+        props={assist}
+      />
+    );
+  }
+
   console.log([...teamStat].sort((a, b) => (a.rank < b.rank ? -1 : 1)));
 
   console.log(teamStat);
   console.log("dummy data" + data);
 
   return (
-    <ContainerDiv>
+    <ProSidebarProvider>
+      <PRGlobalContainer>
+        <CustomSidebar>
+              <Menu>
+                <MenuItem
+                  onClick={() => {
+                  setIsPlayer(false);
+                  setIsPlayerRender(true);
+                }}
+                >
+                  {" "}
+                  Standings{" "}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                  setIsPlayer(true);
+                  setIsPlayerRender(true);
+                }}
+                >
+                  {" "}
+                  Player Statistics{" "}
+                </MenuItem>
+              </Menu>
+          </CustomSidebar>
+        {!isPlayer?
+        <ContainerDiv>
       {err && <h2>{err}</h2>}
       {isLoading && <h2>Loading...</h2>}
       <LeagueTableContainer>
@@ -148,8 +246,39 @@ const CurrentStats = () => {
           </tbody>
         </LeagueTable>
       </LeagueTableContainer>
-      <Footer />
-    </ContainerDiv>
+        </ContainerDiv>
+        : <>
+        <ContainerDiv>
+            <CustomCardContainer>
+              <TopScorerCard props={topScorerStat}></TopScorerCard>
+              <CustomCard2>
+                <CustomRankTitle>Rank</CustomRankTitle>
+                <CustomTeamTitle>Team</CustomTeamTitle>
+                <CustomNameTitle>Name Surname</CustomNameTitle>
+                <CustomGoalTitle2>Goal</CustomGoalTitle2>
+              </CustomCard2>
+              {scorersStat.map(createScorersCard)}
+            </CustomCardContainer>
+            <CustomEmptyContainer></CustomEmptyContainer>
+
+            <CustomAssistCardContainer>
+              <TopAssistCard props={topAssistStat}></TopAssistCard>
+              <CustomAssistCard2>
+                <CustomAssistRankTitle>Rank</CustomAssistRankTitle>
+                <CustomAssistTeamTitle>Team</CustomAssistTeamTitle>
+                <CustomAssistNameTitle>Name Surname</CustomAssistNameTitle>
+                <CustomAssistTitle2>Assist</CustomAssistTitle2>
+              </CustomAssistCard2>
+              {assistsStat.map(createAssistsCard)}
+            </CustomAssistCardContainer>
+
+        </ContainerDiv>
+        </>
+        }
+        
+      </PRGlobalContainer>
+      <Footer></Footer>
+    </ProSidebarProvider>
   );
 };
 

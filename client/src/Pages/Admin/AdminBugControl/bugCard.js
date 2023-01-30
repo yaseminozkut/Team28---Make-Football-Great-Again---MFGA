@@ -15,12 +15,12 @@ export const BugCard = (props)=>{
         
         console.log(props.id)
 
-        axios.delete("http://localhost:4000/bugs",{data: {id:id}})
+        axios.delete("https://mfga.herokuapp.com/bugs",{data: {id:id}})
         .then((res)=>{
             if(res.status===200){
                 console.log("Deleted");
                 
-                window.alert(res.data.messsage)
+                window.alert(res.data.message)
                 window.location.reload();
             }
             else{

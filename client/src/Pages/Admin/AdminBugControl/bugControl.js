@@ -13,7 +13,7 @@ export const BugControl = ()=>{
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/bugs")
+            .get("https://mfga.herokuapp.com/bugs")
             .then( (res) => {
               const bugs = res.data;
               setBugs(bugs);
@@ -65,6 +65,7 @@ export const BugControl = ()=>{
           />
         );
       }
+      //Dropdown for bug types
       function mapBug(bug) {
         if(bug.isDone === false){
             if(bug.type === selectedOption){
@@ -108,7 +109,7 @@ export const BugControl = ()=>{
       <br/>
       <br/>
 
-      <Footer></Footer>
+      
         </ContainerDiv>
     )
 }

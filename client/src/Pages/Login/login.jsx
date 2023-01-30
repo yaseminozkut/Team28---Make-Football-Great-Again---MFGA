@@ -3,12 +3,12 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { FaKey, FaEnvelope, FaLock } from "react-icons/fa";
+
 import {
-  Title,
+  Key,
   ContainerDiv,
   ContainerCard,
-  StyledEmailLabel,
-  StyledPassLabel,
   StyledForm,
   StyledInputEmail,
   StyledInputPass,
@@ -17,9 +17,17 @@ import {
   StyledP,
   StyledNavLink,
   Error,
+  LoginCaptureDiv,
+  UserAvatar,
+  BubbleDiv1,
+  BubbleDiv2,
+  Email,
+  Pass,
+  StyledDiv,
 } from "./loginElements";
 import { Footer } from "../../components/Footer/Footer";
 import AuthContext from "../../context/AuthContext";
+import LoginAnimation from "../../components/SoccerLoginAnimation/LoginAnimation";
 
 
 export const Login = () => {
@@ -69,7 +77,7 @@ export const Login = () => {
       console.log("Wrong email")
     } else {
       axios
-        .post("http://localhost:4000/login", logedIn, {withCredentials: true})
+        .post("https://mfga.herokuapp.com/login", logedIn, {withCredentials: true})
         .then((response) => {
           if(response.data.message === "There is no user exist with this email and password"){
             setError("No user exist with this email and password")
@@ -136,10 +144,16 @@ export const Login = () => {
     
     <ContainerDiv>
       <ContainerCard>
-        <Title>Login</Title>
+        <UserAvatar src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png" alt="profile pic"></UserAvatar>
+        <LoginCaptureDiv></LoginCaptureDiv>
+        <BubbleDiv1></BubbleDiv1>
+        <BubbleDiv2></BubbleDiv2>
+        <Key><FaKey></FaKey></Key>
+        <Email><FaEnvelope></FaEnvelope></Email>
+        <Pass><FaLock></FaLock></Pass>
         <Error>{errors}</Error>
+        <LoginAnimation></LoginAnimation>
         <StyledForm>
-          <StyledEmailLabel>email</StyledEmailLabel>
           <StyledInputEmail
             id="exampleEmail"
             name="email"
@@ -148,7 +162,6 @@ export const Login = () => {
             onChange={handleChange}
             value={values.email}
           />
-          <StyledPassLabel>password</StyledPassLabel>
           <StyledInputPass
             type="password"
             placeholder="Password"
@@ -158,9 +171,8 @@ export const Login = () => {
           />
           <StyledButton onClick={handleSubmit}>Sign-in</StyledButton>
           <StyledP>
-            If you don't <br /> have an account
+            don't have an account?
           </StyledP>
-          <StyledHr />
           <StyledNavLink active href="/signup">
             Register
           </StyledNavLink>

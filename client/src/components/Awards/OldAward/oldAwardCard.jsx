@@ -9,7 +9,10 @@ export const OldAwardCard = (props) => {
         height: "35rem"
       }}
     >
-      <img alt="Card" src={props.image} />
+      <img alt="Card" src={props.image} style={{
+        width: "23rem",
+        height: "20rem"
+      }}/>
       <CardBody>
         <CardTitle tag="h5">Title: {props.title}</CardTitle>
         <CardText>Description: {props.description}</CardText>

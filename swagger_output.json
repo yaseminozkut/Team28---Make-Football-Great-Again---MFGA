@@ -755,7 +755,7 @@
         }
       }
     },
-    "/teams/{team}": {
+    "/teams/players": {
       "get": {
         "description": "",
         "parameters": [

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-import { FaHeart, FaComment, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
+import { FaHeart, FaComment, FaThumbsDown, FaThumbsUp, FaTrash, FaEdit} from "react-icons/fa";
 
 import { Display, DisplayAuth } from "../PageDirect/NavbarDisplay";
 
@@ -14,6 +14,10 @@ import {
   CustomCommentCount,
   CustomLikeCount,
   CustomLikeTitle,
+  CustomDelete,
+  CustomEdit,
+  CustomEditInput,
+  CustomDoneEdit,
 } from "./PostCardElements";
 
 export const PostCard = (props) => {
@@ -46,7 +50,7 @@ export const PostCard = (props) => {
     SetLikeCount(likeCount + 1);
 
     axios
-      .post("http://localhost:4000/api/like", likeData)
+      .post("https://mfga.herokuapp.com/api/like", likeData)
       .then((res) => {
         console.log(res);
       })
@@ -59,7 +63,7 @@ export const PostCard = (props) => {
 
   const HandleUnlike = () => {
     SetLikeCount(likeCount - 1);
-    axios.post("http://localhost:4000/api/unlike", likeData)
+    axios.post("https://mfga.herokuapp.com/api/unlike", likeData)
     .then((res) => {
         console.log(res);
       })
@@ -95,3 +99,80 @@ export const PostCard = (props) => {
     </CustomCard>
   );
 };
+
+export const ProfilePostCard = ({props, name, postId}) => {
+  console.log(postId)
+  const [isRender, setIsRender] = useState(true)
+  const [isRenderAgain, setIsRenderAgain] = useState(false)
+  
+  useEffect(() => {
+    if(isRenderAgain){
+      props.content = newContent
+      setIsRenderAgain(false);
+    }
+  });
+
+  const HandleDelete = () => {
+    setIsRender(false)
+    axios
+      .post("https://mfga.herokuapp.com/api/deletePost", {postId})
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  const [isEditRender, setIsEditRender] = useState(false)
+  const [newContent, setNewContent] = useState(props.content)
+  const HandleEdit = () => {
+    setIsEditRender(true)
+  };
+
+  const HandleDoneEdit = (e) => {
+    e.preventDefault();
+    setIsEditRender(false)
+    setIsRenderAgain(true)
+    axios.post("https://mfga.herokuapp.com/api/updatePost", {postId, newContent})
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+  };
+
+  return (
+    <>
+        {isRender ? (
+      <>
+        <CustomCard>
+        <CustomDelete onClick={HandleDelete}><FaTrash style={{position: "relative",right: "0.3rem"}}></FaTrash></CustomDelete>
+        <CustomName>{name}</CustomName>
+        {!isEditRender?
+        <>
+        <CustomEdit onClick ={HandleEdit}> <FaEdit style={{position: "relative",right: "0.3rem"}}></FaEdit></CustomEdit>
+        <CustomContent>{props.content}</CustomContent>
+        </>
+        :
+        <>
+        <CustomEditInput defaultValue={props.content} 
+        onChange={(e)=> {setNewContent(e.target.value)}}>
+
+        </CustomEditInput>
+        <CustomDoneEdit onClick={HandleDoneEdit}>Done</CustomDoneEdit>
+        </>
+        }
+        <CustomLikeTitle>
+            Likes:
+        </CustomLikeTitle>
+        <CustomLikeCount>{props.likeCount}</CustomLikeCount>
+      </CustomCard>
+    </>
+    ) :
+    (<></>)
+    }
+    </>
+  );
+};
+
